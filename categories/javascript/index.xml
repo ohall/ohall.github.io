@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Javascript on blog.flowstate.io </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://ohall.github.io/categories/javascript/</link>
+    <language>en-us</language>
+    <author>Oakley Hall</author>
+    
+    <updated>Fri, 14 Aug 2015 20:25:50 EDT</updated>
+    
+    <item>
+      <title>Webpack: Rage to sage</title>
+      <link>http://ohall.github.io/post/webpack/</link>
+      <pubDate>Fri, 14 Aug 2015 20:25:50 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://ohall.github.io/post/webpack/</guid>
+      <description>
+
+&lt;p&gt;If you&amp;rsquo;re like me, your first encounter with Webpack was probably hostile. You&amp;rsquo;re trying to learn some new technology like React, launching a demo project to see how it works and something is broken. You examine the build scripts and suddenly you&amp;rsquo;re confronted with this arcane looking &lt;code&gt;webpack.config.js&lt;/code&gt; file. You cruise over to the documentation for Webpack. It has many pages, none of them marked &lt;em&gt;TL;DR&lt;/em&gt;. You hate reading documentation! This is not even what you were trying to do! You&amp;rsquo;re yak shaving again! Curse you JS tooling cambrian explosion! Gahh!!&lt;/p&gt;
+
+&lt;p&gt;Exhale. Webpack is not that complicated, especially for simple work flows. It&amp;rsquo;s becoming an integral part of the JS ecosystem and so it&amp;rsquo;s worth sitting down and learning it. You can do this, just focus.&lt;/p&gt;
+
+&lt;h3 id=&#34;tl-dr:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;TL;DR&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Webpack is a module bundler like Browserify, but with better support for Node and React.&lt;/li&gt;
+&lt;li&gt;Webpack is not that hard.&lt;/li&gt;
+&lt;li&gt;Here&amp;rsquo;s a simple example: &lt;a href=&#34;https://github.com/ohall/webpack-example&#34;&gt;https://github.com/ohall/webpack-example&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;what-is-the-point-of-webpack:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;What is the point of Webpack?&lt;/h3&gt;
+
+&lt;p&gt;Webpack is a module bundler. You may be familiar with &lt;code&gt;Browserify&lt;/code&gt; which allows you to use the AMD (Asynchronous Module Definition) syntax (&lt;code&gt;var foo = require(&#39;bar&#39;);&lt;/code&gt;) in your frontend code, much the same and you would in you Node applications. Basically this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// awesome is exported in another file
+var wicked = require(&#39;awesome&#39;);
+wicked();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;These tools basically suck in all the JS files required by your app and concatenate them into one JS file that you can add to your app. This is WAY better that managing a bunch of script tags in your &lt;code&gt;index.html&lt;/code&gt; or wherever. You can configure &lt;a href=&#34;http://webpack.github.io/docs/loaders.html&#34;&gt;loaders&lt;/a&gt; to do the same thing with other static files, like css and images.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://webpack.github.io/assets/what-is-webpack.png&#34; alt=&#34;webpack&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;but-why-webpack-doesn-t-browserify-do-this-more-simply:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;But why Webpack? Doesn&amp;rsquo;t Browserify do this more simply?&lt;/h3&gt;
+
+&lt;p&gt;There are &lt;a href=&#34;http://mattdesl.svbtle.com/browserify-vs-webpack&#34;&gt;compelling&lt;/a&gt; &lt;a href=&#34;http://blog.namangoel.com/browserify-vs-webpack-js-drama&#34;&gt;arguments&lt;/a&gt; for both &lt;a href=&#34;https://www.reddit.com/r/reactjs/comments/30at04/webpack_vs_browserify_whats_best_for_react/&#34;&gt;technologies&lt;/a&gt;. One big arguement for Webpack is the ability to do &lt;a href=&#34;https://gaearon.github.io/react-hot-loader/&#34;&gt;React Hot-loading&lt;/a&gt; easily, speeing up dev time. But this post isn&amp;rsquo;t about choosing between the two. For whatever reason, you&amp;rsquo;re using Webpack not, DEAL WITH IT.&lt;/p&gt;
+
+&lt;h3 id=&#34;i-m-looking-at-webpack-config-js-and-i-m-angry:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;I&amp;rsquo;m looking at webpack.config.js and I&amp;rsquo;m angry.&lt;/h3&gt;
+
+&lt;p&gt;Whoa. It&amp;rsquo;s cool. Look, let&amp;rsquo;s start with a very simple example, so we can improve the signal to noise ratio. You can find a repo with this example here: &lt;a href=&#34;https://github.com/ohall/webpack-example&#34;&gt;https://github.com/ohall/webpack-example&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s say you have an &lt;code&gt;index.js&lt;/code&gt; file;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// index.js
+var sweet = require(&#39;./sweet&#39;);
+sweet();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That requires a sweet module &lt;code&gt;sweet.js&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// sweet.js
+module.exports = function () {
+  window.onload = function () {
+    var t = document.createTextNode(&#39;You did it! Sweet!&#39;);
+    document.body.appendChild(t);
+  }
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can set up our super simple &lt;code&gt;webpack.config.js&lt;/code&gt; file will export a module with &lt;code&gt;index.js&lt;/code&gt; as our entry file and output a file called &lt;code&gt;bundle.js&lt;/code&gt;. Webpack figures out the rest.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;module.exports = {
+    entry: &amp;quot;./index.js&amp;quot;,
+    output: {
+        path: __dirname,
+        filename: &amp;quot;bundle.js&amp;quot;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once you&amp;rsquo;ve installed Webpack globally,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;npm install webpack -g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;you can run &lt;code&gt;webpack&lt;/code&gt; and create a &lt;code&gt;bundle.js&lt;/code&gt; file that includes all the modules we need and use it in your HTML. &lt;a href=&#34;https://github.com/ohall/webpack-example&#34;&gt;Run the example&lt;/a&gt; to see what the bundle looks like.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!--index.html--&amp;gt;
+&amp;lt;!doctype html&amp;gt;
+&amp;lt;html&amp;gt;
+    &amp;lt;script src=&amp;quot;bundle.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;body&amp;gt;&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;conclusion:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;There is SO much more to Webpack, that I&amp;rsquo;ll dive into in the next post. For now though, you have enough to get you a footing in Webpack and start experimenting. JS tooling can be frustrating, especially when it feels like you have to learn a whole new build system every week. Don&amp;rsquo;t despair! Start simple, take time to learn it and try to have fun.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Destroying BackboneJS Views</title>
+      <link>http://ohall.github.io/post/destroy_bb_views/</link>
+      <pubDate>Mon, 01 Dec 2014 00:00:00 UTC</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://ohall.github.io/post/destroy_bb_views/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;ve spent much time using Backbone views, you&amp;rsquo;ve invariable encountered the situation where you want to get rid of a view, but some part of it keeps hanging around. Be it DOM elements or event listeners.  Your new view might be being appended to the old one, or you&amp;rsquo;re seeing duplicated events. What you really need is to destroy that old view once and for all.&lt;/p&gt;
+
+&lt;p&gt;The easiest way to do this is by adding some kind of destroy() function to your view.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how I do it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  Backbone.View.extend({
+      //some other view stuff here...
+      destroy: function () {
+          this.undelegateEvents();
+          this.$el.removeData().unbind();
+          
+          this.remove();
+          //OR
+          this.$el.empty();
+      }
+  });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s break this down.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;First&lt;/strong&gt; we want to make sure we&amp;rsquo;re removing all delegated events (the ones in the &lt;code&gt;events:{&amp;quot;event selector&amp;quot;: &amp;quot;callback&amp;quot;}&lt;/code&gt; hash). We do this so we can avoid memory leaks and not have mystery bindings that will fire unexpectedly later on. &lt;code&gt;undelegateEvents()&lt;/code&gt; is a Backbone.View prototype function that removes the view&amp;rsquo;s delegated events. Simple.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt; we want to cleanup any data in the view object that is hanging around and unbind any events that we bound outside the events hash. jQuery provides a removeData() function that allows us to to do that.&lt;/p&gt;
+
+&lt;p&gt;You may also have bound event listeners to your view chain &lt;code&gt;unbind()&lt;/code&gt; with no arguments to remove all previously-attached event handlers from your $el.
+&lt;code&gt;this.$el.removeData().unbind();&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Now you may want to do one of two things here.&lt;/strong&gt; You may want to remove your view element completely OR you just want to remove any child elements you&amp;rsquo;ve appended to it during it&amp;rsquo;s life. The latter would be appropriate if, for example, you&amp;rsquo;ve set the $el of your view to be some DOM element that should remain after your view behavior is complete&lt;/p&gt;
+
+&lt;p&gt;In the former case, &lt;code&gt;this.remove()&lt;/code&gt; will obliterate your view element and it&amp;rsquo;s children from the DOM.&lt;/p&gt;
+
+&lt;p&gt;In the later case, &lt;code&gt;this.$el.empty()&lt;/code&gt; will remove all child elements.&lt;/p&gt;
+
+&lt;p&gt;As you can see, it&amp;rsquo;s not especially difficult to clean up your view, but you do have to do it.  As with many things in the unopinionated world of BackboneJS you have to roll your own solution.&lt;/p&gt;
+
+&lt;p&gt;Check out &lt;a href=&#34;http://jsfiddle.net/oakley349/caqLx10x/&#34;&gt;this fiddle&lt;/a&gt; if you want to fool around with my solution.&lt;/p&gt;
+
+&lt;iframe width=&#34;100%&#34; height=&#34;300&#34; src=&#34;//jsfiddle.net/oakley349/caqLx10x/embedded/&#34; allowfullscreen=&#34;allowfullscreen&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt; 
+</description>
+    </item>
+    
+  </channel>
+</rss>

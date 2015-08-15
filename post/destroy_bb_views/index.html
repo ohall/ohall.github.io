@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+
+<html lang="en-us">
+
+<head>
+	<meta charset="utf-8">
+	<title>Destroying BackboneJS Views - blog.flowstate.io</title>
+	<meta name="author" content="map[name:Oakley Hall email:oakley349@gmail.com]">
+
+	
+	
+	<meta name="description" content="">
+	
+
+	
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	<link href='/index.xml' rel="alternate" title="blog.flowstate.io" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://ohall.github.io/post/destroy_bb_views/">
+	<link href="http://ohall.github.io//favicon.png" rel="shortcut icon">
+	<link href="http://ohall.github.io//css/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="http://ohall.github.io//css/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="http://ohall.github.io//css/custom.css" media="screen, projection" rel="stylesheet" type="text/css">
+	
+	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+  
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">
+	
+	
+	<script src="http://ohall.github.io//js/md5.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.profilepic').append("<img src='http://www.gravatar.com/avatar/" + MD5('oakley349@gmail.com') + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+		});
+	</script>
+	
+	
+</div>
+
+<nav id="main-nav">
+<section class="aboutme">
+    <h3> I&#39;m just sayin&#39; </h3>
+</section>
+
+
+<ul class="main">
+    <li><a href="/">Blog</a></li>
+    <li><a href="/post/">Archives</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+			<a class="email" href='mailto:oakley349@gmail.com' title="Email">Email</a>
+		
+		
+		
+		
+			<a class="twitter" href='http://twitter.com/_ohall' title="Twitter">Twitter</a>
+		
+		
+			<a class="github" href='https://github.com/ohall' title="GitHub">GitHub</a>
+		
+		
+		
+		  <a class="stackoverflow" href='http://stackoverflow.com/users/1742747/oakley' title="StackOverflow"></a>
+		
+		
+			<a class="linkedin" href='http://www.linkedin.com/in/oakleyhall' title="LinkedIn">LinkedIn</a>
+		
+		
+		
+		
+		
+		
+		
+    	
+    	
+			<a class="rss" href='/index.xml' title="RSS">RSS</a>
+		
+	</div>
+</nav>
+</header>
+			</div>
+		</div>
+		<div class="mid-col">
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner">
+					<div itemscope itemtype="http://schema.org/Blog">
+					<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 class="title" itemprop="name">Destroying BackboneJS Views</h1>
+	<div class="entry-content" itemprop="articleBody"><p>If you&rsquo;ve spent much time using Backbone views, you&rsquo;ve invariable encountered the situation where you want to get rid of a view, but some part of it keeps hanging around. Be it DOM elements or event listeners.  Your new view might be being appended to the old one, or you&rsquo;re seeing duplicated events. What you really need is to destroy that old view once and for all.</p>
+
+<p>The easiest way to do this is by adding some kind of destroy() function to your view.</p>
+
+<p>Here&rsquo;s how I do it:</p>
+
+<pre><code class="language-js">  Backbone.View.extend({
+      //some other view stuff here...
+      destroy: function () {
+          this.undelegateEvents();
+          this.$el.removeData().unbind();
+          
+          this.remove();
+          //OR
+          this.$el.empty();
+      }
+  });
+</code></pre>
+
+<p>Let&rsquo;s break this down.</p>
+
+<p><strong>First</strong> we want to make sure we&rsquo;re removing all delegated events (the ones in the <code>events:{&quot;event selector&quot;: &quot;callback&quot;}</code> hash). We do this so we can avoid memory leaks and not have mystery bindings that will fire unexpectedly later on. <code>undelegateEvents()</code> is a Backbone.View prototype function that removes the view&rsquo;s delegated events. Simple.</p>
+
+<p><strong>Next</strong> we want to cleanup any data in the view object that is hanging around and unbind any events that we bound outside the events hash. jQuery provides a removeData() function that allows us to to do that.</p>
+
+<p>You may also have bound event listeners to your view chain <code>unbind()</code> with no arguments to remove all previously-attached event handlers from your $el.
+<code>this.$el.removeData().unbind();</code></p>
+
+<p><strong>Now you may want to do one of two things here.</strong> You may want to remove your view element completely OR you just want to remove any child elements you&rsquo;ve appended to it during it&rsquo;s life. The latter would be appropriate if, for example, you&rsquo;ve set the $el of your view to be some DOM element that should remain after your view behavior is complete</p>
+
+<p>In the former case, <code>this.remove()</code> will obliterate your view element and it&rsquo;s children from the DOM.</p>
+
+<p>In the later case, <code>this.$el.empty()</code> will remove all child elements.</p>
+
+<p>As you can see, it&rsquo;s not especially difficult to clean up your view, but you do have to do it.  As with many things in the unopinionated world of BackboneJS you have to roll your own solution.</p>
+
+<p>Check out <a href="http://jsfiddle.net/oakley349/caqLx10x/">this fiddle</a> if you want to fool around with my solution.</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/oakley349/caqLx10x/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+</div></article>
+					
+						<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_button_google_plusone" g:plusone:size=''></a>
+	
+	
+	</div>
+	
+  	<script type="text/javascript" src='http://s7.addthis.com/js/250/addthis_widget.js#pubid='></script>
+  	
+</div>
+
+					
+					
+					<section id="comment">
+					    <h1 class="title">Comments</h1>
+					    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+					</section>
+					
+					
+
+<script type="text/javascript">
+    
+    var disqus_shortname = 'flowstateio';
+
+    
+    
+
+    
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+    
+</script>
+
+
+				    </div>
+				</div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2015
+
+    Oakley Hall
+
+<script src="http://ohall.github.io//js/slash.js"></script>
+<script src="http://ohall.github.io//js/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script></footer>
+		</div>
+	</div>
+	
+</body>
+</html>

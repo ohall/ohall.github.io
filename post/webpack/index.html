@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+
+<html lang="en-us">
+
+<head>
+	<meta charset="utf-8">
+	<title>Webpack: Rage to sage - blog.flowstate.io</title>
+	<meta name="author" content="map[name:Oakley Hall email:oakley349@gmail.com]">
+
+	
+	
+	<meta name="description" content="">
+	
+
+	
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	<link href='/index.xml' rel="alternate" title="blog.flowstate.io" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://ohall.github.io/post/webpack/">
+	<link href="http://ohall.github.io//favicon.png" rel="shortcut icon">
+	<link href="http://ohall.github.io//css/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="http://ohall.github.io//css/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="http://ohall.github.io//css/custom.css" media="screen, projection" rel="stylesheet" type="text/css">
+	
+	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+  
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">
+	
+	
+	<script src="http://ohall.github.io//js/md5.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.profilepic').append("<img src='http://www.gravatar.com/avatar/" + MD5('oakley349@gmail.com') + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+		});
+	</script>
+	
+	
+</div>
+
+<nav id="main-nav">
+<section class="aboutme">
+    <h3> I&#39;m just sayin&#39; </h3>
+</section>
+
+
+<ul class="main">
+    <li><a href="/">Blog</a></li>
+    <li><a href="/post/">Archives</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+			<a class="email" href='mailto:oakley349@gmail.com' title="Email">Email</a>
+		
+		
+		
+		
+			<a class="twitter" href='http://twitter.com/_ohall' title="Twitter">Twitter</a>
+		
+		
+			<a class="github" href='https://github.com/ohall' title="GitHub">GitHub</a>
+		
+		
+		
+		  <a class="stackoverflow" href='http://stackoverflow.com/users/1742747/oakley' title="StackOverflow"></a>
+		
+		
+			<a class="linkedin" href='http://www.linkedin.com/in/oakleyhall' title="LinkedIn">LinkedIn</a>
+		
+		
+		
+		
+		
+		
+		
+    	
+    	
+			<a class="rss" href='/index.xml' title="RSS">RSS</a>
+		
+	</div>
+</nav>
+</header>
+			</div>
+		</div>
+		<div class="mid-col">
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner">
+					<div itemscope itemtype="http://schema.org/Blog">
+					<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 class="title" itemprop="name">Webpack: Rage to sage</h1>
+	<div class="entry-content" itemprop="articleBody">
+
+<p>If you&rsquo;re like me, your first encounter with Webpack was probably hostile. You&rsquo;re trying to learn some new technology like React, launching a demo project to see how it works and something is broken. You examine the build scripts and suddenly you&rsquo;re confronted with this arcane looking <code>webpack.config.js</code> file. You cruise over to the documentation for Webpack. It has many pages, none of them marked <em>TL;DR</em>. You hate reading documentation! This is not even what you were trying to do! You&rsquo;re yak shaving again! Curse you JS tooling cambrian explosion! Gahh!!</p>
+
+<p>Exhale. Webpack is not that complicated, especially for simple work flows. It&rsquo;s becoming an integral part of the JS ecosystem and so it&rsquo;s worth sitting down and learning it. You can do this, just focus.</p>
+
+<h3 id="tl-dr:0fbf26ffeaefc849c430aca7d9a884cf">TL;DR</h3>
+
+<ul>
+<li>Webpack is a module bundler like Browserify, but with better support for Node and React.</li>
+<li>Webpack is not that hard.</li>
+<li>Here&rsquo;s a simple example: <a href="https://github.com/ohall/webpack-example">https://github.com/ohall/webpack-example</a>.</li>
+</ul>
+
+<h3 id="what-is-the-point-of-webpack:0fbf26ffeaefc849c430aca7d9a884cf">What is the point of Webpack?</h3>
+
+<p>Webpack is a module bundler. You may be familiar with <code>Browserify</code> which allows you to use the AMD (Asynchronous Module Definition) syntax (<code>var foo = require('bar');</code>) in your frontend code, much the same and you would in you Node applications. Basically this:</p>
+
+<pre><code class="language-js">// awesome is exported in another file
+var wicked = require('awesome');
+wicked();
+</code></pre>
+
+<p>These tools basically suck in all the JS files required by your app and concatenate them into one JS file that you can add to your app. This is WAY better that managing a bunch of script tags in your <code>index.html</code> or wherever. You can configure <a href="http://webpack.github.io/docs/loaders.html">loaders</a> to do the same thing with other static files, like css and images.</p>
+
+<p><img src="http://webpack.github.io/assets/what-is-webpack.png" alt="webpack" /></p>
+
+<h3 id="but-why-webpack-doesn-t-browserify-do-this-more-simply:0fbf26ffeaefc849c430aca7d9a884cf">But why Webpack? Doesn&rsquo;t Browserify do this more simply?</h3>
+
+<p>There are <a href="http://mattdesl.svbtle.com/browserify-vs-webpack">compelling</a> <a href="http://blog.namangoel.com/browserify-vs-webpack-js-drama">arguments</a> for both <a href="https://www.reddit.com/r/reactjs/comments/30at04/webpack_vs_browserify_whats_best_for_react/">technologies</a>. One big arguement for Webpack is the ability to do <a href="https://gaearon.github.io/react-hot-loader/">React Hot-loading</a> easily, speeing up dev time. But this post isn&rsquo;t about choosing between the two. For whatever reason, you&rsquo;re using Webpack not, DEAL WITH IT.</p>
+
+<h3 id="i-m-looking-at-webpack-config-js-and-i-m-angry:0fbf26ffeaefc849c430aca7d9a884cf">I&rsquo;m looking at webpack.config.js and I&rsquo;m angry.</h3>
+
+<p>Whoa. It&rsquo;s cool. Look, let&rsquo;s start with a very simple example, so we can improve the signal to noise ratio. You can find a repo with this example here: <a href="https://github.com/ohall/webpack-example">https://github.com/ohall/webpack-example</a></p>
+
+<p>Let&rsquo;s say you have an <code>index.js</code> file;</p>
+
+<pre><code class="language-js">// index.js
+var sweet = require('./sweet');
+sweet();
+</code></pre>
+
+<p>That requires a sweet module <code>sweet.js</code></p>
+
+<pre><code class="language-js">// sweet.js
+module.exports = function () {
+  window.onload = function () {
+    var t = document.createTextNode('You did it! Sweet!');
+    document.body.appendChild(t);
+  }
+};
+</code></pre>
+
+<p>We can set up our super simple <code>webpack.config.js</code> file will export a module with <code>index.js</code> as our entry file and output a file called <code>bundle.js</code>. Webpack figures out the rest.</p>
+
+<pre><code class="language-js">module.exports = {
+    entry: &quot;./index.js&quot;,
+    output: {
+        path: __dirname,
+        filename: &quot;bundle.js&quot;
+    }
+}
+</code></pre>
+
+<p>Once you&rsquo;ve installed Webpack globally,</p>
+
+<pre><code class="language-sh">npm install webpack -g
+</code></pre>
+
+<p>you can run <code>webpack</code> and create a <code>bundle.js</code> file that includes all the modules we need and use it in your HTML. <a href="https://github.com/ohall/webpack-example">Run the example</a> to see what the bundle looks like.</p>
+
+<pre><code class="language-html">&lt;!--index.html--&gt;
+&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;script src=&quot;bundle.js&quot;&gt;&lt;/script&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h3 id="conclusion:0fbf26ffeaefc849c430aca7d9a884cf">Conclusion</h3>
+
+<p>There is SO much more to Webpack, that I&rsquo;ll dive into in the next post. For now though, you have enough to get you a footing in Webpack and start experimenting. JS tooling can be frustrating, especially when it feels like you have to learn a whole new build system every week. Don&rsquo;t despair! Start simple, take time to learn it and try to have fun.</p>
+</div></article>
+					
+						<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_button_google_plusone" g:plusone:size=''></a>
+	
+	
+	</div>
+	
+  	<script type="text/javascript" src='http://s7.addthis.com/js/250/addthis_widget.js#pubid='></script>
+  	
+</div>
+
+					
+					
+					<section id="comment">
+					    <h1 class="title">Comments</h1>
+					    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+					</section>
+					
+					
+
+<script type="text/javascript">
+    
+    var disqus_shortname = 'flowstateio';
+
+    
+    
+
+    
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+    
+</script>
+
+
+				    </div>
+				</div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2015
+
+    Oakley Hall
+
+<script src="http://ohall.github.io//js/slash.js"></script>
+<script src="http://ohall.github.io//js/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script></footer>
+		</div>
+	</div>
+	
+</body>
+</html>

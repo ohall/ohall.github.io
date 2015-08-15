@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Posts on blog.flowstate.io </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://ohall.github.io/post/</link>
+    <language>en-us</language>
+    <author>Oakley Hall</author>
+    
+    <updated>Fri, 14 Aug 2015 20:25:50 EDT</updated>
+    
+    <item>
+      <title>Webpack: Rage to sage</title>
+      <link>http://ohall.github.io/post/webpack/</link>
+      <pubDate>Fri, 14 Aug 2015 20:25:50 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://ohall.github.io/post/webpack/</guid>
+      <description>
+
+&lt;p&gt;If you&amp;rsquo;re like me, your first encounter with Webpack was probably hostile. You&amp;rsquo;re trying to learn some new technology like React, launching a demo project to see how it works and something is broken. You examine the build scripts and suddenly you&amp;rsquo;re confronted with this arcane looking &lt;code&gt;webpack.config.js&lt;/code&gt; file. You cruise over to the documentation for Webpack. It has many pages, none of them marked &lt;em&gt;TL;DR&lt;/em&gt;. You hate reading documentation! This is not even what you were trying to do! You&amp;rsquo;re yak shaving again! Curse you JS tooling cambrian explosion! Gahh!!&lt;/p&gt;
+
+&lt;p&gt;Exhale. Webpack is not that complicated, especially for simple work flows. It&amp;rsquo;s becoming an integral part of the JS ecosystem and so it&amp;rsquo;s worth sitting down and learning it. You can do this, just focus.&lt;/p&gt;
+
+&lt;h3 id=&#34;tl-dr:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;TL;DR&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Webpack is a module bundler like Browserify, but with better support for Node and React.&lt;/li&gt;
+&lt;li&gt;Webpack is not that hard.&lt;/li&gt;
+&lt;li&gt;Here&amp;rsquo;s a simple example: &lt;a href=&#34;https://github.com/ohall/webpack-example&#34;&gt;https://github.com/ohall/webpack-example&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;what-is-the-point-of-webpack:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;What is the point of Webpack?&lt;/h3&gt;
+
+&lt;p&gt;Webpack is a module bundler. You may be familiar with &lt;code&gt;Browserify&lt;/code&gt; which allows you to use the AMD (Asynchronous Module Definition) syntax (&lt;code&gt;var foo = require(&#39;bar&#39;);&lt;/code&gt;) in your frontend code, much the same and you would in you Node applications. Basically this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// awesome is exported in another file
+var wicked = require(&#39;awesome&#39;);
+wicked();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;These tools basically suck in all the JS files required by your app and concatenate them into one JS file that you can add to your app. This is WAY better that managing a bunch of script tags in your &lt;code&gt;index.html&lt;/code&gt; or wherever. You can configure &lt;a href=&#34;http://webpack.github.io/docs/loaders.html&#34;&gt;loaders&lt;/a&gt; to do the same thing with other static files, like css and images.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://webpack.github.io/assets/what-is-webpack.png&#34; alt=&#34;webpack&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;but-why-webpack-doesn-t-browserify-do-this-more-simply:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;But why Webpack? Doesn&amp;rsquo;t Browserify do this more simply?&lt;/h3&gt;
+
+&lt;p&gt;There are &lt;a href=&#34;http://mattdesl.svbtle.com/browserify-vs-webpack&#34;&gt;compelling&lt;/a&gt; &lt;a href=&#34;http://blog.namangoel.com/browserify-vs-webpack-js-drama&#34;&gt;arguments&lt;/a&gt; for both &lt;a href=&#34;https://www.reddit.com/r/reactjs/comments/30at04/webpack_vs_browserify_whats_best_for_react/&#34;&gt;technologies&lt;/a&gt;. One big arguement for Webpack is the ability to do &lt;a href=&#34;https://gaearon.github.io/react-hot-loader/&#34;&gt;React Hot-loading&lt;/a&gt; easily, speeing up dev time. But this post isn&amp;rsquo;t about choosing between the two. For whatever reason, you&amp;rsquo;re using Webpack not, DEAL WITH IT.&lt;/p&gt;
+
+&lt;h3 id=&#34;i-m-looking-at-webpack-config-js-and-i-m-angry:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;I&amp;rsquo;m looking at webpack.config.js and I&amp;rsquo;m angry.&lt;/h3&gt;
+
+&lt;p&gt;Whoa. It&amp;rsquo;s cool. Look, let&amp;rsquo;s start with a very simple example, so we can improve the signal to noise ratio. You can find a repo with this example here: &lt;a href=&#34;https://github.com/ohall/webpack-example&#34;&gt;https://github.com/ohall/webpack-example&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s say you have an &lt;code&gt;index.js&lt;/code&gt; file;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// index.js
+var sweet = require(&#39;./sweet&#39;);
+sweet();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That requires a sweet module &lt;code&gt;sweet.js&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// sweet.js
+module.exports = function () {
+  window.onload = function () {
+    var t = document.createTextNode(&#39;You did it! Sweet!&#39;);
+    document.body.appendChild(t);
+  }
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can set up our super simple &lt;code&gt;webpack.config.js&lt;/code&gt; file will export a module with &lt;code&gt;index.js&lt;/code&gt; as our entry file and output a file called &lt;code&gt;bundle.js&lt;/code&gt;. Webpack figures out the rest.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;module.exports = {
+    entry: &amp;quot;./index.js&amp;quot;,
+    output: {
+        path: __dirname,
+        filename: &amp;quot;bundle.js&amp;quot;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once you&amp;rsquo;ve installed Webpack globally,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;npm install webpack -g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;you can run &lt;code&gt;webpack&lt;/code&gt; and create a &lt;code&gt;bundle.js&lt;/code&gt; file that includes all the modules we need and use it in your HTML. &lt;a href=&#34;https://github.com/ohall/webpack-example&#34;&gt;Run the example&lt;/a&gt; to see what the bundle looks like.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!--index.html--&amp;gt;
+&amp;lt;!doctype html&amp;gt;
+&amp;lt;html&amp;gt;
+    &amp;lt;script src=&amp;quot;bundle.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;body&amp;gt;&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;conclusion:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;There is SO much more to Webpack, that I&amp;rsquo;ll dive into in the next post. For now though, you have enough to get you a footing in Webpack and start experimenting. JS tooling can be frustrating, especially when it feels like you have to learn a whole new build system every week. Don&amp;rsquo;t despair! Start simple, take time to learn it and try to have fun.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Make a shell script into a global command on OSX</title>
+      <link>http://ohall.github.io/post/osx_global_shell/</link>
+      <pubDate>Tue, 02 Jun 2015 09:45:42 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://ohall.github.io/post/osx_global_shell/</guid>
+      <description>
+
+&lt;h3 id=&#34;this-example-will-open-a-document-passed-in-as-param-in-textmate-obviously-you-can-use-any-app-you-like:3d4f833b57991155259170382335e85b&#34;&gt;This example will open a document passed in as param in TextMate.  Obviously, you can use any app you like.&lt;/h3&gt;
+
+&lt;h4 id=&#34;1-create-your-script-in-usr-local-bin-on-osx-it-will-automatically-be-added-to-your-path:3d4f833b57991155259170382335e85b&#34;&gt;1 Create your script in /usr/local/bin on OSX, it will automatically be added to your $PATH&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;/usr/local/bin/tm.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;2-make-the-script-executable:3d4f833b57991155259170382335e85b&#34;&gt;2 Make the script executable&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;chmod +x /usr/local/bin/tm.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;3-create-a-symbolic-link-so-you-can-skip-the-sh-suffix:3d4f833b57991155259170382335e85b&#34;&gt;3 Create a symbolic link, so you can skip the .sh suffix&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;ln -s /usr/local/bin/tm.sh /usr/local/bin/tm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;4-use-for-increased-excellence:3d4f833b57991155259170382335e85b&#34;&gt;4 Use for increased excellence&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;tm coolfile.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here&amp;rsquo;s tm.sh&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;#!/bin/sh
+if [ -z $1 ];
+then
+  echo &#39;specify a file to open with TextMate&#39;
+  else
+  open -a TextMate $1
+fi
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Destroying BackboneJS Views</title>
+      <link>http://ohall.github.io/post/destroy_bb_views/</link>
+      <pubDate>Mon, 01 Dec 2014 00:00:00 UTC</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://ohall.github.io/post/destroy_bb_views/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;ve spent much time using Backbone views, you&amp;rsquo;ve invariable encountered the situation where you want to get rid of a view, but some part of it keeps hanging around. Be it DOM elements or event listeners.  Your new view might be being appended to the old one, or you&amp;rsquo;re seeing duplicated events. What you really need is to destroy that old view once and for all.&lt;/p&gt;
+
+&lt;p&gt;The easiest way to do this is by adding some kind of destroy() function to your view.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how I do it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  Backbone.View.extend({
+      //some other view stuff here...
+      destroy: function () {
+          this.undelegateEvents();
+          this.$el.removeData().unbind();
+          
+          this.remove();
+          //OR
+          this.$el.empty();
+      }
+  });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s break this down.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;First&lt;/strong&gt; we want to make sure we&amp;rsquo;re removing all delegated events (the ones in the &lt;code&gt;events:{&amp;quot;event selector&amp;quot;: &amp;quot;callback&amp;quot;}&lt;/code&gt; hash). We do this so we can avoid memory leaks and not have mystery bindings that will fire unexpectedly later on. &lt;code&gt;undelegateEvents()&lt;/code&gt; is a Backbone.View prototype function that removes the view&amp;rsquo;s delegated events. Simple.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt; we want to cleanup any data in the view object that is hanging around and unbind any events that we bound outside the events hash. jQuery provides a removeData() function that allows us to to do that.&lt;/p&gt;
+
+&lt;p&gt;You may also have bound event listeners to your view chain &lt;code&gt;unbind()&lt;/code&gt; with no arguments to remove all previously-attached event handlers from your $el.
+&lt;code&gt;this.$el.removeData().unbind();&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Now you may want to do one of two things here.&lt;/strong&gt; You may want to remove your view element completely OR you just want to remove any child elements you&amp;rsquo;ve appended to it during it&amp;rsquo;s life. The latter would be appropriate if, for example, you&amp;rsquo;ve set the $el of your view to be some DOM element that should remain after your view behavior is complete&lt;/p&gt;
+
+&lt;p&gt;In the former case, &lt;code&gt;this.remove()&lt;/code&gt; will obliterate your view element and it&amp;rsquo;s children from the DOM.&lt;/p&gt;
+
+&lt;p&gt;In the later case, &lt;code&gt;this.$el.empty()&lt;/code&gt; will remove all child elements.&lt;/p&gt;
+
+&lt;p&gt;As you can see, it&amp;rsquo;s not especially difficult to clean up your view, but you do have to do it.  As with many things in the unopinionated world of BackboneJS you have to roll your own solution.&lt;/p&gt;
+
+&lt;p&gt;Check out &lt;a href=&#34;http://jsfiddle.net/oakley349/caqLx10x/&#34;&gt;this fiddle&lt;/a&gt; if you want to fool around with my solution.&lt;/p&gt;
+
+&lt;iframe width=&#34;100%&#34; height=&#34;300&#34; src=&#34;//jsfiddle.net/oakley349/caqLx10x/embedded/&#34; allowfullscreen=&#34;allowfullscreen&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt; 
+</description>
+    </item>
+    
+    <item>
+      <title>JS map()</title>
+      <link>http://ohall.github.io/post/js_map/</link>
+      <pubDate>Thu, 13 Nov 2014 10:06:47 -0400</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://ohall.github.io/post/js_map/</guid>
+      <description>
+
+&lt;p&gt;&lt;code&gt;map()&lt;/code&gt; is an array utility function that you&amp;rsquo;re probably either intimately familiar with or, like me, need to learn.&lt;/p&gt;
+
+&lt;p&gt;In a nutshell, &lt;code&gt;map()&lt;/code&gt; creates a new array out of the results of calling a given function on every element on the array on which it&amp;rsquo;s called.&lt;/p&gt;
+
+&lt;p&gt;There are implementations of map() in &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map&#34;&gt;native JS&lt;/a&gt;, &lt;a href=&#34;http://api.jquery.com/jquery.map/&#34;&gt;jQuery&lt;/a&gt; and &lt;a href=&#34;http://underscorejs.org/#map&#34;&gt;UnderscoreJS&lt;/a&gt;.  All other things being equal, &lt;a href=&#34;http://jsperf.com/map-underscore-vs-jquery/2&#34;&gt;&lt;strong&gt;Underscore&amp;rsquo;s&lt;/strong&gt; version is the most performant&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&#34;map-is-a-collection-function-meaning-it-works-on-either-arrays-or-objects:fb68142dbc73cfc5ed77a3badaa41f25&#34;&gt;map() is a &amp;lsquo;collection function&amp;rsquo;, meaning it works on either Arrays or Objects&lt;/h4&gt;
+
+&lt;p&gt;If our collection is an &lt;strong&gt;Array&lt;/strong&gt;, map() will put each value through a transformational function, passing the value at each index to the array to the callback function as the first parameter, the index as the second and the whole array as the third.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;var collection = [1, 2, 3];
+
+_.map(collection, function(val, index, array){ return num * 3; });
+
+// returns array -&amp;gt; [3, 6, 9]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Similarly, if our collection is an &lt;strong&gt;Object&lt;/strong&gt;, map() will pass the the value and key if each attribute, as well as the whole object.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;var collection = {one: 1, two: 2, three: 3};
+
+_.map(collection, function(val, key, object){ return num * 3; });
+
+// returns array -&amp;gt; [3, 6, 9]
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Writing your first C&#43;&#43; program on a Mac</title>
+      <link>http://ohall.github.io/post/first_cpp/</link>
+      <pubDate>Sat, 02 Mar 2013 10:17:40 -0400</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://ohall.github.io/post/first_cpp/</guid>
+      <description>
+
+&lt;p&gt;A friend of mine recently started his first computer science class. His entire class in working on Windows machines and using Visual Studio.  He wants to use his Mac.  I know how frustrating setting up development environment for the first time can be.  He&amp;rsquo;re how I advised him to get started and write is first code.&lt;/p&gt;
+
+&lt;h3 id=&#34;you-need-two-things-to-write-programs-in-c:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;You need two things to write programs in C++.&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;You need a compiler.  A compiler is an application that takes the code you write in a human readable language ( C++ in this case ) and converts it into machine code so it can run.  If you&amp;rsquo;re a mac user and you want to write any C based code, you&amp;rsquo;ll need to install Xcode. Xcode comes with a C++ complier called g++, which is what you&amp;rsquo;ll end up using one way or another even if you don&amp;rsquo;t use the Xcode editor.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;You&amp;rsquo;ll need a text editor.  Basically that means any application that lets you write plain text and save it to your machine.  Xcode, CodeBlocks, Visual Studio and Eclipse are all called IDEs or integrated development environments. The are just big text editors with tons of bells and whistles.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;installing-g:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;Installing g++&lt;/h3&gt;
+
+&lt;p&gt;Follow &lt;a href=&#34;http://www.edparrish.net/common/macgpp.php&#34;&gt;these instructions&lt;/a&gt; to make sure you have Xcode and g++ on your Mac.  You can follow Mr. Parrish&amp;rsquo;s instructions for writing your first program, but I think mine are even simpler.&lt;/p&gt;
+
+&lt;h3 id=&#34;writing-your-first-code:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;Writing your first code:&lt;/h3&gt;
+
+&lt;h4 id=&#34;start-with-the-simplest-mac-text-editor-textedit-it-should-be-in-your-applications-folder:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;Start with the simplest mac text editor TextEdit.  It should be in your Applications folder.&lt;/h4&gt;
+
+&lt;h4 id=&#34;1-type-in-this-code:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;1. Type in this code:&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+
+int main()
+{ 
+  std::cout &amp;lt;&amp;lt; &amp;quot;Hello world!&amp;quot; &amp;lt;&amp;lt; std::endl; 
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;2-save-the-file-to-your-desktop-as-a-plain-text-document-with-the-name-helloworld-cpp-the-cpp-extension-lets-the-compiler-know-its-c-code:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;2. Save the file to your Desktop as a plain text document with the name helloworld.cpp  the .cpp extension lets the compiler know its C++ code.&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/cpp1.png&#34;/&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;compiling-and-running-your-program:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;Compiling and running your program&lt;/h3&gt;
+
+&lt;p&gt;First, open a terminal window.  You&amp;rsquo;ll find this in Applications/Utilities/Terminal. (yours will be different colors than mine)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/cpp2.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;In the terminal window type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ~/Desktop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is how you navigate from your home directory ( abbreviated &lt;code&gt;~&lt;/code&gt; ) to the directory called &lt;code&gt;Desktop&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;g++ helloworld.cpp -o hw
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will take your C++ code you saved to the desktop and compile it into an application called &lt;code&gt;hw&lt;/code&gt; which is save to the desktop.  You can see it there if you look.&lt;/p&gt;
+
+&lt;p&gt;Now type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;./hw
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will tell your Mac to run the program.&lt;/p&gt;
+
+&lt;p&gt;If the terminal says: &lt;code&gt;Hello World!&lt;/code&gt;  then &lt;strong&gt;you did it!&lt;/strong&gt;&lt;br /&gt;
+You can write any C++ program in this way.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/cpp3.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want a nice book on getting started with C (the core of C++) I&amp;rsquo;d recommend &lt;a href=&#34;http://amzn.to/1J7gJ7M&#34;&gt;Head First C&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Programming is fun and satisfying, but you will continually have to break through periods of confusion and frustration.  Stick with it, it&amp;rsquo;s worth the effort.  Good luck!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Building a Podcast Boom Mic</title>
+      <link>http://ohall.github.io/post/boom_mic/</link>
+      <pubDate>Thu, 08 Nov 2012 10:35:48 -0400</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://ohall.github.io/post/boom_mic/</guid>
+      <description>&lt;p&gt;I record a podcast with some friends.  I realized that the built in mic in my MacBook Pro was not able to capture the high quality audio I was looking for.  I bought the A Blue Snowball Mic which is a nice bang for the buck.  The only drawback is the short stand it comes with, which doesn&amp;rsquo;t let you sit up straight at a desk and get close enough to the mic for the best audio quality.  Solution: Hack a boom out of a desk lamp.&lt;/p&gt;
+
+&lt;p&gt;You&amp;rsquo;ll need:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&amp;amp;ASIN=B002OO18NS&amp;amp;Format=_SL160_&amp;amp;ID=AsinImage&amp;amp;MarketPlace=US&amp;amp;ServiceVersion=20070822&amp;amp;WS=1&amp;amp;tag=oakley05f-20&#34;&gt;A Blue Snowball Microphone&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/boom_mic1.jpeg&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.com/gp/product/B001DNFLYS/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=B001DNFLYS&amp;amp;linkCode=as2&amp;amp;tag=oakley05f-20&#34;&gt;A cheap desk lamp&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/boom_mic2.jpeg&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.assoc-amazon.com/e/ir?t=oakley05f-20&amp;amp;l=as2&amp;amp;o=1&amp;amp;a=B001DNFLYS&#34;&gt;A pop filter&lt;/a&gt; The Blue mic works best if you get right up close.  This will cause your &amp;lsquo;P&amp;rsquo; sounds to make a pop.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/boom_mic3.jpeg&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Cut the cord out of the (unplugged) lamp.  Removed the bolt which holds the actual lamp assembly to the arm and set it aside, along with the nut if present.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/boom_mic4.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Unscrew he Blue microphone from its tripod base, making sure to leave the 2&amp;rdquo; peg inserted into the bottom of the mic.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/boom_mic5.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Place the peg into the triangular space vacated by the lamp assembly.  You can insert some padding around the peg to offer grip. I used a piece of cardboard.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/boom_mic6.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Replace the bolt/nut and tighten.  It should grip the peg and hold the mic in place.  Adjust and improvise to make it fit snugly&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/boom_mic7.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Plug the USB cable into the back of the mic and secure to the arm.  Make sure to leave a little play for the articulation of the mic and the arm joints.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/boom_mic8.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Secure arm to the table, attach the pop filter and plug the usb cable into your machine.  Now you have a cheap, quick, improvised boom mic that you can fold away and deploy as needed.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lower back rehab</title>
+      <link>http://ohall.github.io/post/lower_back/</link>
+      <pubDate>Mon, 08 Oct 2012 10:36:30 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://ohall.github.io/post/lower_back/</guid>
+      <description>
+
+&lt;p&gt;Earlier this year I started waking up to brutal lower back pain.   I went to a spinal specialist at the behest of my fiancee and learned that I&amp;rsquo;ve been suffering from what he termed a &amp;lsquo;Pars Fracture&amp;rsquo;. I got a prescription for physical therapy and started work that week.  There&amp;rsquo;s not much to do about the actual injury, but my therapist told me that a stronger core would help manage the discomfort.  Long story short, when I do these workouts, the night pain goes away.  They look easy, but they are legit.&lt;/p&gt;
+
+&lt;p&gt;Cartoons are courtesy of my therapist. One thing to focus on is drawing the belly button as much as possible.  It was described to me as pulling it toward the spine.&lt;/p&gt;
+
+&lt;h3 id=&#34;start-with-some-light-cardio-to-warm-up-then-stretch-focusing-on-the-hamstrings-hip-flexors-and-it-bands:2c011abc126a14fa729c2ebaf0b81947&#34;&gt;Start with some light cardio to warm up, then stretch, focusing on the hamstrings, hip flexors and IT bands:&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/pt1.png&#34;/&gt;
+&lt;img src=&#34;http://ohall.github.io/images/pt2.png&#34;/&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;move-into-these-core-strengthening-moves-being-sure-to-draw-the-belly-button-in:2c011abc126a14fa729c2ebaf0b81947&#34;&gt;Move into these core strengthening moves, being sure to draw the belly button in.&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/pt3.png&#34;/&gt;
+&lt;img src=&#34;http://ohall.github.io/images/pt4.png&#34;/&gt;
+&lt;img src=&#34;http://ohall.github.io/images/pt5.png&#34;/&gt;
+&lt;img src=&#34;http://ohall.github.io/images/pt6.png&#34;/&gt;
+&lt;img src=&#34;http://ohall.github.io/images/pt7.png&#34;/&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;if-you-have-access-to-a-bosu-ball-and-or-small-medicine-ball-add-these-stability-moves:2c011abc126a14fa729c2ebaf0b81947&#34;&gt;If you have access to a bosu ball and/or small medicine ball, add these stability moves:&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/pt8.png&#34;/&gt;
+&lt;img src=&#34;http://ohall.github.io/images/pt9.png&#34;/&gt;
+&lt;img src=&#34;http://ohall.github.io/images/pt10.png&#34;/&gt;
+&lt;img src=&#34;http://ohall.github.io/images/pt11.png&#34;/&gt;
+&lt;img src=&#34;http://ohall.github.io/images/pt12.png&#34;/&gt;
+&lt;img src=&#34;http://ohall.github.io/images/pt13.png&#34;/&gt;
+&lt;img src=&#34;http://ohall.github.io/images/pt14.png&#34;/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Podcasting on blog.flowstate.io </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://ohall.github.io/categories/podcasting/</link>
+    <language>en-us</language>
+    <author>Oakley Hall</author>
+    
+    <updated>Thu, 08 Nov 2012 10:35:48 -0400</updated>
+    
+    <item>
+      <title>Building a Podcast Boom Mic</title>
+      <link>http://ohall.github.io/post/boom_mic/</link>
+      <pubDate>Thu, 08 Nov 2012 10:35:48 -0400</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://ohall.github.io/post/boom_mic/</guid>
+      <description>&lt;p&gt;I record a podcast with some friends.  I realized that the built in mic in my MacBook Pro was not able to capture the high quality audio I was looking for.  I bought the A Blue Snowball Mic which is a nice bang for the buck.  The only drawback is the short stand it comes with, which doesn&amp;rsquo;t let you sit up straight at a desk and get close enough to the mic for the best audio quality.  Solution: Hack a boom out of a desk lamp.&lt;/p&gt;
+
+&lt;p&gt;You&amp;rsquo;ll need:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&amp;amp;ASIN=B002OO18NS&amp;amp;Format=_SL160_&amp;amp;ID=AsinImage&amp;amp;MarketPlace=US&amp;amp;ServiceVersion=20070822&amp;amp;WS=1&amp;amp;tag=oakley05f-20&#34;&gt;A Blue Snowball Microphone&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/boom_mic1.jpeg&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.com/gp/product/B001DNFLYS/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=B001DNFLYS&amp;amp;linkCode=as2&amp;amp;tag=oakley05f-20&#34;&gt;A cheap desk lamp&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/boom_mic2.jpeg&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.assoc-amazon.com/e/ir?t=oakley05f-20&amp;amp;l=as2&amp;amp;o=1&amp;amp;a=B001DNFLYS&#34;&gt;A pop filter&lt;/a&gt; The Blue mic works best if you get right up close.  This will cause your &amp;lsquo;P&amp;rsquo; sounds to make a pop.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/boom_mic3.jpeg&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Cut the cord out of the (unplugged) lamp.  Removed the bolt which holds the actual lamp assembly to the arm and set it aside, along with the nut if present.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/boom_mic4.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Unscrew he Blue microphone from its tripod base, making sure to leave the 2&amp;rdquo; peg inserted into the bottom of the mic.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/boom_mic5.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Place the peg into the triangular space vacated by the lamp assembly.  You can insert some padding around the peg to offer grip. I used a piece of cardboard.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/boom_mic6.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Replace the bolt/nut and tighten.  It should grip the peg and hold the mic in place.  Adjust and improvise to make it fit snugly&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/boom_mic7.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Plug the USB cable into the back of the mic and secure to the arm.  Make sure to leave a little play for the articulation of the mic and the arm joints.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/boom_mic8.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Secure arm to the table, attach the pop filter and plug the usb cable into your machine.  Now you have a cheap, quick, improvised boom mic that you can fold away and deploy as needed.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
