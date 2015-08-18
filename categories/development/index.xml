@@ -110,7 +110,7 @@ module.exports = function () {
 
 &lt;h3 id=&#34;this-example-will-open-a-document-passed-in-as-param-in-textmate-obviously-you-can-use-any-app-you-like:3d4f833b57991155259170382335e85b&#34;&gt;This example will open a document passed in as param in TextMate.  Obviously, you can use any app you like.&lt;/h3&gt;
 
-&lt;h4 id=&#34;1-create-your-script-in-usr-local-bin-on-osx-it-will-automatically-be-added-to-your-path:3d4f833b57991155259170382335e85b&#34;&gt;1 Create your script in /usr/local/bin on OSX, it will automatically be added to your $PATH&lt;/h4&gt;
+&lt;h4 id=&#34;1-create-your-script-in-usr-local-bin-on-osx-it-will-automatically-be-added-to-your-path:3d4f833b57991155259170382335e85b&#34;&gt;1 Create your script in &lt;code&gt;/usr/local/bin&lt;/code&gt; on OSX, it will automatically be added to your &lt;code&gt;$PATH&lt;/code&gt;&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;/usr/local/bin/tm.sh
 &lt;/code&gt;&lt;/pre&gt;
