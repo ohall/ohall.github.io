@@ -49,7 +49,7 @@
 
 &lt;h3 id=&#34;the-terminal:1fed5910f8d953c014c3eb0203feb935&#34;&gt;The terminal&lt;/h3&gt;
 
-&lt;p&gt;This is among the most important skills you&amp;rsquo;ll need as a developer. This will come up over and over and over. Get comfortable navigating the files system in the terminal, running applications, viewing and changing permissions(&lt;code&gt;chmod&lt;/code&gt;), piping data from one app to another (&lt;code&gt;|&lt;/code&gt;). Searching for text strings in a file or directory (&lt;code&gt;grep&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;This is among the most important skills you&amp;rsquo;ll need as a developer. This will come up over and over and over. Get comfortable navigating the file system in the terminal (&lt;code&gt;cd&lt;/code&gt; and &lt;code&gt;ls&lt;/code&gt;), running applications, viewing and changing permissions(&lt;code&gt;chmod&lt;/code&gt;), piping data from one app to another (&lt;code&gt;|&lt;/code&gt;). Searching for text strings in a file or directory (&lt;code&gt;grep&lt;/code&gt;).&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/so_you_wanna_dev1.png&#34;/&gt;&lt;/p&gt;
 
@@ -57,7 +57,7 @@
 
 &lt;h2 id=&#34;the-platform:1fed5910f8d953c014c3eb0203feb935&#34;&gt;The platform&lt;/h2&gt;
 
-&lt;p&gt;Where is your code going to execute?  How will your users interact with it. For me, right now, that&amp;rsquo;s in the browser an &lt;a href=&#34;http://code.tutsplus.com/tutorials/a-beginners-guide-to-http-and-rest--net-16340&#34;&gt;HTTP API&lt;/a&gt;. Well, &lt;a href=&#34;http://googleblog.blogspot.com/2009/10/what-is-browser.html&#34;&gt;what is a browser&lt;/a&gt;? &lt;a href=&#34;http://www.slashroot.in/httphypertext-transfer-protocol-request-and-response&#34;&gt;How does HTTP work&lt;/a&gt;? What &lt;a href=&#34;https://developer.chrome.com/devtools&#34;&gt;tools&lt;/a&gt; &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Tools&#34;&gt;are&lt;/a&gt; &lt;a href=&#34;https://developer.apple.com/safari/tools/&#34;&gt;avaialble&lt;/a&gt; to &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/dd565628(v=vs.85&#34;&gt;developers&lt;/a&gt;.aspx)?&lt;/p&gt;
+&lt;p&gt;Where is your code going to execute?  How will your users interact with it. For me, right now, that&amp;rsquo;s in the browser and &lt;a href=&#34;https://en.wikipedia.org/wiki/V8_(JavaScript_engine&#34;&gt;Node&amp;rsquo;s V8 engine&lt;/a&gt;). Well, &lt;a href=&#34;http://googleblog.blogspot.com/2009/10/what-is-browser.html&#34;&gt;what is a browser&lt;/a&gt;? &lt;a href=&#34;http://www.slashroot.in/httphypertext-transfer-protocol-request-and-response&#34;&gt;How does HTTP work&lt;/a&gt;? What &lt;a href=&#34;https://developer.chrome.com/devtools&#34;&gt;tools&lt;/a&gt; &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Tools&#34;&gt;are&lt;/a&gt; &lt;a href=&#34;https://developer.apple.com/safari/tools/&#34;&gt;avaialble&lt;/a&gt; to &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/dd565628(v=vs.85&#34;&gt;developers&lt;/a&gt;.aspx)?&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/so_you_wanna_dev2.png&#34;/&gt;&lt;/p&gt;
 
