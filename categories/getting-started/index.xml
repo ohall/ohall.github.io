@@ -3,7 +3,7 @@
   <channel>
       <title>Getting Started on blog.flowstate.io </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://ohall.github.io/categories/getting-started/</link>
+    <link>http://blog.flowstate.io/categories/getting-started/</link>
     <language>en-us</language>
     <author>Oakley Hall</author>
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>Stop trying to learn a programming language</title>
-      <link>http://ohall.github.io/post/so_you_wanna_dev/</link>
+      <link>http://blog.flowstate.io/post/so_you_wanna_dev/</link>
       <pubDate>Mon, 17 Aug 2015 06:03:19 EDT</pubDate>
       <author>Oakley Hall</author>
-      <guid>http://ohall.github.io/post/so_you_wanna_dev/</guid>
+      <guid>http://blog.flowstate.io/post/so_you_wanna_dev/</guid>
       <description>
 
 &lt;p&gt;I hear this question all the time:&lt;/p&gt;
@@ -51,7 +51,7 @@
 
 &lt;p&gt;This is among the most important skills you&amp;rsquo;ll need as a developer. This will come up over and over and over. Get comfortable navigating the file system in the terminal (&lt;code&gt;cd&lt;/code&gt; and &lt;code&gt;ls&lt;/code&gt;), running applications, viewing and changing permissions(&lt;code&gt;chmod&lt;/code&gt;), piping data from one app to another (&lt;code&gt;|&lt;/code&gt;). Searching for text strings in a file or directory (&lt;code&gt;grep&lt;/code&gt;).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/so_you_wanna_dev1.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev1.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;Eventually, you&amp;rsquo;ll need tools like &lt;code&gt;ssh&lt;/code&gt;, &lt;code&gt;scp&lt;/code&gt; and the whole panoply of command line utilities available on the Unix platform. I&amp;rsquo;m told Windows has stuff like that too.&lt;/p&gt;
 
@@ -59,7 +59,7 @@
 
 &lt;p&gt;Where is your code going to execute?  How will your users interact with it. For me, right now, that&amp;rsquo;s in the browser and &lt;a href=&#34;https://en.wikipedia.org/wiki/V8_(JavaScript_engine&#34;&gt;Node&amp;rsquo;s V8 engine&lt;/a&gt;). Well, &lt;a href=&#34;http://googleblog.blogspot.com/2009/10/what-is-browser.html&#34;&gt;what is a browser&lt;/a&gt;? &lt;a href=&#34;http://www.slashroot.in/httphypertext-transfer-protocol-request-and-response&#34;&gt;How does HTTP work&lt;/a&gt;? What &lt;a href=&#34;https://developer.chrome.com/devtools&#34;&gt;tools&lt;/a&gt; &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Tools&#34;&gt;are&lt;/a&gt; &lt;a href=&#34;https://developer.apple.com/safari/tools/&#34;&gt;avaialble&lt;/a&gt; to &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/dd565628(v=vs.85&#34;&gt;developers&lt;/a&gt;.aspx)?&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/so_you_wanna_dev2.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev2.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;This is your world. These are the rules that will define what you can do and the platform on which you&amp;rsquo;ll be doing it. This is your users whole experience. Before you learn anything about a language, you have to understand the environment in which it will execute.&lt;/p&gt;
 
@@ -69,7 +69,7 @@
 
 &lt;p&gt;Your early code is going to suck. In fact most of your code is going to suck, as will most of the code you will ever read. Nevertheless, you will persevere in the eternal struggle against entropy. You will endeavor to make your code readable and performant and something you are proud to show to others. Embrace simplicity, modularity, decoupling, testing, automation, documentation and all the other &lt;a href=&#34;https://pragprog.com/the-pragmatic-programmer/extracts/tips&#34;&gt;hallmarks of a software craftsman&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/so_you_wanna_dev3.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev3.png&#34;/&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;the-mindset:1fed5910f8d953c014c3eb0203feb935&#34;&gt;The mindset&lt;/h2&gt;
 

@@ -3,7 +3,7 @@
   <channel>
       <title>Bash on blog.flowstate.io </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://ohall.github.io/categories/bash/</link>
+    <link>http://blog.flowstate.io/categories/bash/</link>
     <language>en-us</language>
     <author>Oakley Hall</author>
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>Make a shell script into a global command on OSX</title>
-      <link>http://ohall.github.io/post/osx_global_shell/</link>
+      <link>http://blog.flowstate.io/post/osx_global_shell/</link>
       <pubDate>Tue, 02 Jun 2015 09:45:42 EDT</pubDate>
       <author>Oakley Hall</author>
-      <guid>http://ohall.github.io/post/osx_global_shell/</guid>
+      <guid>http://blog.flowstate.io/post/osx_global_shell/</guid>
       <description>
 
 &lt;h3 id=&#34;this-example-will-open-a-document-passed-in-as-param-in-textmate-obviously-you-can-use-any-app-you-like:3d4f833b57991155259170382335e85b&#34;&gt;This example will open a document passed in as param in TextMate.  Obviously, you can use any app you like.&lt;/h3&gt;
@@ -54,10 +54,10 @@ fi
     
     <item>
       <title>JS map()</title>
-      <link>http://ohall.github.io/post/js_map/</link>
+      <link>http://blog.flowstate.io/post/js_map/</link>
       <pubDate>Thu, 13 Nov 2014 10:06:47 -0400</pubDate>
       <author>Oakley Hall</author>
-      <guid>http://ohall.github.io/post/js_map/</guid>
+      <guid>http://blog.flowstate.io/post/js_map/</guid>
       <description>
 
 &lt;p&gt;&lt;code&gt;map()&lt;/code&gt; is an array utility function that you&amp;rsquo;re probably either intimately familiar with or, like me, need to learn.&lt;/p&gt;

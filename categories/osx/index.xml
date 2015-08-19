@@ -3,7 +3,7 @@
   <channel>
       <title>Osx on blog.flowstate.io </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://ohall.github.io/categories/osx/</link>
+    <link>http://blog.flowstate.io/categories/osx/</link>
     <language>en-us</language>
     <author>Oakley Hall</author>
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>Make a shell script into a global command on OSX</title>
-      <link>http://ohall.github.io/post/osx_global_shell/</link>
+      <link>http://blog.flowstate.io/post/osx_global_shell/</link>
       <pubDate>Tue, 02 Jun 2015 09:45:42 EDT</pubDate>
       <author>Oakley Hall</author>
-      <guid>http://ohall.github.io/post/osx_global_shell/</guid>
+      <guid>http://blog.flowstate.io/post/osx_global_shell/</guid>
       <description>
 
 &lt;h3 id=&#34;this-example-will-open-a-document-passed-in-as-param-in-textmate-obviously-you-can-use-any-app-you-like:3d4f833b57991155259170382335e85b&#34;&gt;This example will open a document passed in as param in TextMate.  Obviously, you can use any app you like.&lt;/h3&gt;
@@ -54,10 +54,10 @@ fi
     
     <item>
       <title>JS map()</title>
-      <link>http://ohall.github.io/post/js_map/</link>
+      <link>http://blog.flowstate.io/post/js_map/</link>
       <pubDate>Thu, 13 Nov 2014 10:06:47 -0400</pubDate>
       <author>Oakley Hall</author>
-      <guid>http://ohall.github.io/post/js_map/</guid>
+      <guid>http://blog.flowstate.io/post/js_map/</guid>
       <description>
 
 &lt;p&gt;&lt;code&gt;map()&lt;/code&gt; is an array utility function that you&amp;rsquo;re probably either intimately familiar with or, like me, need to learn.&lt;/p&gt;
@@ -90,10 +90,10 @@ _.map(collection, function(val, key, object){ return num * 3; });
     
     <item>
       <title>Writing your first C&#43;&#43; program on a Mac</title>
-      <link>http://ohall.github.io/post/first_cpp/</link>
+      <link>http://blog.flowstate.io/post/first_cpp/</link>
       <pubDate>Sat, 02 Mar 2013 10:17:40 -0400</pubDate>
       <author>Oakley Hall</author>
-      <guid>http://ohall.github.io/post/first_cpp/</guid>
+      <guid>http://blog.flowstate.io/post/first_cpp/</guid>
       <description>
 
 &lt;p&gt;A friend of mine recently started his first computer science class. His entire class in working on Windows machines and using Visual Studio.  He wants to use his Mac.  I know how frustrating setting up development environment for the first time can be.  He&amp;rsquo;re how I advised him to get started and write is first code.&lt;/p&gt;
@@ -126,13 +126,13 @@ int main()
 
 &lt;h4 id=&#34;2-save-the-file-to-your-desktop-as-a-plain-text-document-with-the-name-helloworld-cpp-the-cpp-extension-lets-the-compiler-know-its-c-code:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;2. Save the file to your Desktop as a plain text document with the name helloworld.cpp  the .cpp extension lets the compiler know its C++ code.&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/cpp1.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/cpp1.png&#34;/&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;compiling-and-running-your-program:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;Compiling and running your program&lt;/h3&gt;
 
 &lt;p&gt;First, open a terminal window.  You&amp;rsquo;ll find this in Applications/Utilities/Terminal. (yours will be different colors than mine)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/cpp2.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/cpp2.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;In the terminal window type:&lt;/p&gt;
 
@@ -158,7 +158,7 @@ int main()
 &lt;p&gt;If the terminal says: &lt;code&gt;Hello World!&lt;/code&gt;  then &lt;strong&gt;you did it!&lt;/strong&gt;&lt;br /&gt;
 You can write any C++ program in this way.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/cpp3.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/cpp3.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;If you want a nice book on getting started with C (the core of C++) I&amp;rsquo;d recommend &lt;a href=&#34;http://amzn.to/1J7gJ7M&#34;&gt;Head First C&lt;/a&gt;.&lt;/p&gt;
 

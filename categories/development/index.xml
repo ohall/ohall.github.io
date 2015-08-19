@@ -3,7 +3,7 @@
   <channel>
       <title>Development on blog.flowstate.io </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://ohall.github.io/categories/development/</link>
+    <link>http://blog.flowstate.io/categories/development/</link>
     <language>en-us</language>
     <author>Oakley Hall</author>
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>Stop trying to learn a programming language</title>
-      <link>http://ohall.github.io/post/so_you_wanna_dev/</link>
+      <link>http://blog.flowstate.io/post/so_you_wanna_dev/</link>
       <pubDate>Mon, 17 Aug 2015 06:03:19 EDT</pubDate>
       <author>Oakley Hall</author>
-      <guid>http://ohall.github.io/post/so_you_wanna_dev/</guid>
+      <guid>http://blog.flowstate.io/post/so_you_wanna_dev/</guid>
       <description>
 
 &lt;p&gt;I hear this question all the time:&lt;/p&gt;
@@ -51,7 +51,7 @@
 
 &lt;p&gt;This is among the most important skills you&amp;rsquo;ll need as a developer. This will come up over and over and over. Get comfortable navigating the file system in the terminal (&lt;code&gt;cd&lt;/code&gt; and &lt;code&gt;ls&lt;/code&gt;), running applications, viewing and changing permissions(&lt;code&gt;chmod&lt;/code&gt;), piping data from one app to another (&lt;code&gt;|&lt;/code&gt;). Searching for text strings in a file or directory (&lt;code&gt;grep&lt;/code&gt;).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/so_you_wanna_dev1.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev1.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;Eventually, you&amp;rsquo;ll need tools like &lt;code&gt;ssh&lt;/code&gt;, &lt;code&gt;scp&lt;/code&gt; and the whole panoply of command line utilities available on the Unix platform. I&amp;rsquo;m told Windows has stuff like that too.&lt;/p&gt;
 
@@ -59,7 +59,7 @@
 
 &lt;p&gt;Where is your code going to execute?  How will your users interact with it. For me, right now, that&amp;rsquo;s in the browser and &lt;a href=&#34;https://en.wikipedia.org/wiki/V8_(JavaScript_engine&#34;&gt;Node&amp;rsquo;s V8 engine&lt;/a&gt;). Well, &lt;a href=&#34;http://googleblog.blogspot.com/2009/10/what-is-browser.html&#34;&gt;what is a browser&lt;/a&gt;? &lt;a href=&#34;http://www.slashroot.in/httphypertext-transfer-protocol-request-and-response&#34;&gt;How does HTTP work&lt;/a&gt;? What &lt;a href=&#34;https://developer.chrome.com/devtools&#34;&gt;tools&lt;/a&gt; &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Tools&#34;&gt;are&lt;/a&gt; &lt;a href=&#34;https://developer.apple.com/safari/tools/&#34;&gt;avaialble&lt;/a&gt; to &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/dd565628(v=vs.85&#34;&gt;developers&lt;/a&gt;.aspx)?&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/so_you_wanna_dev2.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev2.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;This is your world. These are the rules that will define what you can do and the platform on which you&amp;rsquo;ll be doing it. This is your users whole experience. Before you learn anything about a language, you have to understand the environment in which it will execute.&lt;/p&gt;
 
@@ -69,7 +69,7 @@
 
 &lt;p&gt;Your early code is going to suck. In fact most of your code is going to suck, as will most of the code you will ever read. Nevertheless, you will persevere in the eternal struggle against entropy. You will endeavor to make your code readable and performant and something you are proud to show to others. Embrace simplicity, modularity, decoupling, testing, automation, documentation and all the other &lt;a href=&#34;https://pragprog.com/the-pragmatic-programmer/extracts/tips&#34;&gt;hallmarks of a software craftsman&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/so_you_wanna_dev3.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev3.png&#34;/&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;the-mindset:1fed5910f8d953c014c3eb0203feb935&#34;&gt;The mindset&lt;/h2&gt;
 
@@ -93,10 +93,10 @@
     
     <item>
       <title>Webpack: Rage to sage</title>
-      <link>http://ohall.github.io/post/webpack/</link>
+      <link>http://blog.flowstate.io/post/webpack/</link>
       <pubDate>Fri, 14 Aug 2015 20:25:50 EDT</pubDate>
       <author>Oakley Hall</author>
-      <guid>http://ohall.github.io/post/webpack/</guid>
+      <guid>http://blog.flowstate.io/post/webpack/</guid>
       <description>
 
 &lt;p&gt;If you&amp;rsquo;re like me, your first encounter with Webpack was probably hostile. You&amp;rsquo;re trying to learn some new technology like React, launching a demo project to see how it works and something is broken. You examine the build scripts and suddenly you&amp;rsquo;re confronted with this arcane looking &lt;code&gt;webpack.config.js&lt;/code&gt; file. You cruise over to the documentation for Webpack. It has many pages, none of them marked &lt;em&gt;TL;DR&lt;/em&gt;. You hate reading documentation! This is not even what you were trying to do! You&amp;rsquo;re yak shaving again! Curse you JS tooling cambrian explosion! Gahh!!&lt;/p&gt;
@@ -184,10 +184,10 @@ module.exports = function () {
     
     <item>
       <title>Make a shell script into a global command on OSX</title>
-      <link>http://ohall.github.io/post/osx_global_shell/</link>
+      <link>http://blog.flowstate.io/post/osx_global_shell/</link>
       <pubDate>Tue, 02 Jun 2015 09:45:42 EDT</pubDate>
       <author>Oakley Hall</author>
-      <guid>http://ohall.github.io/post/osx_global_shell/</guid>
+      <guid>http://blog.flowstate.io/post/osx_global_shell/</guid>
       <description>
 
 &lt;h3 id=&#34;this-example-will-open-a-document-passed-in-as-param-in-textmate-obviously-you-can-use-any-app-you-like:3d4f833b57991155259170382335e85b&#34;&gt;This example will open a document passed in as param in TextMate.  Obviously, you can use any app you like.&lt;/h3&gt;
@@ -227,10 +227,10 @@ fi
     
     <item>
       <title>Destroying BackboneJS Views</title>
-      <link>http://ohall.github.io/post/destroy_bb_views/</link>
+      <link>http://blog.flowstate.io/post/destroy_bb_views/</link>
       <pubDate>Mon, 01 Dec 2014 00:00:00 UTC</pubDate>
       <author>Oakley Hall</author>
-      <guid>http://ohall.github.io/post/destroy_bb_views/</guid>
+      <guid>http://blog.flowstate.io/post/destroy_bb_views/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;ve spent much time using Backbone views, you&amp;rsquo;ve invariable encountered the situation where you want to get rid of a view, but some part of it keeps hanging around. Be it DOM elements or event listeners.  Your new view might be being appended to the old one, or you&amp;rsquo;re seeing duplicated events. What you really need is to destroy that old view once and for all.&lt;/p&gt;
 
 &lt;p&gt;The easiest way to do this is by adding some kind of destroy() function to your view.&lt;/p&gt;
@@ -275,10 +275,10 @@ fi
     
     <item>
       <title>JS map()</title>
-      <link>http://ohall.github.io/post/js_map/</link>
+      <link>http://blog.flowstate.io/post/js_map/</link>
       <pubDate>Thu, 13 Nov 2014 10:06:47 -0400</pubDate>
       <author>Oakley Hall</author>
-      <guid>http://ohall.github.io/post/js_map/</guid>
+      <guid>http://blog.flowstate.io/post/js_map/</guid>
       <description>
 
 &lt;p&gt;&lt;code&gt;map()&lt;/code&gt; is an array utility function that you&amp;rsquo;re probably either intimately familiar with or, like me, need to learn.&lt;/p&gt;
@@ -311,10 +311,10 @@ _.map(collection, function(val, key, object){ return num * 3; });
     
     <item>
       <title>Writing your first C&#43;&#43; program on a Mac</title>
-      <link>http://ohall.github.io/post/first_cpp/</link>
+      <link>http://blog.flowstate.io/post/first_cpp/</link>
       <pubDate>Sat, 02 Mar 2013 10:17:40 -0400</pubDate>
       <author>Oakley Hall</author>
-      <guid>http://ohall.github.io/post/first_cpp/</guid>
+      <guid>http://blog.flowstate.io/post/first_cpp/</guid>
       <description>
 
 &lt;p&gt;A friend of mine recently started his first computer science class. His entire class in working on Windows machines and using Visual Studio.  He wants to use his Mac.  I know how frustrating setting up development environment for the first time can be.  He&amp;rsquo;re how I advised him to get started and write is first code.&lt;/p&gt;
@@ -347,13 +347,13 @@ int main()
 
 &lt;h4 id=&#34;2-save-the-file-to-your-desktop-as-a-plain-text-document-with-the-name-helloworld-cpp-the-cpp-extension-lets-the-compiler-know-its-c-code:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;2. Save the file to your Desktop as a plain text document with the name helloworld.cpp  the .cpp extension lets the compiler know its C++ code.&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/cpp1.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/cpp1.png&#34;/&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;compiling-and-running-your-program:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;Compiling and running your program&lt;/h3&gt;
 
 &lt;p&gt;First, open a terminal window.  You&amp;rsquo;ll find this in Applications/Utilities/Terminal. (yours will be different colors than mine)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/cpp2.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/cpp2.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;In the terminal window type:&lt;/p&gt;
 
@@ -379,7 +379,7 @@ int main()
 &lt;p&gt;If the terminal says: &lt;code&gt;Hello World!&lt;/code&gt;  then &lt;strong&gt;you did it!&lt;/strong&gt;&lt;br /&gt;
 You can write any C++ program in this way.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://ohall.github.io/images/cpp3.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/cpp3.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;If you want a nice book on getting started with C (the core of C++) I&amp;rsquo;d recommend &lt;a href=&#34;http://amzn.to/1J7gJ7M&#34;&gt;Head First C&lt;/a&gt;.&lt;/p&gt;
 
