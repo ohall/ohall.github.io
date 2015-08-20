@@ -161,6 +161,8 @@ module.exports = function () {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;NOTE: &lt;code&gt;__dirname&lt;/code&gt; is a &lt;a href=&#34;https://nodejs.org/docs/latest/api/globals.html#globals_dirname&#34;&gt;reference in Node for the currently executing directory.&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;Once you&amp;rsquo;ve installed Webpack globally,&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;npm install webpack -g
