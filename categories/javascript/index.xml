@@ -113,7 +113,7 @@
 
 &lt;h3 id=&#34;what-is-the-point-of-webpack:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;What is the point of Webpack?&lt;/h3&gt;
 
-&lt;p&gt;Webpack is a module bundler. You may be familiar with &lt;code&gt;Browserify&lt;/code&gt; which allows you to use the AMD (Asynchronous Module Definition) syntax (&lt;code&gt;var foo = require(&#39;bar&#39;);&lt;/code&gt;) in your frontend code, much the same and you would in you Node applications. Basically this:&lt;/p&gt;
+&lt;p&gt;Webpack is a module bundler. You may be familiar with &lt;code&gt;Browserify&lt;/code&gt; which allows you to use the AMD (Asynchronous Module Definition) syntax (&lt;code&gt;var foo = require(&#39;bar&#39;);&lt;/code&gt;) in your frontend code, much the same and you would in your Node applications. Basically this:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// awesome is exported in another file
 var wicked = require(&#39;awesome&#39;);
@@ -126,7 +126,7 @@ wicked();
 
 &lt;h3 id=&#34;but-why-webpack-doesn-t-browserify-do-this-more-simply:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;But why Webpack? Doesn&amp;rsquo;t Browserify do this more simply?&lt;/h3&gt;
 
-&lt;p&gt;There are &lt;a href=&#34;http://mattdesl.svbtle.com/browserify-vs-webpack&#34;&gt;compelling&lt;/a&gt; &lt;a href=&#34;http://blog.namangoel.com/browserify-vs-webpack-js-drama&#34;&gt;arguments&lt;/a&gt; for both &lt;a href=&#34;https://www.reddit.com/r/reactjs/comments/30at04/webpack_vs_browserify_whats_best_for_react/&#34;&gt;technologies&lt;/a&gt;. One big arguement for Webpack is the ability to do &lt;a href=&#34;https://gaearon.github.io/react-hot-loader/&#34;&gt;React Hot-loading&lt;/a&gt; easily, speeing up dev time. But this post isn&amp;rsquo;t about choosing between the two. For whatever reason, you&amp;rsquo;re using Webpack not, DEAL WITH IT.&lt;/p&gt;
+&lt;p&gt;There are &lt;a href=&#34;http://mattdesl.svbtle.com/browserify-vs-webpack&#34;&gt;compelling&lt;/a&gt; &lt;a href=&#34;http://blog.namangoel.com/browserify-vs-webpack-js-drama&#34;&gt;arguments&lt;/a&gt; for both &lt;a href=&#34;https://www.reddit.com/r/reactjs/comments/30at04/webpack_vs_browserify_whats_best_for_react/&#34;&gt;technologies&lt;/a&gt;. One big arguement for Webpack is the ability to do &lt;a href=&#34;https://gaearon.github.io/react-hot-loader/&#34;&gt;React Hot-loading&lt;/a&gt; easily, speeding up dev time. But this post isn&amp;rsquo;t about choosing between the two. For whatever reason, you&amp;rsquo;re using Webpack now, DEAL WITH IT.&lt;/p&gt;
 
 &lt;h3 id=&#34;i-m-looking-at-webpack-config-js-and-i-m-angry:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;I&amp;rsquo;m looking at webpack.config.js and I&amp;rsquo;m angry.&lt;/h3&gt;
 
