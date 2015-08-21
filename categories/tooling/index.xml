@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Tooling on blog.flowstate.io </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://blog.flowstate.io/categories/tooling/</link>
+    <language>en-us</language>
+    <author>Oakley Hall</author>
+    
+    <updated>Thu, 20 Aug 2015 09:00:59 EDT</updated>
+    
+    <item>
+      <title>Webpack Loaders</title>
+      <link>http://blog.flowstate.io/post/webpack_loaders/</link>
+      <pubDate>Thu, 20 Aug 2015 09:00:59 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://blog.flowstate.io/post/webpack_loaders/</guid>
+      <description>
+
+&lt;h2 id=&#34;what-is-a-loader:b776dbab38d940662c0f8f41f4c6e4fe&#34;&gt;What is a loader?&lt;/h2&gt;
+
+&lt;p&gt;A loader is &lt;a href=&#34;http://webpack.github.io/docs/loaders.html&#34;&gt;basically a preprocessor&lt;/a&gt;. It&amp;rsquo;s how you let webpack know that you&amp;rsquo;d like to transform a module in some specified way. For example, let&amp;rsquo;s say you are writing your code in &lt;a href=&#34;https://hacks.mozilla.org/category/es6-in-depth/&#34;&gt;ES6&lt;/a&gt; and you&amp;rsquo;d like webpack to process that into ES5 so the browser can parse it.  You&amp;rsquo;d define a loader for &lt;a href=&#34;https://babeljs.io/&#34;&gt;babel&lt;/a&gt; that looks for &lt;code&gt;.js&lt;/code&gt; files being required and then runs them through babel before adding them to the &lt;a href=&#34;https://github.com/webpack/webpack/tree/master/examples/commonjs#jsoutputjs&#34;&gt;bundle&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;example-please:b776dbab38d940662c0f8f41f4c6e4fe&#34;&gt;Example, please&lt;/h2&gt;
+
+&lt;p&gt;You can check out the working example here &lt;a href=&#34;https://github.com/ohall/webpack-loaders-example&#34;&gt;repo here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So here is our &lt;code&gt;index.js&lt;/code&gt; with some cutting edge ECMAScript6 code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// look at this cool ES6 syntax!
+import sweet from &#39;./sweet&#39;;
+
+sweet();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;let&amp;rsquo;s run &lt;code&gt;webpack&lt;/code&gt; and get our bundle on.&lt;/p&gt;
+
+&lt;p&gt;Oh no! Gruesome error!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;ERROR in ./index.js
+Module parse failed: /Users/ohall/Documents/projects/webpack-loaders-example/index.js Line 2: Unexpected reserved word
+You may need an appropriate loader to handle this file type.
+| // look at this cool ES6 syntax!
+| import sweet from &#39;./sweet&#39;;
+| 
+| sweet();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We need to fix this by defining a loader in order to preprocess our ES6 stuff into palatable ES5.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s update our &lt;code&gt;webpack.config.js&lt;/code&gt; like so.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;module.exports = {
+  entry: &amp;quot;./index.js&amp;quot;,
+  output: {
+    path: __dirname,
+    filename: &amp;quot;bundle.js&amp;quot;
+  },
+  module: {
+    loaders: [
+      { test: /\.js$/, exclude: /node_modules/, loader: &#39;babel&#39;}
+    ]
+  }
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;let&amp;rsquo;s run &lt;code&gt;webpack&lt;/code&gt; AGAIN!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SCORE!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;Hash: 3e3bbd08bc6f0ce8543b
+Version: webpack 1.11.0
+Time: 430ms
+    Asset     Size  Chunks             Chunk Names
+bundle.js  1.96 kB       0  [emitted]  main
+    + 2 hidden modules
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now our &lt;code&gt;bundle.js&lt;/code&gt; is complete and looking right.&lt;/p&gt;
+
+&lt;h2 id=&#34;ok-so-what-just-happened:b776dbab38d940662c0f8f41f4c6e4fe&#34;&gt;Ok, so what just happened?&lt;/h2&gt;
+
+&lt;p&gt;I added a &lt;code&gt;module&lt;/code&gt; to our &lt;code&gt;webpack.config.js&lt;/code&gt; with a &lt;code&gt;loaders&lt;/code&gt; array.  Inside that array, I defined a babel loader.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  module: {
+    loaders: [
+      { test: /\.js$/, exclude: /node_modules/, loader: &#39;babel&#39;}
+    ]
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;What the loader does is:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Apply the test.  In this case, looking for files that end in &lt;code&gt;.js&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Exclude and files in the &lt;code&gt;node_modules&lt;/code&gt; dir, bc that&amp;rsquo;s not our concern.&lt;/li&gt;
+&lt;li&gt;Run the files that match our test through the loader we&amp;rsquo;ve specified, in this case, babel.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;So what we have is our ES6 source being parsed by babel &lt;strong&gt;before&lt;/strong&gt; being added to our &lt;code&gt;bundle.js&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Simple, right?&lt;/p&gt;
+
+&lt;h2 id=&#34;what-else-can-i-use-loaders-for:b776dbab38d940662c0f8f41f4c6e4fe&#34;&gt;What else can I use loaders for.&lt;/h2&gt;
+
+&lt;p&gt;You can process anything.  Common use cases include &lt;code&gt;JSON&lt;/code&gt;, &lt;code&gt;CSS&lt;/code&gt;, static assets like images, dialects like CoffeeScript and Typescript.  The webpack wiki contains a &lt;a href=&#34;https://github.com/webpack/docs/wiki/list-of-loaders&#34;&gt;list of available loaders&lt;/a&gt; or you can &lt;a href=&#34;http://webpack.github.io/docs/loaders.html#writing-a-loader&#34;&gt;roll your own&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Webpack: Rage to sage</title>
+      <link>http://blog.flowstate.io/post/webpack/</link>
+      <pubDate>Fri, 14 Aug 2015 20:25:50 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://blog.flowstate.io/post/webpack/</guid>
+      <description>
+
+&lt;p&gt;If you&amp;rsquo;re like me, your first encounter with Webpack was probably hostile. You&amp;rsquo;re trying to learn some new technology like React, launching a demo project to see how it works and something is broken. You examine the build scripts and suddenly you&amp;rsquo;re confronted with this arcane looking &lt;code&gt;webpack.config.js&lt;/code&gt; file. You cruise over to the documentation for Webpack. It has many pages, none of them marked &lt;em&gt;TL;DR&lt;/em&gt;. You hate reading documentation! This is not even what you were trying to do! You&amp;rsquo;re yak shaving again! Curse you JS tooling cambrian explosion! Gahh!!&lt;/p&gt;
+
+&lt;p&gt;Exhale. Webpack is not that complicated, especially for simple work flows. It&amp;rsquo;s becoming an integral part of the JS ecosystem and so it&amp;rsquo;s worth sitting down and learning it. You can do this, just focus.&lt;/p&gt;
+
+&lt;h3 id=&#34;tl-dr:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;TL;DR&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Webpack is a module bundler like Browserify, but with better support for Node and React.&lt;/li&gt;
+&lt;li&gt;Webpack is not that hard.&lt;/li&gt;
+&lt;li&gt;Here&amp;rsquo;s a simple example: &lt;a href=&#34;https://github.com/ohall/webpack-example&#34;&gt;https://github.com/ohall/webpack-example&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;what-is-the-point-of-webpack:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;What is the point of Webpack?&lt;/h3&gt;
+
+&lt;p&gt;Webpack is a module bundler. You may be familiar with &lt;code&gt;Browserify&lt;/code&gt; which allows you to use the AMD (Asynchronous Module Definition) syntax (&lt;code&gt;var foo = require(&#39;bar&#39;);&lt;/code&gt;) in your frontend code, much the same and you would in your Node applications. Basically this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// awesome is exported in another file
+var wicked = require(&#39;awesome&#39;);
+wicked();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;These tools basically suck in all the JS files required by your app and concatenate them into one JS file that you can add to your app. This is WAY better that managing a bunch of script tags in your &lt;code&gt;index.html&lt;/code&gt; or wherever. You can configure &lt;a href=&#34;http://webpack.github.io/docs/loaders.html&#34;&gt;loaders&lt;/a&gt; to do the same thing with other static files, like css and images.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://webpack.github.io/assets/what-is-webpack.png&#34; alt=&#34;webpack&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;but-why-webpack-doesn-t-browserify-do-this-more-simply:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;But why Webpack? Doesn&amp;rsquo;t Browserify do this more simply?&lt;/h3&gt;
+
+&lt;p&gt;There are &lt;a href=&#34;http://mattdesl.svbtle.com/browserify-vs-webpack&#34;&gt;compelling&lt;/a&gt; &lt;a href=&#34;http://blog.namangoel.com/browserify-vs-webpack-js-drama&#34;&gt;arguments&lt;/a&gt; for both &lt;a href=&#34;https://www.reddit.com/r/reactjs/comments/30at04/webpack_vs_browserify_whats_best_for_react/&#34;&gt;technologies&lt;/a&gt;. One big arguement for Webpack is the ability to do &lt;a href=&#34;https://gaearon.github.io/react-hot-loader/&#34;&gt;React Hot-loading&lt;/a&gt; easily, speeding up dev time. But this post isn&amp;rsquo;t about choosing between the two. For whatever reason, you&amp;rsquo;re using Webpack now, DEAL WITH IT.&lt;/p&gt;
+
+&lt;h3 id=&#34;i-m-looking-at-webpack-config-js-and-i-m-angry:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;I&amp;rsquo;m looking at webpack.config.js and I&amp;rsquo;m angry.&lt;/h3&gt;
+
+&lt;p&gt;Whoa. It&amp;rsquo;s cool. Look, let&amp;rsquo;s start with a very simple example, so we can improve the signal to noise ratio. You can find a repo with this example here: &lt;a href=&#34;https://github.com/ohall/webpack-example&#34;&gt;https://github.com/ohall/webpack-example&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s say you have an &lt;code&gt;index.js&lt;/code&gt; file;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// index.js
+var sweet = require(&#39;./sweet&#39;);
+sweet();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That requires a sweet module &lt;code&gt;sweet.js&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// sweet.js
+module.exports = function () {
+  window.onload = function () {
+    var t = document.createTextNode(&#39;You did it! Sweet!&#39;);
+    document.body.appendChild(t);
+  }
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can set up our super simple &lt;code&gt;webpack.config.js&lt;/code&gt; file will export a module with &lt;code&gt;index.js&lt;/code&gt; as our entry file and output a file called &lt;code&gt;bundle.js&lt;/code&gt;. Webpack figures out the rest.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;module.exports = {
+    entry: &amp;quot;./index.js&amp;quot;,
+    output: {
+        path: __dirname,
+        filename: &amp;quot;bundle.js&amp;quot;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;NOTE: &lt;code&gt;__dirname&lt;/code&gt; is a &lt;a href=&#34;https://nodejs.org/docs/latest/api/globals.html#globals_dirname&#34;&gt;reference in Node for the currently executing directory.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Once you&amp;rsquo;ve installed Webpack globally,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;npm install webpack -g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;you can run &lt;code&gt;webpack&lt;/code&gt; and create a &lt;code&gt;bundle.js&lt;/code&gt; file that includes all the modules we need and use it in your HTML. &lt;a href=&#34;https://github.com/ohall/webpack-example&#34;&gt;Run the example&lt;/a&gt; to see what the bundle looks like.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!--index.html--&amp;gt;
+&amp;lt;!doctype html&amp;gt;
+&amp;lt;html&amp;gt;
+    &amp;lt;script src=&amp;quot;bundle.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;body&amp;gt;&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;conclusion:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;There is SO much more to Webpack, that I&amp;rsquo;ll dive into in the next post. For now though, you have enough to get you a footing in Webpack and start experimenting. JS tooling can be frustrating, especially when it feels like you have to learn a whole new build system every week. Don&amp;rsquo;t despair! Start simple, take time to learn it and try to have fun.&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;a hred&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

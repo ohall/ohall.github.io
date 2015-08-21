@@ -7,7 +7,105 @@
     <language>en-us</language>
     <author>Oakley Hall</author>
     
-    <updated>Mon, 17 Aug 2015 06:03:19 EDT</updated>
+    <updated>Thu, 20 Aug 2015 09:00:59 EDT</updated>
+    
+    <item>
+      <title>Webpack Loaders</title>
+      <link>http://blog.flowstate.io/post/webpack_loaders/</link>
+      <pubDate>Thu, 20 Aug 2015 09:00:59 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://blog.flowstate.io/post/webpack_loaders/</guid>
+      <description>
+
+&lt;h2 id=&#34;what-is-a-loader:b776dbab38d940662c0f8f41f4c6e4fe&#34;&gt;What is a loader?&lt;/h2&gt;
+
+&lt;p&gt;A loader is &lt;a href=&#34;http://webpack.github.io/docs/loaders.html&#34;&gt;basically a preprocessor&lt;/a&gt;. It&amp;rsquo;s how you let webpack know that you&amp;rsquo;d like to transform a module in some specified way. For example, let&amp;rsquo;s say you are writing your code in &lt;a href=&#34;https://hacks.mozilla.org/category/es6-in-depth/&#34;&gt;ES6&lt;/a&gt; and you&amp;rsquo;d like webpack to process that into ES5 so the browser can parse it.  You&amp;rsquo;d define a loader for &lt;a href=&#34;https://babeljs.io/&#34;&gt;babel&lt;/a&gt; that looks for &lt;code&gt;.js&lt;/code&gt; files being required and then runs them through babel before adding them to the &lt;a href=&#34;https://github.com/webpack/webpack/tree/master/examples/commonjs#jsoutputjs&#34;&gt;bundle&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;example-please:b776dbab38d940662c0f8f41f4c6e4fe&#34;&gt;Example, please&lt;/h2&gt;
+
+&lt;p&gt;You can check out the working example here &lt;a href=&#34;https://github.com/ohall/webpack-loaders-example&#34;&gt;repo here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So here is our &lt;code&gt;index.js&lt;/code&gt; with some cutting edge ECMAScript6 code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// look at this cool ES6 syntax!
+import sweet from &#39;./sweet&#39;;
+
+sweet();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;let&amp;rsquo;s run &lt;code&gt;webpack&lt;/code&gt; and get our bundle on.&lt;/p&gt;
+
+&lt;p&gt;Oh no! Gruesome error!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;ERROR in ./index.js
+Module parse failed: /Users/ohall/Documents/projects/webpack-loaders-example/index.js Line 2: Unexpected reserved word
+You may need an appropriate loader to handle this file type.
+| // look at this cool ES6 syntax!
+| import sweet from &#39;./sweet&#39;;
+| 
+| sweet();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We need to fix this by defining a loader in order to preprocess our ES6 stuff into palatable ES5.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s update our &lt;code&gt;webpack.config.js&lt;/code&gt; like so.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;module.exports = {
+  entry: &amp;quot;./index.js&amp;quot;,
+  output: {
+    path: __dirname,
+    filename: &amp;quot;bundle.js&amp;quot;
+  },
+  module: {
+    loaders: [
+      { test: /\.js$/, exclude: /node_modules/, loader: &#39;babel&#39;}
+    ]
+  }
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;let&amp;rsquo;s run &lt;code&gt;webpack&lt;/code&gt; AGAIN!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SCORE!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;Hash: 3e3bbd08bc6f0ce8543b
+Version: webpack 1.11.0
+Time: 430ms
+    Asset     Size  Chunks             Chunk Names
+bundle.js  1.96 kB       0  [emitted]  main
+    + 2 hidden modules
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now our &lt;code&gt;bundle.js&lt;/code&gt; is complete and looking right.&lt;/p&gt;
+
+&lt;h2 id=&#34;ok-so-what-just-happened:b776dbab38d940662c0f8f41f4c6e4fe&#34;&gt;Ok, so what just happened?&lt;/h2&gt;
+
+&lt;p&gt;I added a &lt;code&gt;module&lt;/code&gt; to our &lt;code&gt;webpack.config.js&lt;/code&gt; with a &lt;code&gt;loaders&lt;/code&gt; array.  Inside that array, I defined a babel loader.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  module: {
+    loaders: [
+      { test: /\.js$/, exclude: /node_modules/, loader: &#39;babel&#39;}
+    ]
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;What the loader does is:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Apply the test.  In this case, looking for files that end in &lt;code&gt;.js&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Exclude and files in the &lt;code&gt;node_modules&lt;/code&gt; dir, bc that&amp;rsquo;s not our concern.&lt;/li&gt;
+&lt;li&gt;Run the files that match our test through the loader we&amp;rsquo;ve specified, in this case, babel.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;So what we have is our ES6 source being parsed by babel &lt;strong&gt;before&lt;/strong&gt; being added to our &lt;code&gt;bundle.js&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Simple, right?&lt;/p&gt;
+
+&lt;h2 id=&#34;what-else-can-i-use-loaders-for:b776dbab38d940662c0f8f41f4c6e4fe&#34;&gt;What else can I use loaders for.&lt;/h2&gt;
+
+&lt;p&gt;You can process anything.  Common use cases include &lt;code&gt;JSON&lt;/code&gt;, &lt;code&gt;CSS&lt;/code&gt;, static assets like images, dialects like CoffeeScript and Typescript.  The webpack wiki contains a &lt;a href=&#34;https://github.com/webpack/docs/wiki/list-of-loaders&#34;&gt;list of available loaders&lt;/a&gt; or you can &lt;a href=&#34;http://webpack.github.io/docs/loaders.html#writing-a-loader&#34;&gt;roll your own&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Stop trying to learn a programming language</title>
@@ -181,6 +279,8 @@ module.exports = function () {
 &lt;h3 id=&#34;conclusion:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;Conclusion&lt;/h3&gt;
 
 &lt;p&gt;There is SO much more to Webpack, that I&amp;rsquo;ll dive into in the next post. For now though, you have enough to get you a footing in Webpack and start experimenting. JS tooling can be frustrating, especially when it feels like you have to learn a whole new build system every week. Don&amp;rsquo;t despair! Start simple, take time to learn it and try to have fun.&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;a hred&lt;/p&gt;
 </description>
     </item>
     

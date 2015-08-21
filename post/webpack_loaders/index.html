@@ -4,7 +4,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Lower back rehab - blog.flowstate.io</title>
+	<title>Webpack Loaders - blog.flowstate.io</title>
 	<meta name="author" content="map[name:Oakley Hall email:oakley349@gmail.com]">
 
 	
@@ -19,7 +19,7 @@
     
 	<link href='/index.xml' rel="alternate" title="blog.flowstate.io" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://blog.flowstate.io/post/lower_back/">
+	<link rel="canonical" href="http://blog.flowstate.io/post/webpack_loaders/">
 	<link href="http://blog.flowstate.io/favicon.png" rel="shortcut icon">
 	<link href="http://blog.flowstate.io/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<link href="http://blog.flowstate.io/css/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -102,35 +102,96 @@
 				<div id="content" class="inner">
 					<div itemscope itemtype="http://schema.org/Blog">
 					<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-    <h1 class="title" itemprop="name">Lower back rehab</h1>
+    <h1 class="title" itemprop="name">Webpack Loaders</h1>
 	<div class="entry-content" itemprop="articleBody">
 
-<p>Earlier this year I started waking up to brutal lower back pain.   I went to a spinal specialist at the behest of my fiancee and learned that I&rsquo;ve been suffering from what he termed a &lsquo;Pars Fracture&rsquo;. I got a prescription for physical therapy and started work that week.  There&rsquo;s not much to do about the actual injury, but my therapist told me that a stronger core would help manage the discomfort.  Long story short, when I do these workouts, the night pain goes away.  They look easy, but they are legit.</p>
+<h2 id="what-is-a-loader:b776dbab38d940662c0f8f41f4c6e4fe">What is a loader?</h2>
 
-<p>Cartoons are courtesy of my therapist. One thing to focus on is drawing the belly button as much as possible.  It was described to me as pulling it toward the spine.</p>
+<p>A loader is <a href="http://webpack.github.io/docs/loaders.html">basically a preprocessor</a>. It&rsquo;s how you let webpack know that you&rsquo;d like to transform a module in some specified way. For example, let&rsquo;s say you are writing your code in <a href="https://hacks.mozilla.org/category/es6-in-depth/">ES6</a> and you&rsquo;d like webpack to process that into ES5 so the browser can parse it.  You&rsquo;d define a loader for <a href="https://babeljs.io/">babel</a> that looks for <code>.js</code> files being required and then runs them through babel before adding them to the <a href="https://github.com/webpack/webpack/tree/master/examples/commonjs#jsoutputjs">bundle</a>.</p>
 
-<h3 id="start-with-some-light-cardio-to-warm-up-then-stretch-focusing-on-the-hamstrings-hip-flexors-and-it-bands:2c011abc126a14fa729c2ebaf0b81947">Start with some light cardio to warm up, then stretch, focusing on the hamstrings, hip flexors and IT bands:</h3>
+<h2 id="example-please:b776dbab38d940662c0f8f41f4c6e4fe">Example, please</h2>
 
-<p><img src="/images/pt1.png"/>
-<img src="/images/pt2.png"/></p>
+<p>You can check out the working example here <a href="https://github.com/ohall/webpack-loaders-example">repo here</a>.</p>
 
-<h3 id="move-into-these-core-strengthening-moves-being-sure-to-draw-the-belly-button-in:2c011abc126a14fa729c2ebaf0b81947">Move into these core strengthening moves, being sure to draw the belly button in.</h3>
+<p>So here is our <code>index.js</code> with some cutting edge ECMAScript6 code.</p>
 
-<p><img src="/images/pt3.png"/>
-<img src="/images/pt4.png"/>
-<img src="/images/pt5.png"/>
-<img src="/images/pt6.png"/>
-<img src="/images/pt7.png"/></p>
+<pre><code class="language-js">// look at this cool ES6 syntax!
+import sweet from './sweet';
 
-<h3 id="if-you-have-access-to-a-bosu-ball-and-or-small-medicine-ball-add-these-stability-moves:2c011abc126a14fa729c2ebaf0b81947">If you have access to a bosu ball and/or small medicine ball, add these stability moves:</h3>
+sweet();
+</code></pre>
 
-<p><img src="/images/pt8.png"/>
-<img src="/images/pt9.png"/>
-<img src="/images/pt10.png"/>
-<img src="/images/pt11.png"/>
-<img src="/images/pt12.png"/>
-<img src="/images/pt13.png"/>
-<img src="/images/pt14.png"/></p>
+<p>let&rsquo;s run <code>webpack</code> and get our bundle on.</p>
+
+<p>Oh no! Gruesome error!</p>
+
+<pre><code class="language-sh">ERROR in ./index.js
+Module parse failed: /Users/ohall/Documents/projects/webpack-loaders-example/index.js Line 2: Unexpected reserved word
+You may need an appropriate loader to handle this file type.
+| // look at this cool ES6 syntax!
+| import sweet from './sweet';
+| 
+| sweet();
+</code></pre>
+
+<p>We need to fix this by defining a loader in order to preprocess our ES6 stuff into palatable ES5.</p>
+
+<p>Let&rsquo;s update our <code>webpack.config.js</code> like so.</p>
+
+<pre><code class="language-js">module.exports = {
+  entry: &quot;./index.js&quot;,
+  output: {
+    path: __dirname,
+    filename: &quot;bundle.js&quot;
+  },
+  module: {
+    loaders: [
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel'}
+    ]
+  }
+};
+</code></pre>
+
+<p>let&rsquo;s run <code>webpack</code> AGAIN!</p>
+
+<p><strong>SCORE!</strong></p>
+
+<pre><code class="language-sh">Hash: 3e3bbd08bc6f0ce8543b
+Version: webpack 1.11.0
+Time: 430ms
+    Asset     Size  Chunks             Chunk Names
+bundle.js  1.96 kB       0  [emitted]  main
+    + 2 hidden modules
+</code></pre>
+
+<p>Now our <code>bundle.js</code> is complete and looking right.</p>
+
+<h2 id="ok-so-what-just-happened:b776dbab38d940662c0f8f41f4c6e4fe">Ok, so what just happened?</h2>
+
+<p>I added a <code>module</code> to our <code>webpack.config.js</code> with a <code>loaders</code> array.  Inside that array, I defined a babel loader.</p>
+
+<pre><code class="language-js">  module: {
+    loaders: [
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel'}
+    ]
+  }
+</code></pre>
+
+<p><strong>What the loader does is:</strong></p>
+
+<ol>
+<li>Apply the test.  In this case, looking for files that end in <code>.js</code></li>
+<li>Exclude and files in the <code>node_modules</code> dir, bc that&rsquo;s not our concern.</li>
+<li>Run the files that match our test through the loader we&rsquo;ve specified, in this case, babel.</li>
+</ol>
+
+<p>So what we have is our ES6 source being parsed by babel <strong>before</strong> being added to our <code>bundle.js</code>.</p>
+
+<p>Simple, right?</p>
+
+<h2 id="what-else-can-i-use-loaders-for:b776dbab38d940662c0f8f41f4c6e4fe">What else can I use loaders for.</h2>
+
+<p>You can process anything.  Common use cases include <code>JSON</code>, <code>CSS</code>, static assets like images, dialects like CoffeeScript and Typescript.  The webpack wiki contains a <a href="https://github.com/webpack/docs/wiki/list-of-loaders">list of available loaders</a> or you can <a href="http://webpack.github.io/docs/loaders.html#writing-a-loader">roll your own</a>.</p>
 </div></article>
 					
 						<div class="share">
