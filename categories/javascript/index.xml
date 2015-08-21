@@ -17,6 +17,8 @@
       <guid>http://blog.flowstate.io/post/webpack_loaders/</guid>
       <description>
 
+&lt;p&gt;Start with the &lt;a href=&#34;http://blog.flowstate.io/post/webpack&#34;&gt;webpack basics&lt;a&gt;&lt;/p&gt;
+
 &lt;h2 id=&#34;what-is-a-loader:b776dbab38d940662c0f8f41f4c6e4fe&#34;&gt;What is a loader?&lt;/h2&gt;
 
 &lt;p&gt;A loader is &lt;a href=&#34;http://webpack.github.io/docs/loaders.html&#34;&gt;basically a preprocessor&lt;/a&gt;. It&amp;rsquo;s how you let webpack know that you&amp;rsquo;d like to transform a module in some specified way. For example, let&amp;rsquo;s say you are writing your code in &lt;a href=&#34;https://hacks.mozilla.org/category/es6-in-depth/&#34;&gt;ES6&lt;/a&gt; and you&amp;rsquo;d like webpack to process that into ES5 so the browser can parse it.  You&amp;rsquo;d define a loader for &lt;a href=&#34;https://babeljs.io/&#34;&gt;babel&lt;/a&gt; that looks for &lt;code&gt;.js&lt;/code&gt; files being required and then runs them through babel before adding them to the &lt;a href=&#34;https://github.com/webpack/webpack/tree/master/examples/commonjs#jsoutputjs&#34;&gt;bundle&lt;/a&gt;.&lt;/p&gt;
