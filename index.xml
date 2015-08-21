@@ -280,7 +280,7 @@ module.exports = function () {
 
 &lt;p&gt;There is SO much more to Webpack, that I&amp;rsquo;ll dive into in the next post. For now though, you have enough to get you a footing in Webpack and start experimenting. JS tooling can be frustrating, especially when it feels like you have to learn a whole new build system every week. Don&amp;rsquo;t despair! Start simple, take time to learn it and try to have fun.&lt;/p&gt;
 
-&lt;p&gt;Next up: &lt;a href=&#34;post/webpack_loaders&#34;&gt;webpack loaders&lt;a&gt;&lt;/p&gt;
+&lt;p&gt;Next up: &lt;a href=&#34;http://blog.flowstate.io/post/webpack_loaders&#34;&gt;webpack loaders&lt;a&gt;&lt;/p&gt;
 </description>
     </item>
     
