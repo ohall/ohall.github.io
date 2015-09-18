@@ -7,7 +7,67 @@
     <language>en-us</language>
     <author>Oakley Hall</author>
     
-    <updated>Thu, 20 Aug 2015 09:00:59 EDT</updated>
+    <updated>Fri, 18 Sep 2015 12:52:45 EDT</updated>
+    
+    <item>
+      <title>NPM Shrinkwrap is easy</title>
+      <link>http://blog.flowstate.io/post/shrinkwrap/</link>
+      <pubDate>Fri, 18 Sep 2015 12:52:45 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://blog.flowstate.io/post/shrinkwrap/</guid>
+      <description>
+
+&lt;p&gt;In this hypothetical example, you&amp;rsquo;re a programmer who has a project. In this project, you are using a bunch of dependencies, which you manage with NPM and are specified in the &lt;code&gt;package.json&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;Whenever you build this app, you install all the things using &lt;code&gt;npm install&lt;/code&gt;.  You continue to build the app and deploy it and your users use it.&lt;/p&gt;
+
+&lt;p&gt;Except one day you build the app and it breaks! WHY?! You haven&amp;rsquo;t even touched the code!&lt;/p&gt;
+
+&lt;p&gt;Aha! A dependency has changed, or a dependency of a dependency and now our build is broken.&lt;/p&gt;
+
+&lt;p&gt;So you&amp;rsquo;re telling me that unless every package uses specific package version, my build could break at ANY time?&lt;/p&gt;
+
+&lt;p&gt;Yes.&lt;/p&gt;
+
+&lt;p&gt;There must be a way to fix this.&lt;/p&gt;
+
+&lt;p&gt;There is!&lt;/p&gt;
+
+&lt;h2 id=&#34;npm-shrinkwrap:03b1f98386b651e891c88835b47f2f3a&#34;&gt;NPM Shrinkwrap&lt;/h2&gt;
+
+&lt;p&gt;NPM Shrinkwrap locks your entire dependency tree to the current installed version.  This is built into NPM and you can do it right now.&lt;/p&gt;
+
+&lt;p&gt;This command.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm shrinkwrap
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;will generate a file called &lt;code&gt;npm-shrinkwrap.json&lt;/code&gt; that specified EXACTLY which version of each dependency will be installed when you call &lt;code&gt;npm install&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you want to update a package, run &lt;code&gt;npm update &amp;lt;package_name&amp;gt;&lt;/code&gt;. and then re-run &lt;code&gt;npm shrinkwrap&lt;/code&gt; to update your &lt;code&gt;npm-shrinkwrap.json&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;if you want to see which packages are out of date, you can use:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm outdated
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and you&amp;rsquo;ll see something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Package        Current  Wanted  Latest  Location
+lodash           3.7.0  3.10.1  3.10.1  lodash
+moment          2.10.2  2.10.6  2.10.6  moment
+q                1.3.0   1.4.1   1.4.1  q
+wreck            5.5.1   5.6.1   6.2.0  wreck
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;By default, shrinkwrap ignores your devDependencies you can include them by using the &lt;code&gt;--dev&lt;/code&gt; flag.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm shrinkwrap --dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;See how easy that is! So don&amp;rsquo;t live with broken builds, use NPM shrinkwrap and keep your dependecies where they belong.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Webpack Loaders</title>
