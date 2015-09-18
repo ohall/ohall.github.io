@@ -4,8 +4,8 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Webpack Loaders - blog.flowstate.io</title>
-	<meta name="author" content="map[email:oakley349@gmail.com name:Oakley Hall]">
+	<title>systemd - blog.flowstate.io</title>
+	<meta name="author" content="map[name:Oakley Hall email:oakley349@gmail.com]">
 
 	
 	
@@ -19,7 +19,7 @@
     
 	<link href='/index.xml' rel="alternate" title="blog.flowstate.io" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://blog.flowstate.io/post/webpack_loaders/">
+	<link rel="canonical" href="http://blog.flowstate.io/post/systemd/">
 	<link href="http://blog.flowstate.io/favicon.png" rel="shortcut icon">
 	<link href="http://blog.flowstate.io/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<link href="http://blog.flowstate.io/css/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -114,98 +114,89 @@
 				<div id="content" class="inner">
 					<div itemscope itemtype="http://schema.org/Blog">
 					<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-    <h1 class="title" itemprop="name">Webpack Loaders</h1>
+    <h1 class="title" itemprop="name">systemd</h1>
 	<div class="entry-content" itemprop="articleBody">
 
-<p>Start with the <a href="/post/webpack">webpack basics<a></p>
+<h2 id="intro:43644c643e7f8892a9f8a45991d7cd50">Intro</h2>
 
-<h2 id="what-is-a-loader:b776dbab38d940662c0f8f41f4c6e4fe">What is a loader?</h2>
+<p>systemd is an init system that most linux distributions are standardizing on and a crucial tool for any system admin or devops engineer.</p>
 
-<p>A loader is <a href="http://webpack.github.io/docs/loaders.html">basically a preprocessor</a>. It&rsquo;s how you let webpack know that you&rsquo;d like to transform a module in some specified way. For example, let&rsquo;s say you are writing your code in <a href="https://hacks.mozilla.org/category/es6-in-depth/">ES6</a> and you&rsquo;d like webpack to process that into ES5 so the browser can parse it.  You&rsquo;d define a loader for <a href="https://babeljs.io/">babel</a> that looks for <code>.js</code> files being required and then runs them through babel before adding them to the <a href="https://github.com/webpack/webpack/tree/master/examples/commonjs#jsoutputjs">bundle</a>.</p>
+<p>In Unix and Linux, background processes are called daemons.  systemd provides a syntax for creating objects that can be managed by the daemons in the form of <strong>units</strong>.</p>
 
-<h2 id="example-please:b776dbab38d940662c0f8f41f4c6e4fe">Example, please</h2>
+<p>You can see what units you have on a machine with the <a href="https://wiki.archlinux.org/index.php/Systemd#Basic_systemctl_usage"><code>systemctl</code></a> command. Here we&rsquo;ll pass the parameter <code>list-units</code>.  Which will list all the units.</p>
 
-<p>You can check out the working example here <a href="https://github.com/ohall/webpack-loaders-example">repo here</a>.</p>
-
-<p>So here is our <code>index.js</code> with some cutting edge ECMAScript6 code.</p>
-
-<pre><code class="language-js">// look at this cool ES6 syntax!
-import sweet from './sweet';
-
-sweet();
+<pre><code>$ systemctl list-units
 </code></pre>
 
-<p>let&rsquo;s run <code>webpack</code> and get our bundle on.</p>
+<p>You&rsquo;ll see some stuff like this describing your available units:</p>
 
-<p>Oh no! Gruesome error!</p>
-
-<pre><code class="language-sh">ERROR in ./index.js
-Module parse failed: /Users/ohall/Documents/projects/webpack-loaders-example/index.js Line 2: Unexpected reserved word
-You may need an appropriate loader to handle this file type.
-| // look at this cool ES6 syntax!
-| import sweet from './sweet';
-| 
-| sweet();
+<pre><code>UNIT                                  LOAD   ACTIVE SUB       DESCRIPTION
+proc-sys-fs-binfmt_misc.automount     loaded active waiting   Arbitrary sys-d
+sys-devices-...dports-vport1p1.device loaded active plugged   /sys/devices/pci
+sys-devices-...-block-vda-vda1.device loaded active plugged   /sys/devices/pci
+app.mount                             loaded active mounted   /app
+dev-mqueue.mount                      loaded active mounted   POSIX Message proc-fs-nfsd.mount                    loaded active mounted   RPC Pipe File sys
+sys-kernel-debug.mount                loaded active mounted   Debug File System
+var-lib-nfs-rpc_pipefs.mount          loaded active mounted   RPC Pipe File 
+...
 </code></pre>
 
-<p>We need to fix this by defining a loader in order to preprocess our ES6 stuff into palatable ES5.</p>
+<h2 id="basic-usage:43644c643e7f8892a9f8a45991d7cd50">Basic usage</h2>
 
-<p>Let&rsquo;s update our <code>webpack.config.js</code> like so.</p>
+<h3 id="getting-system-state:43644c643e7f8892a9f8a45991d7cd50">Getting system state</h3>
 
-<pre><code class="language-js">module.exports = {
-  entry: &quot;./index.js&quot;,
-  output: {
-    path: __dirname,
-    filename: &quot;bundle.js&quot;
-  },
-  module: {
-    loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel'}
-    ]
-  }
-};
+<h4 id="list-currently-running-units:43644c643e7f8892a9f8a45991d7cd50">List currently running units:</h4>
+
+<pre><code>$ systemctl
 </code></pre>
 
-<p>let&rsquo;s run <code>webpack</code> AGAIN!</p>
+<p><strong>or:</strong></p>
 
-<p><strong>SCORE!</strong></p>
-
-<pre><code class="language-sh">Hash: 3e3bbd08bc6f0ce8543b
-Version: webpack 1.11.0
-Time: 430ms
-    Asset     Size  Chunks             Chunk Names
-bundle.js  1.96 kB       0  [emitted]  main
-    + 2 hidden modules
+<pre><code>$ systemctl list-units
 </code></pre>
 
-<p>Now our <code>bundle.js</code> is complete and looking right.</p>
+<h4 id="list-failed-units:43644c643e7f8892a9f8a45991d7cd50">List failed units:</h4>
 
-<h2 id="ok-so-what-just-happened:b776dbab38d940662c0f8f41f4c6e4fe">Ok, so what just happened?</h2>
-
-<p>I added a <code>module</code> to our <code>webpack.config.js</code> with a <code>loaders</code> array.  Inside that array, I defined a babel loader.</p>
-
-<pre><code class="language-js">  module: {
-    loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel'}
-    ]
-  }
+<pre><code>$ systemctl --failed
 </code></pre>
 
-<p><strong>What the loader does is:</strong></p>
+<p><strong>Unit files can be found in</strong> <code>/usr/lib/systemd/system/</code> and <code>/etc/systemd/system/</code>.</p>
 
-<ol>
-<li>Apply the test.  In this case, looking for files that end in <code>.js</code></li>
-<li>Exclude and files in the <code>node_modules</code> dir, bc that&rsquo;s not our concern.</li>
-<li>Run the files that match our test through the loader we&rsquo;ve specified, in this case, babel.</li>
-</ol>
+<h4 id="list-installed-unit-files-with:43644c643e7f8892a9f8a45991d7cd50">List installed unit files with:</h4>
 
-<p>So what we have is our ES6 source being parsed by babel <strong>before</strong> being added to our <code>bundle.js</code>.</p>
+<pre><code>$ systemctl list-unit-files
+</code></pre>
 
-<p>Simple, right?</p>
+<h2 id="working-with-units:43644c643e7f8892a9f8a45991d7cd50">Working with units</h2>
 
-<h2 id="what-else-can-i-use-loaders-for:b776dbab38d940662c0f8f41f4c6e4fe">What else can I use loaders for.</h2>
+<p>Basic unit commands are:</p>
 
-<p>You can process anything.  Common use cases include <code>JSON</code>, <code>CSS</code>, static assets like images, dialects like CoffeeScript and Typescript.  The webpack wiki contains a <a href="https://github.com/webpack/docs/wiki/list-of-loaders">list of available loaders</a> or you can <a href="http://webpack.github.io/docs/loaders.html#writing-a-loader">roll your own</a>.</p>
+<h5 id="start-a-unit-immediately:43644c643e7f8892a9f8a45991d7cd50">Start a unit immediately:</h5>
+
+<pre><code>$ systemctl start unit
+</code></pre>
+
+<h5 id="stop-a-unit-immediately:43644c643e7f8892a9f8a45991d7cd50">Stop a unit immediately:</h5>
+
+<pre><code>$ systemctl stop unit
+</code></pre>
+
+<h5 id="restart-a-unit:43644c643e7f8892a9f8a45991d7cd50">Restart a unit:</h5>
+
+<pre><code>$ systemctl restart unit
+</code></pre>
+
+<h5 id="ask-a-unit-to-reload-its-configuration:43644c643e7f8892a9f8a45991d7cd50">Ask a unit to reload its configuration:</h5>
+
+<pre><code>$ systemctl reload unit
+</code></pre>
+
+<h5 id="show-the-status-of-a-unit-including-whether-it-is-running-or-not:43644c643e7f8892a9f8a45991d7cd50">Show the status of a unit, including whether it is running or not:</h5>
+
+<pre><code>$ systemctl status unit
+</code></pre>
+
+<p><a href="https://wiki.archlinux.org/index.php/Systemd#Basic_systemctl_usage">Other commands can be found here</a></p>
 </div></article>
 					
 						<div class="share">

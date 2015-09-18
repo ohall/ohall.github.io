@@ -4,8 +4,8 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Make a shell script into a global command on OSX - blog.flowstate.io</title>
-	<meta name="author" content="map[email:oakley349@gmail.com name:Oakley Hall]">
+	<title>blog.flowstate.io</title>
+	<meta name="author" content="map[name:Oakley Hall email:oakley349@gmail.com]">
 
 	
 	
@@ -19,7 +19,7 @@
     
 	<link href='/index.xml' rel="alternate" title="blog.flowstate.io" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://blog.flowstate.io/post/osx_global_shell/">
+	<link rel="canonical" href="http://blog.flowstate.io/categories/devops/">
 	<link href="http://blog.flowstate.io/favicon.png" rel="shortcut icon">
 	<link href="http://blog.flowstate.io/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<link href="http://blog.flowstate.io/css/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -105,98 +105,54 @@
 		
 	</div>
 </nav>
-</header>
+</header>				
 			</div>
-		</div>
+		</div>	
 		<div class="mid-col">
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 					<div itemscope itemtype="http://schema.org/Blog">
-					<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-    <h1 class="title" itemprop="name">Make a shell script into a global command on OSX</h1>
-	<div class="entry-content" itemprop="articleBody">
-
-<h3 id="this-example-will-open-a-document-passed-in-as-param-in-textmate-obviously-you-can-use-any-app-you-like:3d4f833b57991155259170382335e85b">This example will open a document passed in as param in TextMate.  Obviously, you can use any app you like.</h3>
-
-<h4 id="1-create-your-script-in-usr-local-bin-on-osx-it-will-automatically-be-added-to-your-path:3d4f833b57991155259170382335e85b">1 Create your script in <code>/usr/local/bin</code> on OSX, it will automatically be added to your <code>$PATH</code></h4>
-
-<pre><code class="language-sh">/usr/local/bin/tm.sh
-</code></pre>
-
-<h4 id="2-make-the-script-executable:3d4f833b57991155259170382335e85b">2 Make the script executable</h4>
-
-<pre><code class="language-sh">chmod +x /usr/local/bin/tm.sh
-</code></pre>
-
-<h4 id="3-create-a-symbolic-link-so-you-can-skip-the-sh-suffix:3d4f833b57991155259170382335e85b">3 Create a symbolic link, so you can skip the .sh suffix</h4>
-
-<pre><code class="language-sh">ln -s /usr/local/bin/tm.sh /usr/local/bin/tm
-</code></pre>
-
-<h4 id="4-use-for-increased-excellence:3d4f833b57991155259170382335e85b">4 Use for increased excellence</h4>
-
-<pre><code class="language-sh">tm coolfile.txt
-</code></pre>
-
-<p>Here&rsquo;s tm.sh</p>
-
-<pre><code class="language-sh">#!/bin/sh
-if [ -z $1 ];
-then
-  echo 'specify a file to open with TextMate'
-  else
-  open -a TextMate $1
-fi
-</code></pre>
-</div></article>
-					
-						<div class="share">
-	<div class="addthis_toolbox addthis_default_style ">
-	
-	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 	
 	
-	<a class="addthis_button_tweet"></a>
+	
+		
+
+		
+		<section class="archives"><h1 class="year">2015</h1>
+		
+
+		<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+			<div class="meta">
+				<span class="date"><time datetime='2015' itemprop="datePublished">Aug 26</time></span>
+				<br>
+				<span class="tags">
+
+
 	
 	
-	<a class="addthis_button_google_plusone" g:plusone:size=''></a>
+		<a href="http://blog.flowstate.io//categories/operations"> Operations </a>,
+	
+
 	
 	
-	</div>
+	    <a href="http://blog.flowstate.io//categories/devops"> DevOps </a>
 	
-  	<script type="text/javascript" src='http://s7.addthis.com/js/250/addthis_widget.js#pubid='></script>
-  	
+
+
+</span>
+				
+			    <span class="comments"><a href="http://blog.flowstate.io/post/systemd/#disqus_thread">Comments</a></span>
+			    
+			</div>
+			<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/systemd/">systemd</a></h1>
+		</article>
+
+		
+	
+	</section>
 </div>
 
-					
-					
-					<section id="comment">
-					    <h1 class="title">Comments</h1>
-					    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-					</section>
-					
-					
-
-<script type="text/javascript">
-    
-    var disqus_shortname = 'flowstateio';
-
-    
-    
-
-    
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-    
-</script>
-
-
-				    </div>
 				</div>
 			</div>
 			<footer id="footer" class="inner">Copyright &copy; 2015
@@ -212,6 +168,25 @@ fi
 </script></footer>
 		</div>
 	</div>
+	
+
+<script type="text/javascript">
+    
+    var disqus_shortname = 'flowstateio';
+
+    
+    
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+    
+
+    
+</script>
+
+
 	
 </body>
 </html>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Devops on blog.flowstate.io </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://blog.flowstate.io/categories/devops/</link>
+    <language>en-us</language>
+    <author>Oakley Hall</author>
+    
+    <updated>Wed, 26 Aug 2015 07:51:50 EDT</updated>
+    
+    <item>
+      <title>systemd</title>
+      <link>http://blog.flowstate.io/post/systemd/</link>
+      <pubDate>Wed, 26 Aug 2015 07:51:50 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://blog.flowstate.io/post/systemd/</guid>
+      <description>
+
+&lt;h2 id=&#34;intro:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Intro&lt;/h2&gt;
+
+&lt;p&gt;systemd is an init system that most linux distributions are standardizing on and a crucial tool for any system admin or devops engineer.&lt;/p&gt;
+
+&lt;p&gt;In Unix and Linux, background processes are called daemons.  systemd provides a syntax for creating objects that can be managed by the daemons in the form of &lt;strong&gt;units&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can see what units you have on a machine with the &lt;a href=&#34;https://wiki.archlinux.org/index.php/Systemd#Basic_systemctl_usage&#34;&gt;&lt;code&gt;systemctl&lt;/code&gt;&lt;/a&gt; command. Here we&amp;rsquo;ll pass the parameter &lt;code&gt;list-units&lt;/code&gt;.  Which will list all the units.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ systemctl list-units
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You&amp;rsquo;ll see some stuff like this describing your available units:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;UNIT                                  LOAD   ACTIVE SUB       DESCRIPTION
+proc-sys-fs-binfmt_misc.automount     loaded active waiting   Arbitrary sys-d
+sys-devices-...dports-vport1p1.device loaded active plugged   /sys/devices/pci
+sys-devices-...-block-vda-vda1.device loaded active plugged   /sys/devices/pci
+app.mount                             loaded active mounted   /app
+dev-mqueue.mount                      loaded active mounted   POSIX Message proc-fs-nfsd.mount                    loaded active mounted   RPC Pipe File sys
+sys-kernel-debug.mount                loaded active mounted   Debug File System
+var-lib-nfs-rpc_pipefs.mount          loaded active mounted   RPC Pipe File 
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;basic-usage:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Basic usage&lt;/h2&gt;
+
+&lt;h3 id=&#34;getting-system-state:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Getting system state&lt;/h3&gt;
+
+&lt;h4 id=&#34;list-currently-running-units:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;List currently running units:&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;$ systemctl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;or:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ systemctl list-units
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;list-failed-units:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;List failed units:&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;$ systemctl --failed
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Unit files can be found in&lt;/strong&gt; &lt;code&gt;/usr/lib/systemd/system/&lt;/code&gt; and &lt;code&gt;/etc/systemd/system/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id=&#34;list-installed-unit-files-with:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;List installed unit files with:&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;$ systemctl list-unit-files
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;working-with-units:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Working with units&lt;/h2&gt;
+
+&lt;p&gt;Basic unit commands are:&lt;/p&gt;
+
+&lt;h5 id=&#34;start-a-unit-immediately:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Start a unit immediately:&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;$ systemctl start unit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;stop-a-unit-immediately:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Stop a unit immediately:&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;$ systemctl stop unit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;restart-a-unit:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Restart a unit:&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;$ systemctl restart unit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;ask-a-unit-to-reload-its-configuration:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Ask a unit to reload its configuration:&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;$ systemctl reload unit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;show-the-status-of-a-unit-including-whether-it-is-running-or-not:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Show the status of a unit, including whether it is running or not:&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;$ systemctl status unit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://wiki.archlinux.org/index.php/Systemd#Basic_systemctl_usage&#34;&gt;Other commands can be found here&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
