@@ -4,8 +4,8 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Lower back rehab - blog.flowstate.io</title>
-	<meta name="author" content="map[email:oakley349@gmail.com name:Oakley Hall]">
+	<title>Use NVM - blog.flowstate.io</title>
+	<meta name="author" content="map[name:Oakley Hall email:oakley349@gmail.com]">
 
 	
 	
@@ -19,7 +19,7 @@
     
 	<link href='/index.xml' rel="alternate" title="blog.flowstate.io" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://blog.flowstate.io/post/lower_back/">
+	<link rel="canonical" href="http://blog.flowstate.io/post/nvm/">
 	<link href="http://blog.flowstate.io/favicon.png" rel="shortcut icon">
 	<link href="http://blog.flowstate.io/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<link href="http://blog.flowstate.io/css/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -114,35 +114,64 @@
 				<div id="content" class="inner">
 					<div itemscope itemtype="http://schema.org/Blog">
 					<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-    <h1 class="title" itemprop="name">Lower back rehab</h1>
-	<div class="entry-content" itemprop="articleBody">
+    <h1 class="title" itemprop="name">Use NVM</h1>
+	<div class="entry-content" itemprop="articleBody"><p>NVM is the Node Version Manager, a bash script you can and should use to manage multiple NodeJS versions.  As a Node developer, you&rsquo;ll invariably find yourself dealing with Node version compatibility issues forcing you to switch versions of Node depending on what you&rsquo;re working on.  It would be nice if Node offered a command like <code>use 4.1.1</code>, well NVM does just that.</p>
 
-<p>Earlier this year I started waking up to brutal lower back pain.   I went to a spinal specialist at the behest of my fiancee and learned that I&rsquo;ve been suffering from what he termed a &lsquo;Pars Fracture&rsquo;. I got a prescription for physical therapy and started work that week.  There&rsquo;s not much to do about the actual injury, but my therapist told me that a stronger core would help manage the discomfort.  Long story short, when I do these workouts, the night pain goes away.  They look easy, but they are legit.</p>
+<p>First install the latest version from <a href="https://github.com/creationix/nvm">here</a></p>
 
-<p>Cartoons are courtesy of my therapist. One thing to focus on is drawing the belly button as much as possible.  It was described to me as pulling it toward the spine.</p>
+<pre><code>curl -o- https://raw.githubusercontent.com/creationix/nvm/&lt;LATEST_VERSION/install.sh | bash
+</code></pre>
 
-<h3 id="start-with-some-light-cardio-to-warm-up-then-stretch-focusing-on-the-hamstrings-hip-flexors-and-it-bands:2c011abc126a14fa729c2ebaf0b81947">Start with some light cardio to warm up, then stretch, focusing on the hamstrings, hip flexors and IT bands:</h3>
+<p>This will install the <code>.nvm</code> file in your user dir and add some lines to your <code>.bashrc</code> to source it. If you&rsquo;re seeing some error like <code>-bash: nvm: command not found</code> when you try to run the app, chances are you&rsquo;re not sourcing it correctly.</p>
 
-<p><img src="/images/pt1.png"/>
-<img src="/images/pt2.png"/></p>
+<p>Before we start, let&rsquo;s look at what version of Node we&rsquo;re running:</p>
 
-<h3 id="move-into-these-core-strengthening-moves-being-sure-to-draw-the-belly-button-in:2c011abc126a14fa729c2ebaf0b81947">Move into these core strengthening moves, being sure to draw the belly button in.</h3>
+<pre><code>$ node --version
+v0.10.22
+</code></pre>
 
-<p><img src="/images/pt3.png"/>
-<img src="/images/pt4.png"/>
-<img src="/images/pt5.png"/>
-<img src="/images/pt6.png"/>
-<img src="/images/pt7.png"/></p>
+<p>Yikes! Time for an upgrade. What does NVM have available for us?</p>
 
-<h3 id="if-you-have-access-to-a-bosu-ball-and-or-small-medicine-ball-add-these-stability-moves:2c011abc126a14fa729c2ebaf0b81947">If you have access to a bosu ball and/or small medicine ball, add these stability moves:</h3>
+<pre><code>$ nvm list
 
-<p><img src="/images/pt8.png"/>
-<img src="/images/pt9.png"/>
-<img src="/images/pt10.png"/>
-<img src="/images/pt11.png"/>
-<img src="/images/pt12.png"/>
-<img src="/images/pt13.png"/>
-<img src="/images/pt14.png"/></p>
+-&gt;       system
+node -&gt; stable (-&gt; N/A) (default)
+iojs -&gt; N/A (default)
+</code></pre>
+
+<p>Ah, well, we haven&rsquo;t installed any new versions yet, so all we have available is <code>system</code> which is what we started with.</p>
+
+<p>Let&rsquo;s get a freshie.</p>
+
+<pre><code>$ nvm install 4.1.1
+######################################################################## 100.0%
+WARNING: checksums are currently disabled for node.js v4.0 and later
+Now using node v4.1.1 (npm v2.14.4)
+</code></pre>
+
+<p>Ok, I&rsquo;ll Google that warning later, but we have a new version of Node available, but we&rsquo;re not using it yet.</p>
+
+<pre><code>$ nvm list
+         v4.1.1
+-&gt;       system
+node -&gt; stable (-&gt; v4.1.1) (default)
+stable -&gt; 4.1 (-&gt; v4.1.1) (default)
+iojs -&gt; N/A (default)
+
+$ node --version
+v0.10.22
+</code></pre>
+
+<p>ok so let&rsquo;s use our new version now:</p>
+
+<pre><code>$ nvm use 4.1.1
+Now using node v4.1.1 (npm v2.14.4)
+
+$ node --version
+v4.1.1
+</code></pre>
+
+<p>That easy. Now you can toggle back and forth between Node versions with nary a hassle. Go do it.</p>
 </div></article>
 					
 						<div class="share">

@@ -7,7 +7,73 @@
     <language>en-us</language>
     <author>Oakley Hall</author>
     
-    <updated>Fri, 18 Sep 2015 12:52:45 EDT</updated>
+    <updated>Thu, 01 Oct 2015 17:23:41 EDT</updated>
+    
+    <item>
+      <title>Use NVM</title>
+      <link>http://blog.flowstate.io/post/nvm/</link>
+      <pubDate>Thu, 01 Oct 2015 17:23:41 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://blog.flowstate.io/post/nvm/</guid>
+      <description>&lt;p&gt;NVM is the Node Version Manager, a bash script you can and should use to manage multiple NodeJS versions.  As a Node developer, you&amp;rsquo;ll invariably find yourself dealing with Node version compatibility issues forcing you to switch versions of Node depending on what you&amp;rsquo;re working on.  It would be nice if Node offered a command like &lt;code&gt;use 4.1.1&lt;/code&gt;, well NVM does just that.&lt;/p&gt;
+
+&lt;p&gt;First install the latest version from &lt;a href=&#34;https://github.com/creationix/nvm&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -o- https://raw.githubusercontent.com/creationix/nvm/&amp;lt;LATEST_VERSION/install.sh | bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will install the &lt;code&gt;.nvm&lt;/code&gt; file in your user dir and add some lines to your &lt;code&gt;.bashrc&lt;/code&gt; to source it. If you&amp;rsquo;re seeing some error like &lt;code&gt;-bash: nvm: command not found&lt;/code&gt; when you try to run the app, chances are you&amp;rsquo;re not sourcing it correctly.&lt;/p&gt;
+
+&lt;p&gt;Before we start, let&amp;rsquo;s look at what version of Node we&amp;rsquo;re running:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ node --version
+v0.10.22
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yikes! Time for an upgrade. What does NVM have available for us?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ nvm list
+
+-&amp;gt;       system
+node -&amp;gt; stable (-&amp;gt; N/A) (default)
+iojs -&amp;gt; N/A (default)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ah, well, we haven&amp;rsquo;t installed any new versions yet, so all we have available is &lt;code&gt;system&lt;/code&gt; which is what we started with.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s get a freshie.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ nvm install 4.1.1
+######################################################################## 100.0%
+WARNING: checksums are currently disabled for node.js v4.0 and later
+Now using node v4.1.1 (npm v2.14.4)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ok, I&amp;rsquo;ll Google that warning later, but we have a new version of Node available, but we&amp;rsquo;re not using it yet.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ nvm list
+         v4.1.1
+-&amp;gt;       system
+node -&amp;gt; stable (-&amp;gt; v4.1.1) (default)
+stable -&amp;gt; 4.1 (-&amp;gt; v4.1.1) (default)
+iojs -&amp;gt; N/A (default)
+
+$ node --version
+v0.10.22
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ok so let&amp;rsquo;s use our new version now:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ nvm use 4.1.1
+Now using node v4.1.1 (npm v2.14.4)
+
+$ node --version
+v4.1.1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That easy. Now you can toggle back and forth between Node versions with nary a hassle. Go do it.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>NPM Shrinkwrap is easy</title>
