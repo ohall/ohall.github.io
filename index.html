@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>blog.flowstate.io</title>
-	<meta name="author" content="map[name:Oakley Hall email:oakley349@gmail.com]">
+	<meta name="author" content="map[email:oakley349@gmail.com name:Oakley Hall]">
 
 	
 	
@@ -115,6 +115,37 @@
 					
 					<div itemscope itemtype="http://schema.org/Blog">
 					
+				        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="meta">
+		<div class="date"><time datetime='Mon, Oct 5, 2015' data-updated="true" itemprop="datePublished">Mon, Oct 5, 2015</time>
+</div>
+		<div class="tags">
+
+
+	
+	
+		<a href="http://blog.flowstate.io//categories/devops"> DevOps </a>,
+	
+
+	
+	
+	    <a href="http://blog.flowstate.io//categories/linux"> Linux </a>
+	
+
+
+</div>
+		
+			<span class="comments"><a href="http://blog.flowstate.io/post/portopen/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/portopen/" itemprop="url">How to check if a port is open on a remote server using netcat</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		Assuming you have ssh access to the remote server you can check the status of a give port with netcat (nc). In a terminal window logged into the server use this command with the -l flag to listen and the port you want to test (by listening on). $ nc -l 443 This will leave you with a prompt, don&rsquo;t do anything yet. In another terminal on your local machine. Call nc again, this time with the IP of your remote server and the port to test as params.
+		<a href="http://blog.flowstate.io/post/portopen/" class="more-link">Read on →</a>
+	</div>
+</article>
+
+				    
 				        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
     <div class="meta">
 		<div class="date"><time datetime='Thu, Oct 1, 2015' data-updated="true" itemprop="datePublished">Thu, Oct 1, 2015</time>
@@ -440,42 +471,6 @@
 	<div class="entry-content" itemprop="articleBody">
 		map() is an array utility function that you&rsquo;re probably either intimately familiar with or, like me, need to learn. In a nutshell, map() creates a new array out of the results of calling a given function on every element on the array on which it&rsquo;s called. There are implementations of map() in native JS, jQuery and UnderscoreJS. All other things being equal, Underscore&rsquo;s version is the most performant. map() is a &lsquo;collection function&rsquo;, meaning it works on either Arrays or Objects If our collection is an Array, map() will put each value through a transformational function, passing the value at each index to the array to the callback function as the first parameter, the index as the second and the whole array as the third.
 		<a href="http://blog.flowstate.io/post/js_map/" class="more-link">Read on →</a>
-	</div>
-</article>
-
-				    
-				        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-    <div class="meta">
-		<div class="date"><time datetime='Sat, Mar 2, 2013' data-updated="true" itemprop="datePublished">Sat, Mar 2, 2013</time>
-</div>
-		<div class="tags">
-
-
-	
-	
-		<a href="http://blog.flowstate.io//categories/osx"> OSX </a>,
-	
-
-	
-	
-		<a href="http://blog.flowstate.io//categories/c"> C&#43;&#43; </a>,
-	
-
-	
-	
-	    <a href="http://blog.flowstate.io//categories/development"> Development </a>
-	
-
-
-</div>
-		
-			<span class="comments"><a href="http://blog.flowstate.io/post/first_cpp/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/first_cpp/" itemprop="url">Writing your first C&#43;&#43; program on a Mac</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		A friend of mine recently started his first computer science class. His entire class in working on Windows machines and using Visual Studio. He wants to use his Mac. I know how frustrating setting up development environment for the first time can be. He&rsquo;re how I advised him to get started and write is first code. You need two things to write programs in C++. You need a compiler. A compiler is an application that takes the code you write in a human readable language ( C++ in this case ) and converts it into machine code so it can run.
-		<a href="http://blog.flowstate.io/post/first_cpp/" class="more-link">Read on →</a>
 	</div>
 </article>
 

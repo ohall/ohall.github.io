@@ -7,7 +7,45 @@
     <language>en-us</language>
     <author>Oakley Hall</author>
     
-    <updated>Thu, 01 Oct 2015 17:23:41 EDT</updated>
+    <updated>Mon, 05 Oct 2015 15:15:15 EDT</updated>
+    
+    <item>
+      <title>How to check if a port is open on a remote server using netcat</title>
+      <link>http://blog.flowstate.io/post/portopen/</link>
+      <pubDate>Mon, 05 Oct 2015 15:15:15 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://blog.flowstate.io/post/portopen/</guid>
+      <description>&lt;p&gt;Assuming you have ssh access to the remote server you can check the status of a give port with netcat (&lt;code&gt;nc&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;In a terminal window logged into the server use this command with the &lt;code&gt;-l&lt;/code&gt; flag to listen and the port you want to test (by listening on).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ nc -l 443
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will leave you with a prompt, don&amp;rsquo;t do anything yet.&lt;/p&gt;
+
+&lt;p&gt;In another terminal on your local machine. Call &lt;code&gt;nc&lt;/code&gt; again, this time with the IP of your remote server and the port to test as params. If nothing is listening on that port, nothing will happen. If it is closed, it will timeout. (But we KNOW netcat is listening!)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;nc XXX.XX.XX.XXX 443
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Go back to the terminal window on the server and type something in the prompt and hit enter:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ nc -l 443
+foo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;on the client machine, you should see this come though&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;nc XXX.XX.XX.XXX 443
+foo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can type messages both ways, but you know know you have an open port.&lt;/p&gt;
+
+&lt;p&gt;Cool right? &amp;hellip;whatever, I think it&amp;rsquo;s cool.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Use NVM</title>
