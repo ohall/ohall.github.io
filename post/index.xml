@@ -19,8 +19,6 @@
 
 &lt;p&gt;&lt;img src=&#34;http://www.businesscloudnews.com/files/2016/01/Walmart-OneOps.jpg&#34; alt=&#34;OneOps Banner&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;#OneOps&lt;/p&gt;
-
 &lt;p&gt;&lt;a href=&#34;http://www.walmartlabs.com/&#34;&gt;WalmartLabs&lt;/a&gt; has recently open sources their cloud management platform &lt;a href=&#34;http://www.walmartlabs.com/2016/01/oneops-now-available/&#34;&gt;OneOps&lt;/a&gt;.  You can dive into the documentation &lt;a href=&#34;http://oneops.com/&#34;&gt;here&lt;/a&gt; or examine the source code &lt;a href=&#34;https://github.com/oneops/&#34;&gt;here&lt;/a&gt;. As a OneOps user, I&amp;rsquo;d like to offer a quick spin around OneOps and an overview of what it does.&lt;/p&gt;
 
 &lt;h1 id=&#34;what-is-it:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;What is it?&lt;/h1&gt;
