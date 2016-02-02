@@ -49,14 +49,14 @@
 
 &lt;h4 id=&#34;platform:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Platform&lt;/h4&gt;
 
-&lt;p&gt;The Platform represents a VM cluster. A Design will contain one or more. For example, you can have a design that contains just a backend server OR it could contain server, database and apache components, depending how you want to organize things. Platforms can be built from scratch, but is generally built from a &lt;a href=&#34;http://oneops.github.io/user/references/#platform-packs&#34;&gt;Pack&lt;/a&gt; which is a set of preconfigured Components.&lt;/p&gt;
+&lt;p&gt;The Platform represents a VM cluster. A Design will contain one or more platforms. For example, you can have a design that contains just a backend server OR it could contain server, database and apache components, depending how you want to organize things. Platforms can be built from scratch, but is generally built from a &lt;a href=&#34;http://oneops.github.io/user/references/#platform-packs&#34;&gt;Pack&lt;/a&gt; which is a set of preconfigured Components.&lt;/p&gt;
 
 &lt;h4 id=&#34;components:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Components&lt;/h4&gt;
 
 &lt;p&gt;Components represent configurations and installed software and files on the VMs. Some examples include:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Node&lt;/li&gt;
+&lt;li&gt;NodeJS&lt;/li&gt;
 &lt;li&gt;Java&lt;/li&gt;
 &lt;li&gt;SSH keys&lt;/li&gt;
 &lt;li&gt;Load Balancer&lt;/li&gt;
@@ -74,7 +74,7 @@
 
 &lt;h2 id=&#34;transition:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Transition:&lt;/h2&gt;
 
-&lt;p&gt;In the transition phase you will: Configure environments. (PROD, STAGE, QA, etc.) Determine which clouds our platforms will be deployed on in those environments. Set environment specific configurations. It is also in the transition phase that you deploy your platforms.&lt;/p&gt;
+&lt;p&gt;In the transition phase you will: Configure environments. (PROD, STAGE, QA, etc.) Determine which clouds your platforms will be deployed on in those environments. Set environment specific configurations. It is also in the transition phase that you deploy your platforms.&lt;/p&gt;
 
 &lt;p&gt;When you create an environment you&amp;rsquo;ll &amp;ldquo;Pull&amp;rdquo; your design into it in order to set all the configurations for that environment. In the Transition tab in the GUI you&amp;rsquo;ll see the same fields as in Design, pre-populated with the values set in the Design. However you can change any of those values and that change will be reflected in this environment. This change will be overwritten next time you pull a design change UNLESS you LOCK the field.&lt;/p&gt;
 
@@ -105,7 +105,7 @@
 
 &lt;h3 id=&#34;the-not-as-good:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;The not as good&lt;/h3&gt;
 
-&lt;p&gt;The operations executed by OneOps are often complex and debugging failures can be difficult. &lt;a href=&#34;https://oneops.slack.com/&#34;&gt;The OneOps team&lt;/a&gt; is incredibly responsive, but at times it can feel like there is a little black magic going on behind the scenes. The version control scheme for components and configurations and be opaque.  There are often times when you&amp;rsquo;d like to just use versioned files from Github or the like and while it&amp;rsquo;s possible, it&amp;rsquo;s not always obvious how to do it.&lt;/p&gt;
+&lt;p&gt;The operations executed by OneOps are often complex and debugging failures can be difficult. &lt;a href=&#34;http://oneops.com/contribute.html&#34;&gt;The OneOps team&lt;/a&gt; is incredibly responsive, but at times it can feel like there is a little black magic going on behind the scenes. The version control scheme for components and configurations and be opaque.  There are often times when you&amp;rsquo;d like to just use versioned files from Github or the like and while it&amp;rsquo;s possible, it&amp;rsquo;s not always obvious how to do it.&lt;/p&gt;
 
 &lt;h3 id=&#34;the-future:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;The future&lt;/h3&gt;
 
