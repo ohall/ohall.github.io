@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+
+<html lang="en-us">
+
+<head>
+	<meta charset="utf-8">
+	<title>Into to OneOps - blog.flowstate.io</title>
+	<meta name="author" content="map[name:Oakley Hall email:oakley349@gmail.com]">
+
+	
+	
+	<meta name="description" content="">
+	
+
+	
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	<link href='/index.xml' rel="alternate" title="blog.flowstate.io" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://blog.flowstate.io/post/oneops/">
+	<link href="http://blog.flowstate.io/favicon.png" rel="shortcut icon">
+	<link href="http://blog.flowstate.io/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="http://blog.flowstate.io/css/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="http://blog.flowstate.io/css/custom.css" media="screen, projection" rel="stylesheet" type="text/css">
+	
+	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+  
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-46107157-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">
+	
+	
+	<script src="http://blog.flowstate.io//js/md5.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.profilepic').append("<img src='http://www.gravatar.com/avatar/" + MD5('oakley349@gmail.com') + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+		});
+	</script>
+	
+	
+</div>
+
+<nav id="main-nav">
+<section class="aboutme">
+    <h3> I&#39;m just sayin&#39; </h3>
+</section>
+
+
+<ul class="main">
+    <li><a href="/">Blog</a></li>
+    <li><a href="/post/">Archives</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+			<a class="email" href='mailto:oakley349@gmail.com' title="Email">Email</a>
+		
+		
+		
+		
+			<a class="twitter" href='http://twitter.com/_ohall' title="Twitter">Twitter</a>
+		
+		
+			<a class="github" href='https://github.com/ohall' title="GitHub">GitHub</a>
+		
+		
+		
+		  <a class="stackoverflow" href='http://stackoverflow.com/users/1742747/oakley' title="StackOverflow"></a>
+		
+		
+			<a class="linkedin" href='http://www.linkedin.com/in/oakleyhall' title="LinkedIn">LinkedIn</a>
+		
+		
+		
+		
+		
+		
+		
+    	
+    	
+			<a class="rss" href='/index.xml' title="RSS">RSS</a>
+		
+	</div>
+</nav>
+</header>
+			</div>
+		</div>
+		<div class="mid-col">
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner">
+					<div itemscope itemtype="http://schema.org/Blog">
+					<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 class="title" itemprop="name">Into to OneOps</h1>
+	<div class="entry-content" itemprop="articleBody">
+
+<p><img src="http://www.businesscloudnews.com/files/2016/01/Walmart-OneOps.jpg" alt="OneOps Banner" /></p>
+
+<p>#OneOps</p>
+
+<p><a href="http://www.walmartlabs.com/">WalmartLabs</a> has recently open sources their cloud management platform <a href="http://www.walmartlabs.com/2016/01/oneops-now-available/">OneOps</a>.  You can dive into the documentation <a href="http://oneops.com/">here</a> or examine the source code <a href="https://github.com/oneops/">here</a>. As a OneOps user, I&rsquo;d like to offer a quick spin around OneOps and an overview of what it does.</p>
+
+<h1 id="what-is-it:8f7e8c26f6684d9b124c0f8a7fd2167e">What is it?</h1>
+
+<p>OneOps allows you to configure VM clusters using a GUI or a RESTful API in a way that is cloud provider agnostic. Meaning, you can use cores from AWS or any other cloud provider or a private cloud.</p>
+
+<p>Configurations and environment settings are maintained in OneOps and can easily be ported between cloud providers.</p>
+
+<h1 id="how-does-it-work:8f7e8c26f6684d9b124c0f8a7fd2167e">How does it work?</h1>
+
+<p>OneOps has a few basic organizational concepts which you&rsquo;ll see repeatedly.</p>
+
+<h2 id="organization:8f7e8c26f6684d9b124c0f8a7fd2167e">Organization:</h2>
+
+<p>An Organization is group of users, clouds and assemblies that share settings, quotas and permissions. From the Organization view you can see a summary of users, clouds, assemblies, notifications, ongoing deployments, VM health statistics and reports for all cores in the Organization that includes allocation and quotas.</p>
+
+<h2 id="assembly:8f7e8c26f6684d9b124c0f8a7fd2167e">Assembly:</h2>
+
+<p>This essentially a project. The Assembly consists of 3 phases. <strong>Design</strong>, <strong>Transition</strong>, <strong>Operate</strong>.</p>
+
+<h2 id="design:8f7e8c26f6684d9b124c0f8a7fd2167e">Design:</h2>
+
+<p>The Design is basically the template for how your VM cluster will be configured.</p>
+
+<p>Think of a design as a prototype which will be inherited in the Transition then instantiated in an environment</p>
+
+<p>A design consists of one or more Platforms for which you&rsquo;ll configure the prototype in the design phase.</p>
+
+<h4 id="platform:8f7e8c26f6684d9b124c0f8a7fd2167e">Platform</h4>
+
+<p>The Platform represents a VM cluster. A Design will contain one or more. For example, you can have a design that contains just a backend server OR it could contain server, database and apache components, depending how you want to organize things. Platforms can be built from scratch, but is generally built from a <a href="http://oneops.github.io/user/references/#platform-packs">Pack</a> which is a set of preconfigured Components.</p>
+
+<h4 id="components:8f7e8c26f6684d9b124c0f8a7fd2167e">Components</h4>
+
+<p>Components represent configurations and installed software and files on the VMs. Some examples include:</p>
+
+<ul>
+<li>Node</li>
+<li>Java</li>
+<li>SSH keys</li>
+<li>Load Balancer</li>
+<li>Redis DB</li>
+<li>Mounted volumes</li>
+<li>Cron jobs</li>
+<li>File</li>
+</ul>
+
+<p>The NodeJS component for example installs a node binary on your cluster, and includes fields for the user to define, version, install location, log file location, etc.</p>
+
+<p>Another example is a File component which allows to you place a file in an arbitrary location on your cluster and provides a field for and execute command. You might use this to execute a shell script on your cluster.</p>
+
+<p><img src="https://raw.githubusercontent.com/oneops/oneops.github.io/master/assets/local/images/design-graph.png" alt="" /></p>
+
+<h2 id="transition:8f7e8c26f6684d9b124c0f8a7fd2167e">Transition:</h2>
+
+<p>In the transition phase you will: Configure environments. (PROD, STAGE, QA, etc.) Determine which clouds our platforms will be deployed on in those environments. Set environment specific configurations. It is also in the transition phase that you deploy your platforms.</p>
+
+<p>When you create an environment you&rsquo;ll &ldquo;Pull&rdquo; your design into it in order to set all the configurations for that environment. In the Transition tab in the GUI you&rsquo;ll see the same fields as in Design, pre-populated with the values set in the Design. However you can change any of those values and that change will be reflected in this environment. This change will be overwritten next time you pull a design change UNLESS you LOCK the field.</p>
+
+<p><img src="https://raw.githubusercontent.com/oneops/oneops.github.io/master/assets/local/images/lock.png" alt="lock" /></p>
+
+<p>Once you&rsquo;ve configured your environment, you&rsquo;ll commit the changes and deploy them. This phase actually provisions and configures your VMs in real life on real machines. All components will be deployed in the initial deployment. On subsequent deployments, on components that have been changed or explicitly &ldquo;Touched&rdquo; will be deployed.</p>
+
+<p>You can touch a component any time from its bread crumb menu.
+<img src="https://raw.githubusercontent.com/oneops/oneops.github.io/master/assets/local/images/GettingStartedEC2CommitAndDeploy.png" alt="transition" /></p>
+
+<h2 id="operate:8f7e8c26f6684d9b124c0f8a7fd2167e">Operate:</h2>
+
+<p>The Operate phase is how you view monitor and control your clusters now that they are active. You can see the health of individual computes, stop, repair or replace them. you can also see vital information about your VMs including IPs and host names.</p>
+
+<p>Drilling down in a component in the Operate view will show all the computes it is installed on and a summary of attributes. You can select a compute and see the state of that component as it exists on that compute. This view shows the configuration, notifications, logs and some actions you can execute on the component.</p>
+
+<p><img src="https://raw.githubusercontent.com/oneops/oneops.github.io/master/assets/local/images/assess-health-operate.png" alt="operate" /></p>
+
+<h2 id="api:8f7e8c26f6684d9b124c0f8a7fd2167e">API</h2>
+
+<p>There will be a lot of cases where you&rsquo;ll want to integrate OneOps with other components in the build/deploy pipeline or simple script oft repeated operations like deployments. For this, OneOps provides a <a href="http://oneops.github.io/developer/references/#oneops-api-documentation">RESTful API</a>. We&rsquo;ll go into more detail about OneOp API usage in another post, but suffice it to say that as your usage of OneOps increases, you&rsquo;ll find yourself increasingly relying on this feature to integrate OneOps into your pipeline. OneOps also provides a <a href="http://oneops.github.io/admin/key-concepts/#cli">Ruby CLI</a> to the API, which you can install.</p>
+
+<h2 id="conclusion:8f7e8c26f6684d9b124c0f8a7fd2167e">Conclusion</h2>
+
+<h3 id="the-good:8f7e8c26f6684d9b124c0f8a7fd2167e">The good</h3>
+
+<p>OneOps is a powerful cloud management tool that you can experiment with today. Right off the shelf it provides a nice end to end solution for configuring and managing a range of cloud solutions. Standing up VM clusters with simple preset configurations is easy and viewing and maintaining VM health can be done with just a few clicks.</p>
+
+<h3 id="the-not-as-good:8f7e8c26f6684d9b124c0f8a7fd2167e">The not as good</h3>
+
+<p>The operations executed by OneOps are often complex and debugging failures can be difficult. <a href="https://oneops.slack.com/">The OneOps team</a> is incredibly responsive, but at times it can feel like there is a little black magic going on behind the scenes. The version control scheme for components and configurations and be opaque.  There are often times when you&rsquo;d like to just use versioned files from Github or the like and while it&rsquo;s possible, it&rsquo;s not always obvious how to do it.</p>
+
+<h3 id="the-future:8f7e8c26f6684d9b124c0f8a7fd2167e">The future</h3>
+
+<p>I&rsquo;m glad that now that OneOps is open source, the response to my complaints will be &ldquo;File a PR!&rdquo;. I think community involvement will make an already powerful tool even more useful and user friendly.</p>
+</div></article>
+					
+						<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_button_google_plusone" g:plusone:size=''></a>
+	
+	
+	</div>
+	
+  	<script type="text/javascript" src='http://s7.addthis.com/js/250/addthis_widget.js#pubid='></script>
+  	
+</div>
+
+					
+					
+					<section id="comment">
+					    <h1 class="title">Comments</h1>
+					    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+					</section>
+					
+					
+
+<script type="text/javascript">
+    
+    var disqus_shortname = 'flowstateio';
+
+    
+    
+
+    
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+    
+</script>
+
+
+				    </div>
+				</div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2016
+
+    Oakley Hall
+
+<script src="http://blog.flowstate.io//js/slash.js"></script>
+<script src="http://blog.flowstate.io//js/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script></footer>
+		</div>
+	</div>
+	
+</body>
+</html>

@@ -7,7 +7,113 @@
     <language>en-us</language>
     <author>Oakley Hall</author>
     
-    <updated>Mon, 05 Oct 2015 15:15:15 EDT</updated>
+    <updated>Tue, 02 Feb 2016 08:33:38 EST</updated>
+    
+    <item>
+      <title>Into to OneOps</title>
+      <link>http://blog.flowstate.io/post/oneops/</link>
+      <pubDate>Tue, 02 Feb 2016 08:33:38 EST</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://blog.flowstate.io/post/oneops/</guid>
+      <description>
+
+&lt;p&gt;&lt;img src=&#34;http://www.businesscloudnews.com/files/2016/01/Walmart-OneOps.jpg&#34; alt=&#34;OneOps Banner&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;#OneOps&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.walmartlabs.com/&#34;&gt;WalmartLabs&lt;/a&gt; has recently open sources their cloud management platform &lt;a href=&#34;http://www.walmartlabs.com/2016/01/oneops-now-available/&#34;&gt;OneOps&lt;/a&gt;.  You can dive into the documentation &lt;a href=&#34;http://oneops.com/&#34;&gt;here&lt;/a&gt; or examine the source code &lt;a href=&#34;https://github.com/oneops/&#34;&gt;here&lt;/a&gt;. As a OneOps user, I&amp;rsquo;d like to offer a quick spin around OneOps and an overview of what it does.&lt;/p&gt;
+
+&lt;h1 id=&#34;what-is-it:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;What is it?&lt;/h1&gt;
+
+&lt;p&gt;OneOps allows you to configure VM clusters using a GUI or a RESTful API in a way that is cloud provider agnostic. Meaning, you can use cores from AWS or any other cloud provider or a private cloud.&lt;/p&gt;
+
+&lt;p&gt;Configurations and environment settings are maintained in OneOps and can easily be ported between cloud providers.&lt;/p&gt;
+
+&lt;h1 id=&#34;how-does-it-work:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;How does it work?&lt;/h1&gt;
+
+&lt;p&gt;OneOps has a few basic organizational concepts which you&amp;rsquo;ll see repeatedly.&lt;/p&gt;
+
+&lt;h2 id=&#34;organization:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Organization:&lt;/h2&gt;
+
+&lt;p&gt;An Organization is group of users, clouds and assemblies that share settings, quotas and permissions. From the Organization view you can see a summary of users, clouds, assemblies, notifications, ongoing deployments, VM health statistics and reports for all cores in the Organization that includes allocation and quotas.&lt;/p&gt;
+
+&lt;h2 id=&#34;assembly:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Assembly:&lt;/h2&gt;
+
+&lt;p&gt;This essentially a project. The Assembly consists of 3 phases. &lt;strong&gt;Design&lt;/strong&gt;, &lt;strong&gt;Transition&lt;/strong&gt;, &lt;strong&gt;Operate&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;design:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Design:&lt;/h2&gt;
+
+&lt;p&gt;The Design is basically the template for how your VM cluster will be configured.&lt;/p&gt;
+
+&lt;p&gt;Think of a design as a prototype which will be inherited in the Transition then instantiated in an environment&lt;/p&gt;
+
+&lt;p&gt;A design consists of one or more Platforms for which you&amp;rsquo;ll configure the prototype in the design phase.&lt;/p&gt;
+
+&lt;h4 id=&#34;platform:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Platform&lt;/h4&gt;
+
+&lt;p&gt;The Platform represents a VM cluster. A Design will contain one or more. For example, you can have a design that contains just a backend server OR it could contain server, database and apache components, depending how you want to organize things. Platforms can be built from scratch, but is generally built from a &lt;a href=&#34;http://oneops.github.io/user/references/#platform-packs&#34;&gt;Pack&lt;/a&gt; which is a set of preconfigured Components.&lt;/p&gt;
+
+&lt;h4 id=&#34;components:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Components&lt;/h4&gt;
+
+&lt;p&gt;Components represent configurations and installed software and files on the VMs. Some examples include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Node&lt;/li&gt;
+&lt;li&gt;Java&lt;/li&gt;
+&lt;li&gt;SSH keys&lt;/li&gt;
+&lt;li&gt;Load Balancer&lt;/li&gt;
+&lt;li&gt;Redis DB&lt;/li&gt;
+&lt;li&gt;Mounted volumes&lt;/li&gt;
+&lt;li&gt;Cron jobs&lt;/li&gt;
+&lt;li&gt;File&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The NodeJS component for example installs a node binary on your cluster, and includes fields for the user to define, version, install location, log file location, etc.&lt;/p&gt;
+
+&lt;p&gt;Another example is a File component which allows to you place a file in an arbitrary location on your cluster and provides a field for and execute command. You might use this to execute a shell script on your cluster.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/oneops/oneops.github.io/master/assets/local/images/design-graph.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;transition:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Transition:&lt;/h2&gt;
+
+&lt;p&gt;In the transition phase you will: Configure environments. (PROD, STAGE, QA, etc.) Determine which clouds our platforms will be deployed on in those environments. Set environment specific configurations. It is also in the transition phase that you deploy your platforms.&lt;/p&gt;
+
+&lt;p&gt;When you create an environment you&amp;rsquo;ll &amp;ldquo;Pull&amp;rdquo; your design into it in order to set all the configurations for that environment. In the Transition tab in the GUI you&amp;rsquo;ll see the same fields as in Design, pre-populated with the values set in the Design. However you can change any of those values and that change will be reflected in this environment. This change will be overwritten next time you pull a design change UNLESS you LOCK the field.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/oneops/oneops.github.io/master/assets/local/images/lock.png&#34; alt=&#34;lock&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Once you&amp;rsquo;ve configured your environment, you&amp;rsquo;ll commit the changes and deploy them. This phase actually provisions and configures your VMs in real life on real machines. All components will be deployed in the initial deployment. On subsequent deployments, on components that have been changed or explicitly &amp;ldquo;Touched&amp;rdquo; will be deployed.&lt;/p&gt;
+
+&lt;p&gt;You can touch a component any time from its bread crumb menu.
+&lt;img src=&#34;https://raw.githubusercontent.com/oneops/oneops.github.io/master/assets/local/images/GettingStartedEC2CommitAndDeploy.png&#34; alt=&#34;transition&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;operate:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Operate:&lt;/h2&gt;
+
+&lt;p&gt;The Operate phase is how you view monitor and control your clusters now that they are active. You can see the health of individual computes, stop, repair or replace them. you can also see vital information about your VMs including IPs and host names.&lt;/p&gt;
+
+&lt;p&gt;Drilling down in a component in the Operate view will show all the computes it is installed on and a summary of attributes. You can select a compute and see the state of that component as it exists on that compute. This view shows the configuration, notifications, logs and some actions you can execute on the component.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/oneops/oneops.github.io/master/assets/local/images/assess-health-operate.png&#34; alt=&#34;operate&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;api:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;API&lt;/h2&gt;
+
+&lt;p&gt;There will be a lot of cases where you&amp;rsquo;ll want to integrate OneOps with other components in the build/deploy pipeline or simple script oft repeated operations like deployments. For this, OneOps provides a &lt;a href=&#34;http://oneops.github.io/developer/references/#oneops-api-documentation&#34;&gt;RESTful API&lt;/a&gt;. We&amp;rsquo;ll go into more detail about OneOp API usage in another post, but suffice it to say that as your usage of OneOps increases, you&amp;rsquo;ll find yourself increasingly relying on this feature to integrate OneOps into your pipeline. OneOps also provides a &lt;a href=&#34;http://oneops.github.io/admin/key-concepts/#cli&#34;&gt;Ruby CLI&lt;/a&gt; to the API, which you can install.&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;h3 id=&#34;the-good:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;The good&lt;/h3&gt;
+
+&lt;p&gt;OneOps is a powerful cloud management tool that you can experiment with today. Right off the shelf it provides a nice end to end solution for configuring and managing a range of cloud solutions. Standing up VM clusters with simple preset configurations is easy and viewing and maintaining VM health can be done with just a few clicks.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-not-as-good:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;The not as good&lt;/h3&gt;
+
+&lt;p&gt;The operations executed by OneOps are often complex and debugging failures can be difficult. &lt;a href=&#34;https://oneops.slack.com/&#34;&gt;The OneOps team&lt;/a&gt; is incredibly responsive, but at times it can feel like there is a little black magic going on behind the scenes. The version control scheme for components and configurations and be opaque.  There are often times when you&amp;rsquo;d like to just use versioned files from Github or the like and while it&amp;rsquo;s possible, it&amp;rsquo;s not always obvious how to do it.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-future:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;The future&lt;/h3&gt;
+
+&lt;p&gt;I&amp;rsquo;m glad that now that OneOps is open source, the response to my complaints will be &amp;ldquo;File a PR!&amp;rdquo;. I think community involvement will make an already powerful tool even more useful and user friendly.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>How to check if a port is open on a remote server using netcat</title>
