@@ -105,7 +105,7 @@
 
 &lt;h3 id=&#34;the-not-as-good:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;The not as good&lt;/h3&gt;
 
-&lt;p&gt;The operations executed by OneOps are often complex and debugging failures can be difficult. &lt;a href=&#34;http://oneops.com/contribute.html&#34;&gt;The OneOps team&lt;/a&gt; is incredibly responsive, but at times it can feel like there is a little black magic going on behind the scenes. The version control scheme for components and configurations and be opaque.  There are often times when you&amp;rsquo;d like to just use versioned files from Github or the like and while it&amp;rsquo;s possible, it&amp;rsquo;s not always obvious how to do it.&lt;/p&gt;
+&lt;p&gt;The operations executed by OneOps are often complex and debugging failures can be difficult. &lt;a href=&#34;http://oneops.com/contribute.html&#34;&gt;The OneOps team&lt;/a&gt; is incredibly responsive, but at times it can feel like there is a little black magic going on behind the scenes. The version control scheme for components and configurations can be opaque.  There are often times when you&amp;rsquo;d like to just use versioned files from Github or the like and while it&amp;rsquo;s possible, it&amp;rsquo;s not always obvious how to do it.&lt;/p&gt;
 
 &lt;h3 id=&#34;the-future:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;The future&lt;/h3&gt;
 
