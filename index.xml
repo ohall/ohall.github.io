@@ -82,12 +82,13 @@
 
 &lt;p&gt;Once you&amp;rsquo;ve configured your environment, you&amp;rsquo;ll commit the changes and deploy them. This phase actually provisions and configures your VMs in real life on real machines. All components will be deployed in the initial deployment. On subsequent deployments, on components that have been changed or explicitly &amp;ldquo;Touched&amp;rdquo; will be deployed.&lt;/p&gt;
 
-&lt;p&gt;You can touch a component any time from its bread crumb menu.
-&lt;img src=&#34;https://raw.githubusercontent.com/oneops/oneops.github.io/master/assets/local/images/GettingStartedEC2CommitAndDeploy.png&#34; alt=&#34;transition&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;You can touch a component any time from its bread crumb menu.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/oneops/oneops.github.io/master/assets/local/images/GettingStartedEC2CommitAndDeploy.png&#34; alt=&#34;transition&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;operate:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Operate:&lt;/h2&gt;
 
-&lt;p&gt;The Operate phase is how you view monitor and control your clusters now that they are active. You can see the health of individual computes, stop, repair or replace them. you can also see vital information about your VMs including IPs and host names.&lt;/p&gt;
+&lt;p&gt;The Operate phase is how you view, monitor and control your clusters now that they are active. You can see the health of individual computes, stop, repair or replace them. you can also see vital information about your VMs including IPs and host names.&lt;/p&gt;
 
 &lt;p&gt;Drilling down in a component in the Operate view will show all the computes it is installed on and a summary of attributes. You can select a compute and see the state of that component as it exists on that compute. This view shows the configuration, notifications, logs and some actions you can execute on the component.&lt;/p&gt;
 
