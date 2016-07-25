@@ -237,88 +237,6 @@ bundle.js  1.96 kB       0  [emitted]  main
     
     <item>
       <title>Stop trying to learn a programming language</title>
-      <link>http://blog.flowstate.io/post/so_you_wanna_dev%20copy/</link>
-      <pubDate>Mon, 17 Aug 2015 06:03:19 EDT</pubDate>
-      <author>Oakley Hall</author>
-      <guid>http://blog.flowstate.io/post/so_you_wanna_dev%20copy/</guid>
-      <description>
-
-&lt;p&gt;I hear this question all the time:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;quot;Which programming language should I learn?&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;My answer is always the same:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;quot;It doesn&#39;t matter. Let the project decide for you.&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;a-story:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;A story&lt;/h4&gt;
-
-&lt;p&gt;When I first started my journey as a professional software developer, I got hired to work on an application written in a dying language on a platform that would soon be reviled the world over. This project was written in ActionScript 3, using the Flex framework. This was cutting edge stuff at the time, with a bright future, before Steve Jobs and 0 day exploits crapped in the Flash punch bowl.&lt;/p&gt;
-
-&lt;p&gt;The point is, I started learning my trade using a language that I&amp;rsquo;d probably never see again, &lt;strong&gt;but that never mattered&lt;/strong&gt;. What mattered is that I worked with a brilliant team who took time to train me in the craft of programming. I learned the fundamentals of software development and I learned the tools I have used every day since I started that project.&lt;/p&gt;
-
-&lt;p&gt;An aspiring programmer fretting about what language to develop in is like a carpenter worrying about what wood to use. It&amp;rsquo;s one of many choices to be made about a project, but it does not define the carpenter&amp;rsquo;s expertise.&lt;/p&gt;
-
-&lt;p&gt;What matters is not the material you work in, but the tools, the craft, and the mindset you develop.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-tools:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;The tools&lt;/h2&gt;
-
-&lt;h3 id=&#34;version-control:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Version control&lt;/h3&gt;
-
-&lt;p&gt;Understand &lt;a href=&#34;https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control&#34;&gt;version control&lt;/a&gt;. &lt;a href=&#34;https://git-scm.com/about&#34;&gt;Git&lt;/a&gt; is the most popular at the moment and seems to have a firm hold on the space. Use &lt;a href=&#34;https://github.com/&#34;&gt;GitHub&lt;/a&gt;. &lt;a href=&#34;https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell&#34;&gt;Branch&lt;/a&gt;, &lt;a href=&#34;https://git-scm.com/book/en/v2/Git-Basics-Tagging&#34;&gt;tag&lt;/a&gt;, do &lt;a href=&#34;https://help.github.com/articles/using-pull-requests/&#34;&gt;pull requests&lt;/a&gt;, even if they are just against your own code. You can version control any file. Use git for papers, blog posts, any document that you&amp;rsquo;ll want to have a record of changes to.&lt;/p&gt;
-
-&lt;h3 id=&#34;text-editor:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Text editor&lt;/h3&gt;
-
-&lt;p&gt;Pick something and become a power user. I personally feel most at home in an &lt;a href=&#34;https://en.wikipedia.org/wiki/Integrated_development_environment&#34;&gt;IDE&lt;/a&gt;, so I spend most of my time writing JavaScript in &lt;a href=&#34;https://www.jetbrains.com/webstorm/&#34;&gt;Webstorm&lt;/a&gt;, but I also love the light weight editor &lt;a href=&#34;http://www.sublimetext.com/&#34;&gt;Sublime Text&lt;/a&gt;. I&amp;rsquo;ve created a ton custom templates that autocomplete common code snippets. I know many keyboard shortcuts and tricks to simplify and expedite my workflow. It&amp;rsquo;s the equivalent of sitting in the driver&amp;rsquo;s seat of a car and adjusting the mirrors and familiarizing yourself with the controls. I try to learn a little something new every day. Some devs recommend working without a mouse one day a week. I haven&amp;rsquo;t had the nerve for that one yet.&lt;/p&gt;
-
-&lt;h3 id=&#34;the-terminal:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;The terminal&lt;/h3&gt;
-
-&lt;p&gt;This is among the most important skills you&amp;rsquo;ll need as a developer. This will come up over and over and over. Get comfortable navigating the file system in the terminal (&lt;code&gt;cd&lt;/code&gt; and &lt;code&gt;ls&lt;/code&gt;), running applications, viewing and changing permissions(&lt;code&gt;chmod&lt;/code&gt;), piping data from one app to another (&lt;code&gt;|&lt;/code&gt;). Searching for text strings in a file or directory (&lt;code&gt;grep&lt;/code&gt;).&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev1.png&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;Eventually, you&amp;rsquo;ll need tools like &lt;code&gt;ssh&lt;/code&gt;, &lt;code&gt;scp&lt;/code&gt; and the whole panoply of command line utilities available on the Unix platform. I&amp;rsquo;m told Windows has stuff like that too.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-platform:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;The platform&lt;/h2&gt;
-
-&lt;p&gt;Where is your code going to execute?  How will your users interact with it. For me, right now, that&amp;rsquo;s in the browser and &lt;a href=&#34;https://en.wikipedia.org/wiki/V8_(JavaScript_engine&#34;&gt;Node&amp;rsquo;s V8 engine&lt;/a&gt;). Well, &lt;a href=&#34;http://googleblog.blogspot.com/2009/10/what-is-browser.html&#34;&gt;what is a browser&lt;/a&gt;? &lt;a href=&#34;http://www.slashroot.in/httphypertext-transfer-protocol-request-and-response&#34;&gt;How does HTTP work&lt;/a&gt;? What &lt;a href=&#34;https://developer.chrome.com/devtools&#34;&gt;tools&lt;/a&gt; &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Tools&#34;&gt;are&lt;/a&gt; &lt;a href=&#34;https://developer.apple.com/safari/tools/&#34;&gt;avaialble&lt;/a&gt; to &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/dd565628(v=vs.85&#34;&gt;developers&lt;/a&gt;.aspx)?&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev2.png&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;This is your world. These are the rules that will define what you can do and the platform on which you&amp;rsquo;ll be doing it. This is your users whole experience. Before you learn anything about a language, you have to understand the environment in which it will execute.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-craft:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;The craft&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://amzn.to/1hozy0j&#34;&gt;Buy this book&lt;/a&gt; and read it more than once.&lt;/p&gt;
-
-&lt;p&gt;Your early code is going to suck. In fact most of your code is going to suck, as will most of the code you will ever read. Nevertheless, you will persevere in the eternal struggle against entropy. You will endeavor to make your code readable and performant and something you are proud to show to others. Embrace simplicity, modularity, decoupling, testing, automation, documentation and all the other &lt;a href=&#34;https://pragprog.com/the-pragmatic-programmer/extracts/tips&#34;&gt;hallmarks of a software craftsman&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev3.png&#34;/&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;the-mindset:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;The mindset&lt;/h2&gt;
-
-&lt;h3 id=&#34;check-your-ego-at-the-door:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Check your ego at the door.&lt;/h3&gt;
-
-&lt;p&gt;You&amp;rsquo;re going to hear criticism of your bad code, don&amp;rsquo;t shy away from that. Embrace it, learn from it, write it down. Endeavor not to make the same mistake twice. Do not hide your code, seek review and criticism. This is how you will grow. Seek out more senior programmers and read their code. Show gratitude when they take the time to tell you what to fix in yours.&lt;/p&gt;
-
-&lt;h3 id=&#34;make-stuff-constantly:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Make stuff constantly&lt;/h3&gt;
-
-&lt;p&gt;Some people can read book to learn how to do things. Not me. I can only learn by doing things badly and then researching, reading and iterating over it. Hence, I must constantly be working on side project to learn how to do anything. &lt;strong&gt;Think of something you want to make and then figure out how to do it one small piece at a time.&lt;/strong&gt; &amp;lt;&amp;ndash; This is the secret formula for becoming a software developer.&lt;/p&gt;
-
-&lt;h3 id=&#34;read-read-and-listen:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Read, read and listen&lt;/h3&gt;
-
-&lt;p&gt;Read &lt;a href=&#34;http://stackoverflow.com/questions/1711/what-is-the-single-most-influential-book-every-programmer-should-read&#34;&gt;books&lt;/a&gt;, read &lt;a href=&#34;http://blog.codinghorror.com/&#34;&gt;blogs&lt;/a&gt;, read &lt;a href=&#34;https://news.ycombinator.com/&#34;&gt;hacker news&lt;/a&gt;, read &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Stack Overflow&lt;/a&gt; read &lt;a href=&#34;https://github.com/joyent/node/blob/master/lib/_http_server.js&#34;&gt;code&lt;/a&gt;, listen to &lt;a href=&#34;https://devchat.tv/js-jabber/&#34;&gt;podcasts&lt;/a&gt;. Perhaps the 300th explanation of a concept will be the one that sinks in.&lt;/p&gt;
-
-&lt;h2 id=&#34;conclusion:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;There is so much to do! Why are you fussing about which language to learn? Focus on what you want to create. Become a technologist and a craftsman. Make things! Start right now! You&amp;rsquo;ll learn language syntax as you go, but it will be incidental to learning how to create software holistically and how to make cool things that people will want to use.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Stop trying to learn a programming language</title>
       <link>http://blog.flowstate.io/post/so_you_wanna_dev/</link>
       <pubDate>Mon, 17 Aug 2015 06:03:19 EDT</pubDate>
       <author>Oakley Hall</author>
@@ -394,6 +312,88 @@ bundle.js  1.96 kB       0  [emitted]  main
 &lt;p&gt;Read &lt;a href=&#34;http://stackoverflow.com/questions/1711/what-is-the-single-most-influential-book-every-programmer-should-read&#34;&gt;books&lt;/a&gt;, read &lt;a href=&#34;http://blog.codinghorror.com/&#34;&gt;blogs&lt;/a&gt;, read &lt;a href=&#34;https://news.ycombinator.com/&#34;&gt;hacker news&lt;/a&gt;, read &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Stack Overflow&lt;/a&gt; read &lt;a href=&#34;https://github.com/joyent/node/blob/master/lib/_http_server.js&#34;&gt;code&lt;/a&gt;, listen to &lt;a href=&#34;https://devchat.tv/js-jabber/&#34;&gt;podcasts&lt;/a&gt;. Perhaps the 300th explanation of a concept will be the one that sinks in.&lt;/p&gt;
 
 &lt;h2 id=&#34;conclusion:1fed5910f8d953c014c3eb0203feb935&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;There is so much to do! Why are you fussing about which language to learn? Focus on what you want to create. Become a technologist and a craftsman. Make things! Start right now! You&amp;rsquo;ll learn language syntax as you go, but it will be incidental to learning how to create software holistically and how to make cool things that people will want to use.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Stop trying to learn a programming language</title>
+      <link>http://blog.flowstate.io/post/so_you_wanna_dev%20copy/</link>
+      <pubDate>Mon, 17 Aug 2015 06:03:19 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://blog.flowstate.io/post/so_you_wanna_dev%20copy/</guid>
+      <description>
+
+&lt;p&gt;I hear this question all the time:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;quot;Which programming language should I learn?&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;My answer is always the same:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;quot;It doesn&#39;t matter. Let the project decide for you.&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;a-story:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;A story&lt;/h4&gt;
+
+&lt;p&gt;When I first started my journey as a professional software developer, I got hired to work on an application written in a dying language on a platform that would soon be reviled the world over. This project was written in ActionScript 3, using the Flex framework. This was cutting edge stuff at the time, with a bright future, before Steve Jobs and 0 day exploits crapped in the Flash punch bowl.&lt;/p&gt;
+
+&lt;p&gt;The point is, I started learning my trade using a language that I&amp;rsquo;d probably never see again, &lt;strong&gt;but that never mattered&lt;/strong&gt;. What mattered is that I worked with a brilliant team who took time to train me in the craft of programming. I learned the fundamentals of software development and I learned the tools I have used every day since I started that project.&lt;/p&gt;
+
+&lt;p&gt;An aspiring programmer fretting about what language to develop in is like a carpenter worrying about what wood to use. It&amp;rsquo;s one of many choices to be made about a project, but it does not define the carpenter&amp;rsquo;s expertise.&lt;/p&gt;
+
+&lt;p&gt;What matters is not the material you work in, but the tools, the craft, and the mindset you develop.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-tools:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;The tools&lt;/h2&gt;
+
+&lt;h3 id=&#34;version-control:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Version control&lt;/h3&gt;
+
+&lt;p&gt;Understand &lt;a href=&#34;https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control&#34;&gt;version control&lt;/a&gt;. &lt;a href=&#34;https://git-scm.com/about&#34;&gt;Git&lt;/a&gt; is the most popular at the moment and seems to have a firm hold on the space. Use &lt;a href=&#34;https://github.com/&#34;&gt;GitHub&lt;/a&gt;. &lt;a href=&#34;https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell&#34;&gt;Branch&lt;/a&gt;, &lt;a href=&#34;https://git-scm.com/book/en/v2/Git-Basics-Tagging&#34;&gt;tag&lt;/a&gt;, do &lt;a href=&#34;https://help.github.com/articles/using-pull-requests/&#34;&gt;pull requests&lt;/a&gt;, even if they are just against your own code. You can version control any file. Use git for papers, blog posts, any document that you&amp;rsquo;ll want to have a record of changes to.&lt;/p&gt;
+
+&lt;h3 id=&#34;text-editor:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Text editor&lt;/h3&gt;
+
+&lt;p&gt;Pick something and become a power user. I personally feel most at home in an &lt;a href=&#34;https://en.wikipedia.org/wiki/Integrated_development_environment&#34;&gt;IDE&lt;/a&gt;, so I spend most of my time writing JavaScript in &lt;a href=&#34;https://www.jetbrains.com/webstorm/&#34;&gt;Webstorm&lt;/a&gt;, but I also love the light weight editor &lt;a href=&#34;http://www.sublimetext.com/&#34;&gt;Sublime Text&lt;/a&gt;. I&amp;rsquo;ve created a ton custom templates that autocomplete common code snippets. I know many keyboard shortcuts and tricks to simplify and expedite my workflow. It&amp;rsquo;s the equivalent of sitting in the driver&amp;rsquo;s seat of a car and adjusting the mirrors and familiarizing yourself with the controls. I try to learn a little something new every day. Some devs recommend working without a mouse one day a week. I haven&amp;rsquo;t had the nerve for that one yet.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-terminal:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;The terminal&lt;/h3&gt;
+
+&lt;p&gt;This is among the most important skills you&amp;rsquo;ll need as a developer. This will come up over and over and over. Get comfortable navigating the file system in the terminal (&lt;code&gt;cd&lt;/code&gt; and &lt;code&gt;ls&lt;/code&gt;), running applications, viewing and changing permissions(&lt;code&gt;chmod&lt;/code&gt;), piping data from one app to another (&lt;code&gt;|&lt;/code&gt;). Searching for text strings in a file or directory (&lt;code&gt;grep&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev1.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Eventually, you&amp;rsquo;ll need tools like &lt;code&gt;ssh&lt;/code&gt;, &lt;code&gt;scp&lt;/code&gt; and the whole panoply of command line utilities available on the Unix platform. I&amp;rsquo;m told Windows has stuff like that too.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-platform:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;The platform&lt;/h2&gt;
+
+&lt;p&gt;Where is your code going to execute?  How will your users interact with it. For me, right now, that&amp;rsquo;s in the browser and &lt;a href=&#34;https://en.wikipedia.org/wiki/V8_(JavaScript_engine&#34;&gt;Node&amp;rsquo;s V8 engine&lt;/a&gt;). Well, &lt;a href=&#34;http://googleblog.blogspot.com/2009/10/what-is-browser.html&#34;&gt;what is a browser&lt;/a&gt;? &lt;a href=&#34;http://www.slashroot.in/httphypertext-transfer-protocol-request-and-response&#34;&gt;How does HTTP work&lt;/a&gt;? What &lt;a href=&#34;https://developer.chrome.com/devtools&#34;&gt;tools&lt;/a&gt; &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Tools&#34;&gt;are&lt;/a&gt; &lt;a href=&#34;https://developer.apple.com/safari/tools/&#34;&gt;avaialble&lt;/a&gt; to &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/dd565628(v=vs.85&#34;&gt;developers&lt;/a&gt;.aspx)?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev2.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;This is your world. These are the rules that will define what you can do and the platform on which you&amp;rsquo;ll be doing it. This is your users whole experience. Before you learn anything about a language, you have to understand the environment in which it will execute.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-craft:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;The craft&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://amzn.to/1hozy0j&#34;&gt;Buy this book&lt;/a&gt; and read it more than once.&lt;/p&gt;
+
+&lt;p&gt;Your early code is going to suck. In fact most of your code is going to suck, as will most of the code you will ever read. Nevertheless, you will persevere in the eternal struggle against entropy. You will endeavor to make your code readable and performant and something you are proud to show to others. Embrace simplicity, modularity, decoupling, testing, automation, documentation and all the other &lt;a href=&#34;https://pragprog.com/the-pragmatic-programmer/extracts/tips&#34;&gt;hallmarks of a software craftsman&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev3.png&#34;/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;the-mindset:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;The mindset&lt;/h2&gt;
+
+&lt;h3 id=&#34;check-your-ego-at-the-door:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Check your ego at the door.&lt;/h3&gt;
+
+&lt;p&gt;You&amp;rsquo;re going to hear criticism of your bad code, don&amp;rsquo;t shy away from that. Embrace it, learn from it, write it down. Endeavor not to make the same mistake twice. Do not hide your code, seek review and criticism. This is how you will grow. Seek out more senior programmers and read their code. Show gratitude when they take the time to tell you what to fix in yours.&lt;/p&gt;
+
+&lt;h3 id=&#34;make-stuff-constantly:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Make stuff constantly&lt;/h3&gt;
+
+&lt;p&gt;Some people can read book to learn how to do things. Not me. I can only learn by doing things badly and then researching, reading and iterating over it. Hence, I must constantly be working on side project to learn how to do anything. &lt;strong&gt;Think of something you want to make and then figure out how to do it one small piece at a time.&lt;/strong&gt; &amp;lt;&amp;ndash; This is the secret formula for becoming a software developer.&lt;/p&gt;
+
+&lt;h3 id=&#34;read-read-and-listen:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Read, read and listen&lt;/h3&gt;
+
+&lt;p&gt;Read &lt;a href=&#34;http://stackoverflow.com/questions/1711/what-is-the-single-most-influential-book-every-programmer-should-read&#34;&gt;books&lt;/a&gt;, read &lt;a href=&#34;http://blog.codinghorror.com/&#34;&gt;blogs&lt;/a&gt;, read &lt;a href=&#34;https://news.ycombinator.com/&#34;&gt;hacker news&lt;/a&gt;, read &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Stack Overflow&lt;/a&gt; read &lt;a href=&#34;https://github.com/joyent/node/blob/master/lib/_http_server.js&#34;&gt;code&lt;/a&gt;, listen to &lt;a href=&#34;https://devchat.tv/js-jabber/&#34;&gt;podcasts&lt;/a&gt;. Perhaps the 300th explanation of a concept will be the one that sinks in.&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Conclusion&lt;/h2&gt;
 
 &lt;p&gt;There is so much to do! Why are you fussing about which language to learn? Focus on what you want to create. Become a technologist and a craftsman. Make things! Start right now! You&amp;rsquo;ll learn language syntax as you go, but it will be incidental to learning how to create software holistically and how to make cool things that people will want to use.&lt;/p&gt;
 </description>

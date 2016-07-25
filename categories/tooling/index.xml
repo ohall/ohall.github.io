@@ -7,7 +7,183 @@
     <language>en-us</language>
     <author>Oakley Hall</author>
     
-    <updated>Thu, 01 Oct 2015 17:23:41 EDT</updated>
+    <updated>Mon, 25 Jul 2016 11:53:46 EDT</updated>
+    
+    <item>
+      <title>Getting Started 0: The Terminal</title>
+      <link>http://blog.flowstate.io/post/terminal/</link>
+      <pubDate>Mon, 25 Jul 2016 11:53:46 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://blog.flowstate.io/post/terminal/</guid>
+      <description>
+
+&lt;p&gt;So you&amp;rsquo;re learning to code?  There first think you should get familiar with is the Terminal and the command line. Let&amp;rsquo;s discuss some basics.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-is-it:115290b373a664e595e935c25cb1d0c4&#34;&gt;What is it?&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;ll keep my comments confined to OS X and Linux, since those are the environments I&amp;rsquo;m familiar with.&lt;/p&gt;
+
+&lt;p&gt;The Terminal is an application that provides you a window through which to enter commands into the Unix &lt;a href=&#34;https://en.wikipedia.org/wiki/Unix_shell&#34;&gt;shell&lt;/a&gt; of your choice, most systems default to &lt;a href=&#34;https://www.techopedia.com/definition/3520/bourne-again-shell-bash&#34;&gt;BASH&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;On OS X you can find the Terminal App in
+&lt;code&gt;Applications -&amp;gt; Utilities -&amp;gt; Terminal.app&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;on Linux
+&lt;code&gt;Applications -&amp;gt; Terminal&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/term.png&#34;/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;why-bother:115290b373a664e595e935c25cb1d0c4&#34;&gt;Why bother?&lt;/h2&gt;
+
+&lt;p&gt;You might be thinking: &amp;ldquo;This seems like a lot of work. Why can&amp;rsquo;t I just doing everything from the Desktop.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Sure. You could, but you&amp;rsquo;ll be missing out on incredibly powerful tools and scripting capabilities.  As your programming projects become more complex, you&amp;rsquo;ll need more tools. &lt;a href=&#34;https://docs.python.org/2/library/simplehttpserver.html&#34;&gt;Local servers&lt;/a&gt;, &lt;a href=&#34;https://docs.python.org/2/library/simplehttpserver.html&#34;&gt;file manipulation&lt;/a&gt;, &lt;a href=&#34;https://docs.python.org/2/library/simplehttpserver.html&#34;&gt;automation&lt;/a&gt;, &lt;a href=&#34;http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html&#34;&gt;scripting&lt;/a&gt;, &lt;a href=&#34;http://blog.modulus.io/absolute-beginners-guide-to-nodejs&#34;&gt;NodeJS&lt;/a&gt;, &lt;a href=&#34;https://try.github.io/levels/1/challenges/1&#34;&gt;Git&lt;/a&gt; and a galaxy of other single purpose command line applications that you&amp;rsquo;ll weave into a efficient development environment.  You&amp;rsquo;ll also eventually have to deploy your work on a server somewhere and likely the only interface available to you will be the command line.&lt;/p&gt;
+
+&lt;p&gt;At first it will take you more time to do things in the terminal and you&amp;rsquo;ll make mistakes, but think of it as and investment that will pay enormous dividends in the future.  Also, if you&amp;rsquo;re planning to work as a developer or in any other technical role, you&amp;rsquo;ll be expected to know your way around.&lt;/p&gt;
+
+&lt;h2 id=&#34;basic-commands-and-tools:115290b373a664e595e935c25cb1d0c4&#34;&gt;Basic commands and tools&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s look at a few commands that may shed some light on what may initially feel like a very dark room.&lt;/p&gt;
+
+&lt;h3 id=&#34;man:115290b373a664e595e935c25cb1d0c4&#34;&gt;man&lt;/h3&gt;
+
+&lt;p&gt;Most terminal applications take a variety of flags and arguments. We&amp;rsquo;ll just cover the simple user cases here, but you can see everything that&amp;rsquo;s possible by using the &lt;code&gt;man&lt;/code&gt; (manual) command. When in doubt, &lt;a href=&#34;https://en.wikipedia.org/wiki/RTFM&#34;&gt;RTFM&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ man pwd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;ctrl-c-and-ctrl-z:115290b373a664e595e935c25cb1d0c4&#34;&gt;Ctrl-C and Ctrl-Z&lt;/h3&gt;
+
+&lt;p&gt;Many times per day, you will get stuck or want to exit a program you&amp;rsquo;ve started on the command line. These two key combos will do it.  You&amp;rsquo;ll learn the difference as you go, but for now try either or both to get out of a running process and back to the command prompt.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Ctrl-C&lt;/code&gt; cancels or kills a job. Technically it causes an interrupt signal to be sent to the program telling it to abort what it is doing and exit immediately.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Ctrl-Z&lt;/code&gt; &amp;ldquo;puts a job on hold and returns you to the prompt, but does not kill the job.&lt;/p&gt;
+
+&lt;h3 id=&#34;pwd:115290b373a664e595e935c25cb1d0c4&#34;&gt;pwd&lt;/h3&gt;
+
+&lt;p&gt;Print Working Directory. Basically asks &amp;ldquo;where am I now?&amp;rdquo;
+For example I&amp;rsquo;m in my home directory here:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ pwd
+/Users/oakley
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Use this command liberally to see what directory you&amp;rsquo;re working in.&lt;/p&gt;
+
+&lt;h3 id=&#34;ls:115290b373a664e595e935c25cb1d0c4&#34;&gt;ls&lt;/h3&gt;
+
+&lt;p&gt;List file and directory names.  Basically, show me the contents of a directory.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ ls
+Applications    Dropbox    Pictures    Sites
+Desktop         Library    Public      Documents               
+Movies          Downloads  Music                   
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;mkdir:115290b373a664e595e935c25cb1d0c4&#34;&gt;mkdir&lt;/h3&gt;
+
+&lt;p&gt;Make a new directory.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ mkdir test-directory
+
+$ ls
+test-directory
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;cd:115290b373a664e595e935c25cb1d0c4&#34;&gt;cd&lt;/h3&gt;
+
+&lt;p&gt;Change directory. Specify the directory you want to work in&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd test-directory
+
+$ pwd
+/Users/oakley/test/test-directory
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;touch:115290b373a664e595e935c25cb1d0c4&#34;&gt;touch&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;touch&lt;/code&gt; is the equivalent of creating or opening a file and saving it without any actual changes.  It&amp;rsquo;s often used to create new files.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ touch file.txt
+
+$ ls
+file.txt       test-directory
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;rm:115290b373a664e595e935c25cb1d0c4&#34;&gt;rm&lt;/h3&gt;
+
+&lt;p&gt;Remove a file. Like FOREVER. Not put it in the trash, it&amp;rsquo;s gone.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rm file.txt
+
+$ ls
+test-directory
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;cp:115290b373a664e595e935c25cb1d0c4&#34;&gt;cp&lt;/h3&gt;
+
+&lt;p&gt;Copy a file to another location.
+In this example, we&amp;rsquo;ll recreate &lt;code&gt;file.txt&lt;/code&gt;, use &lt;code&gt;cp&lt;/code&gt; to copy it into &lt;code&gt;test-directory&lt;/code&gt;, then use &lt;code&gt;ls&lt;/code&gt; to see that &lt;code&gt;file.txt&lt;/code&gt; has been copied there.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ touch file.txt 
+$ cp file.txt test-directory
+$ ls test-directory 
+file.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;mv:115290b373a664e595e935c25cb1d0c4&#34;&gt;mv&lt;/h3&gt;
+
+&lt;p&gt;Move a file. Same as &lt;code&gt;cp&lt;/code&gt;, but removes the original.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ touch foo.txt
+
+$ ls
+file.txt    foo.txt    test-directory
+
+$ mv foo.txt test-directory
+
+$ ls
+file.txt   test-directory
+
+$ ls test-directory
+file.txt foo.txt
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;cat:115290b373a664e595e935c25cb1d0c4&#34;&gt;cat&lt;/h3&gt;
+
+&lt;p&gt;Display a file&amp;rsquo;s contents on screen or concatenate files.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cat file.txt
+Some text here...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;pipes:115290b373a664e595e935c25cb1d0c4&#34;&gt;pipes&lt;/h3&gt;
+
+&lt;p&gt;Pipes let you pass the output of one command into another command as an argument.  Let&amp;rsquo;s say you want your computer to say the contents of a directory out loud.  You could pipe the output of &lt;code&gt;ls&lt;/code&gt; to &lt;code&gt;say&lt;/code&gt; or &lt;code&gt;espeak&lt;/code&gt; on linux.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ls | say
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Try it!&lt;/p&gt;
+
+&lt;h3 id=&#34;text-editors:115290b373a664e595e935c25cb1d0c4&#34;&gt;text editors&lt;/h3&gt;
+
+&lt;p&gt;You can also use command line text editors like vi, vim, Emacs, nano and a million others.&lt;/p&gt;
+
+&lt;p&gt;This is a whole different lesson, but play around and see what&amp;rsquo;s there.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vi file.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;now-what:115290b373a664e595e935c25cb1d0c4&#34;&gt;Now what?&lt;/h2&gt;
+
+&lt;p&gt;Now you get started playing around.  Try to incorporate the command line in your day to day work.  Instead of opening finder, try to do things in terminal. Copy files, look in directories, edit documents.  The more you use it, the more it will become part of you and your power will grow.&lt;/p&gt;
+
+&lt;p&gt;Soon you will be invincible.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Use NVM</title>
