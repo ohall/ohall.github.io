@@ -3,11 +3,11 @@
   <channel>
       <title>Bash on blog.flowstate.io </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://blog.flowstate.io/categories/bash/</link>
+    <link>http://blog.flowstate.io/categories/bash/index.xml</link>
     <language>en-us</language>
     <author>Oakley Hall</author>
     
-    <updated>Tue, 02 Jun 2015 09:45:42 EDT</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>Make a shell script into a global command on OSX</title>
@@ -17,24 +17,24 @@
       <guid>http://blog.flowstate.io/post/osx_global_shell/</guid>
       <description>
 
-&lt;h3 id=&#34;this-example-will-open-a-document-passed-in-as-param-in-textmate-obviously-you-can-use-any-app-you-like:3d4f833b57991155259170382335e85b&#34;&gt;This example will open a document passed in as param in TextMate.  Obviously, you can use any app you like.&lt;/h3&gt;
+&lt;h3 id=&#34;this-example-will-open-a-document-passed-in-as-param-in-textmate-obviously-you-can-use-any-app-you-like&#34;&gt;This example will open a document passed in as param in TextMate.  Obviously, you can use any app you like.&lt;/h3&gt;
 
-&lt;h4 id=&#34;1-create-your-script-in-usr-local-bin-on-osx-it-will-automatically-be-added-to-your-path:3d4f833b57991155259170382335e85b&#34;&gt;1 Create your script in &lt;code&gt;/usr/local/bin&lt;/code&gt; on OSX, it will automatically be added to your &lt;code&gt;$PATH&lt;/code&gt;&lt;/h4&gt;
+&lt;h4 id=&#34;1-create-your-script-in-usr-local-bin-on-osx-it-will-automatically-be-added-to-your-path&#34;&gt;1 Create your script in &lt;code&gt;/usr/local/bin&lt;/code&gt; on OSX, it will automatically be added to your &lt;code&gt;$PATH&lt;/code&gt;&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;/usr/local/bin/tm.sh
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;2-make-the-script-executable:3d4f833b57991155259170382335e85b&#34;&gt;2 Make the script executable&lt;/h4&gt;
+&lt;h4 id=&#34;2-make-the-script-executable&#34;&gt;2 Make the script executable&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;chmod +x /usr/local/bin/tm.sh
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;3-create-a-symbolic-link-so-you-can-skip-the-sh-suffix:3d4f833b57991155259170382335e85b&#34;&gt;3 Create a symbolic link, so you can skip the .sh suffix&lt;/h4&gt;
+&lt;h4 id=&#34;3-create-a-symbolic-link-so-you-can-skip-the-sh-suffix&#34;&gt;3 Create a symbolic link, so you can skip the .sh suffix&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;ln -s /usr/local/bin/tm.sh /usr/local/bin/tm
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;4-use-for-increased-excellence:3d4f833b57991155259170382335e85b&#34;&gt;4 Use for increased excellence&lt;/h4&gt;
+&lt;h4 id=&#34;4-use-for-increased-excellence&#34;&gt;4 Use for increased excellence&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;tm coolfile.txt
 &lt;/code&gt;&lt;/pre&gt;
@@ -66,7 +66,7 @@ fi
 
 &lt;p&gt;There are implementations of map() in &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map&#34;&gt;native JS&lt;/a&gt;, &lt;a href=&#34;http://api.jquery.com/jquery.map/&#34;&gt;jQuery&lt;/a&gt; and &lt;a href=&#34;http://underscorejs.org/#map&#34;&gt;UnderscoreJS&lt;/a&gt;.  All other things being equal, &lt;a href=&#34;http://jsperf.com/map-underscore-vs-jquery/2&#34;&gt;&lt;strong&gt;Underscore&amp;rsquo;s&lt;/strong&gt; version is the most performant&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h4 id=&#34;map-is-a-collection-function-meaning-it-works-on-either-arrays-or-objects:fb68142dbc73cfc5ed77a3badaa41f25&#34;&gt;map() is a &amp;lsquo;collection function&amp;rsquo;, meaning it works on either Arrays or Objects&lt;/h4&gt;
+&lt;h4 id=&#34;map-is-a-collection-function-meaning-it-works-on-either-arrays-or-objects&#34;&gt;map() is a &amp;lsquo;collection function&amp;rsquo;, meaning it works on either Arrays or Objects&lt;/h4&gt;
 
 &lt;p&gt;If our collection is an &lt;strong&gt;Array&lt;/strong&gt;, map() will put each value through a transformational function, passing the value at each index to the array to the callback function as the first parameter, the index as the second and the whole array as the third.&lt;/p&gt;
 

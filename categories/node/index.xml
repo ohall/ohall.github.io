@@ -3,11 +3,11 @@
   <channel>
       <title>Node on blog.flowstate.io </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://blog.flowstate.io/categories/node/</link>
+    <link>http://blog.flowstate.io/categories/node/index.xml</link>
     <language>en-us</language>
     <author>Oakley Hall</author>
     
-    <updated>Thu, 01 Oct 2015 17:23:41 EDT</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>Use NVM</title>
@@ -99,7 +99,7 @@ v4.1.1
 
 &lt;p&gt;There is!&lt;/p&gt;
 
-&lt;h2 id=&#34;npm-shrinkwrap:03b1f98386b651e891c88835b47f2f3a&#34;&gt;NPM Shrinkwrap&lt;/h2&gt;
+&lt;h2 id=&#34;npm-shrinkwrap&#34;&gt;NPM Shrinkwrap&lt;/h2&gt;
 
 &lt;p&gt;NPM Shrinkwrap locks your entire dependency tree to the current installed version.  This is built into NPM and you can do it right now.&lt;/p&gt;
 

@@ -3,11 +3,49 @@
   <channel>
       <title>Posts on blog.flowstate.io </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://blog.flowstate.io/post/</link>
+    <link>http://blog.flowstate.io/post/index.xml</link>
     <language>en-us</language>
     <author>Oakley Hall</author>
     
-    <updated>Mon, 25 Jul 2016 11:53:46 EDT</updated>
+    <updated>Wed, 26 Jul 2017 13:51:06 EDT</updated>
+    
+    <item>
+      <title>React Native</title>
+      <link>http://blog.flowstate.io/post/react-native/</link>
+      <pubDate>Wed, 26 Jul 2017 13:51:06 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://blog.flowstate.io/post/react-native/</guid>
+      <description>&lt;p&gt;At GRT, we recently built a React web client for a small educational startup.  Once this web app was feature complete, we decided to do a do a port to React Native as a learning experience and proof of concept.  We definitely learned some stuff.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What is React Native?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://facebook.github.io/react-native/&#34;&gt;React Native&lt;/a&gt; is a set of tools that lets you build &lt;em&gt;Native&lt;/em&gt; Android and iOS apps using JavaScript and React. This is not a webapp run in some webview in a native wrapper.  The React Native code compiles down to a native executable.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Why would you want to do this?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;So you can write a cross platform app that has the snappy, responsive feel of a native app without having to dive into actual native implementation.  Basically you want to write native apps in Javascript.&lt;/p&gt;
+
+&lt;p&gt;Ok, so let&amp;rsquo;s say you have a React web app like we did, and you want to try porting it to React Native.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;First of all, go back in time and write the React Native implementation first.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Just kidding&amp;hellip; sort of.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the thing.  React for the web is much more forgiving and flexible than React Native.  React Native does not used HTML or CSS, so if you wrote CSS and have a bunch of HTML in your webapp, you&amp;rsquo;re going to be spending some time rewriting.  However React for the web support styling using JS objects, so the port in the other direction is easy. Also let&amp;rsquo;s say you&amp;rsquo;re using a bunch of 3rd party UI modules in your app.  If you have this all figured out for React Native, you&amp;rsquo;re going to have a pretty easy time finding modules with comperable APIs for the web.  The reverse is not likely to be the case right now.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Abstract even MORE logic that you think.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;So part of the idea of porting your app to React Native is so you can share code right?  If your code is in a view, you&amp;rsquo;re not sharing it.  Look how much logic you have in your &lt;code&gt;.jsx&lt;/code&gt; files.  A ton, right?  All that has to be pulled out into modules if you want to maintain it in one place.  Think about this ahead of time.  If you&amp;rsquo;re using Redux, you can think about this in terms of &lt;a href=&#34;http://redux.js.org/docs/basics/UsageWithReact.html#presentational-and-container-components&#34;&gt;Component and a Containter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do you even need a native app?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;One more thing we discovered is that the percieved perfomance on mobile of our React Native app was not superior enough to the web app to justify maintaining them both.  Depending on the level of interactivity in your UI a web app may offer suitable performance and user experience.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;So what should you do?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;React Native is a great solution for writing cross platform mobile apps in Javascript, but there are meaningful enough differences from React that you&amp;rsquo;ll want to plan carefully if you&amp;rsquo;re planning on sharing code.  Maintaining multiple codebases always comes at a cost, so do some experiments and consider how much you have to gain from a native app before committing.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Getting Started 0: The Terminal</title>
@@ -19,7 +57,7 @@
 
 &lt;p&gt;So you&amp;rsquo;re learning to code?  There first think you should get familiar with is the Terminal and the command line. Let&amp;rsquo;s discuss some basics.&lt;/p&gt;
 
-&lt;h2 id=&#34;what-is-it:115290b373a664e595e935c25cb1d0c4&#34;&gt;What is it?&lt;/h2&gt;
+&lt;h2 id=&#34;what-is-it&#34;&gt;What is it?&lt;/h2&gt;
 
 &lt;p&gt;I&amp;rsquo;ll keep my comments confined to OS X and Linux, since those are the environments I&amp;rsquo;m familiar with.&lt;/p&gt;
 
@@ -33,7 +71,7 @@
 
 &lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/term.png&#34;/&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;why-bother:115290b373a664e595e935c25cb1d0c4&#34;&gt;Why bother?&lt;/h2&gt;
+&lt;h2 id=&#34;why-bother&#34;&gt;Why bother?&lt;/h2&gt;
 
 &lt;p&gt;You might be thinking: &amp;ldquo;This seems like a lot of work. Why can&amp;rsquo;t I just doing everything from the Desktop.&amp;rdquo;&lt;/p&gt;
 
@@ -41,18 +79,18 @@
 
 &lt;p&gt;At first it will take you more time to do things in the terminal and you&amp;rsquo;ll make mistakes, but think of it as and investment that will pay enormous dividends in the future.  Also, if you&amp;rsquo;re planning to work as a developer or in any other technical role, you&amp;rsquo;ll be expected to know your way around.&lt;/p&gt;
 
-&lt;h2 id=&#34;basic-commands-and-tools:115290b373a664e595e935c25cb1d0c4&#34;&gt;Basic commands and tools&lt;/h2&gt;
+&lt;h2 id=&#34;basic-commands-and-tools&#34;&gt;Basic commands and tools&lt;/h2&gt;
 
 &lt;p&gt;Let&amp;rsquo;s look at a few commands that may shed some light on what may initially feel like a very dark room.&lt;/p&gt;
 
-&lt;h3 id=&#34;man:115290b373a664e595e935c25cb1d0c4&#34;&gt;man&lt;/h3&gt;
+&lt;h3 id=&#34;man&#34;&gt;man&lt;/h3&gt;
 
 &lt;p&gt;Most terminal applications take a variety of flags and arguments. We&amp;rsquo;ll just cover the simple user cases here, but you can see everything that&amp;rsquo;s possible by using the &lt;code&gt;man&lt;/code&gt; (manual) command. When in doubt, &lt;a href=&#34;https://en.wikipedia.org/wiki/RTFM&#34;&gt;RTFM&lt;/a&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ man pwd
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;ctrl-c-and-ctrl-z:115290b373a664e595e935c25cb1d0c4&#34;&gt;Ctrl-C and Ctrl-Z&lt;/h3&gt;
+&lt;h3 id=&#34;ctrl-c-and-ctrl-z&#34;&gt;Ctrl-C and Ctrl-Z&lt;/h3&gt;
 
 &lt;p&gt;Many times per day, you will get stuck or want to exit a program you&amp;rsquo;ve started on the command line. These two key combos will do it.  You&amp;rsquo;ll learn the difference as you go, but for now try either or both to get out of a running process and back to the command prompt.&lt;/p&gt;
 
@@ -60,7 +98,7 @@
 
 &lt;p&gt;&lt;code&gt;Ctrl-Z&lt;/code&gt; &amp;ldquo;puts a job on hold and returns you to the prompt, but does not kill the job.&lt;/p&gt;
 
-&lt;h3 id=&#34;pwd:115290b373a664e595e935c25cb1d0c4&#34;&gt;pwd&lt;/h3&gt;
+&lt;h3 id=&#34;pwd&#34;&gt;pwd&lt;/h3&gt;
 
 &lt;p&gt;Print Working Directory. Basically asks &amp;ldquo;where am I now?&amp;rdquo;
 For example I&amp;rsquo;m in my home directory here:&lt;/p&gt;
@@ -71,7 +109,7 @@ For example I&amp;rsquo;m in my home directory here:&lt;/p&gt;
 
 &lt;p&gt;Use this command liberally to see what directory you&amp;rsquo;re working in.&lt;/p&gt;
 
-&lt;h3 id=&#34;ls:115290b373a664e595e935c25cb1d0c4&#34;&gt;ls&lt;/h3&gt;
+&lt;h3 id=&#34;ls&#34;&gt;ls&lt;/h3&gt;
 
 &lt;p&gt;List file and directory names.  Basically, show me the contents of a directory.&lt;/p&gt;
 
@@ -81,7 +119,7 @@ Desktop         Library    Public      Documents
 Movies          Downloads  Music                   
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;mkdir:115290b373a664e595e935c25cb1d0c4&#34;&gt;mkdir&lt;/h3&gt;
+&lt;h3 id=&#34;mkdir&#34;&gt;mkdir&lt;/h3&gt;
 
 &lt;p&gt;Make a new directory.&lt;/p&gt;
 
@@ -91,7 +129,7 @@ $ ls
 test-directory
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;cd:115290b373a664e595e935c25cb1d0c4&#34;&gt;cd&lt;/h3&gt;
+&lt;h3 id=&#34;cd&#34;&gt;cd&lt;/h3&gt;
 
 &lt;p&gt;Change directory. Specify the directory you want to work in&lt;/p&gt;
 
@@ -101,7 +139,7 @@ $ pwd
 /Users/oakley/test/test-directory
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;touch:115290b373a664e595e935c25cb1d0c4&#34;&gt;touch&lt;/h3&gt;
+&lt;h3 id=&#34;touch&#34;&gt;touch&lt;/h3&gt;
 
 &lt;p&gt;&lt;code&gt;touch&lt;/code&gt; is the equivalent of creating or opening a file and saving it without any actual changes.  It&amp;rsquo;s often used to create new files.&lt;/p&gt;
 
@@ -111,7 +149,7 @@ $ ls
 file.txt       test-directory
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;rm:115290b373a664e595e935c25cb1d0c4&#34;&gt;rm&lt;/h3&gt;
+&lt;h3 id=&#34;rm&#34;&gt;rm&lt;/h3&gt;
 
 &lt;p&gt;Remove a file. Like FOREVER. Not put it in the trash, it&amp;rsquo;s gone.&lt;/p&gt;
 
@@ -121,7 +159,7 @@ $ ls
 test-directory
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;cp:115290b373a664e595e935c25cb1d0c4&#34;&gt;cp&lt;/h3&gt;
+&lt;h3 id=&#34;cp&#34;&gt;cp&lt;/h3&gt;
 
 &lt;p&gt;Copy a file to another location.
 In this example, we&amp;rsquo;ll recreate &lt;code&gt;file.txt&lt;/code&gt;, use &lt;code&gt;cp&lt;/code&gt; to copy it into &lt;code&gt;test-directory&lt;/code&gt;, then use &lt;code&gt;ls&lt;/code&gt; to see that &lt;code&gt;file.txt&lt;/code&gt; has been copied there.&lt;/p&gt;
@@ -132,7 +170,7 @@ $ ls test-directory
 file.txt
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;mv:115290b373a664e595e935c25cb1d0c4&#34;&gt;mv&lt;/h3&gt;
+&lt;h3 id=&#34;mv&#34;&gt;mv&lt;/h3&gt;
 
 &lt;p&gt;Move a file. Same as &lt;code&gt;cp&lt;/code&gt;, but removes the original.&lt;/p&gt;
 
@@ -151,7 +189,7 @@ file.txt foo.txt
 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;cat:115290b373a664e595e935c25cb1d0c4&#34;&gt;cat&lt;/h3&gt;
+&lt;h3 id=&#34;cat&#34;&gt;cat&lt;/h3&gt;
 
 &lt;p&gt;Display a file&amp;rsquo;s contents on screen or concatenate files.&lt;/p&gt;
 
@@ -159,7 +197,7 @@ file.txt foo.txt
 Some text here...
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;pipes:115290b373a664e595e935c25cb1d0c4&#34;&gt;pipes&lt;/h3&gt;
+&lt;h3 id=&#34;pipes&#34;&gt;pipes&lt;/h3&gt;
 
 &lt;p&gt;Pipes let you pass the output of one command into another command as an argument.  Let&amp;rsquo;s say you want your computer to say the contents of a directory out loud.  You could pipe the output of &lt;code&gt;ls&lt;/code&gt; to &lt;code&gt;say&lt;/code&gt; or &lt;code&gt;espeak&lt;/code&gt; on linux.&lt;/p&gt;
 
@@ -168,7 +206,7 @@ Some text here...
 
 &lt;p&gt;Try it!&lt;/p&gt;
 
-&lt;h3 id=&#34;text-editors:115290b373a664e595e935c25cb1d0c4&#34;&gt;text editors&lt;/h3&gt;
+&lt;h3 id=&#34;text-editors&#34;&gt;text editors&lt;/h3&gt;
 
 &lt;p&gt;You can also use command line text editors like vi, vim, Emacs, nano and a million others.&lt;/p&gt;
 
@@ -177,7 +215,7 @@ Some text here...
 &lt;pre&gt;&lt;code&gt;$ vi file.txt
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;now-what:115290b373a664e595e935c25cb1d0c4&#34;&gt;Now what?&lt;/h2&gt;
+&lt;h2 id=&#34;now-what&#34;&gt;Now what?&lt;/h2&gt;
 
 &lt;p&gt;Now you get started playing around.  Try to incorporate the command line in your day to day work.  Instead of opening finder, try to do things in terminal. Copy files, look in directories, edit documents.  The more you use it, the more it will become part of you and your power will grow.&lt;/p&gt;
 
@@ -197,25 +235,25 @@ Some text here...
 
 &lt;p&gt;&lt;a href=&#34;http://www.walmartlabs.com/&#34;&gt;WalmartLabs&lt;/a&gt; has recently open sources their cloud management platform &lt;a href=&#34;http://www.walmartlabs.com/2016/01/oneops-now-available/&#34;&gt;OneOps&lt;/a&gt;.  You can dive into the documentation &lt;a href=&#34;http://oneops.com/&#34;&gt;here&lt;/a&gt; or examine the source code &lt;a href=&#34;https://github.com/oneops/&#34;&gt;here&lt;/a&gt;. As a OneOps user, I&amp;rsquo;d like to offer a quick spin around OneOps and an overview of what it does.&lt;/p&gt;
 
-&lt;h1 id=&#34;what-is-it:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;What is it?&lt;/h1&gt;
+&lt;h1 id=&#34;what-is-it&#34;&gt;What is it?&lt;/h1&gt;
 
 &lt;p&gt;OneOps allows you to configure VM clusters using a GUI or a RESTful API in a way that is cloud provider agnostic. Meaning, you can use cores from AWS or any other cloud provider or a private cloud.&lt;/p&gt;
 
 &lt;p&gt;Configurations and environment settings are maintained in OneOps and can easily be ported between cloud providers.&lt;/p&gt;
 
-&lt;h1 id=&#34;how-does-it-work:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;How does it work?&lt;/h1&gt;
+&lt;h1 id=&#34;how-does-it-work&#34;&gt;How does it work?&lt;/h1&gt;
 
 &lt;p&gt;OneOps has a few basic organizational concepts which you&amp;rsquo;ll see repeatedly.&lt;/p&gt;
 
-&lt;h2 id=&#34;organization:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Organization:&lt;/h2&gt;
+&lt;h2 id=&#34;organization&#34;&gt;Organization:&lt;/h2&gt;
 
 &lt;p&gt;An Organization is group of users, clouds and assemblies that share settings, quotas and permissions. From the Organization view you can see a summary of users, clouds, assemblies, notifications, ongoing deployments, VM health statistics and reports for all cores in the Organization that includes allocation and quotas.&lt;/p&gt;
 
-&lt;h2 id=&#34;assembly:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Assembly:&lt;/h2&gt;
+&lt;h2 id=&#34;assembly&#34;&gt;Assembly:&lt;/h2&gt;
 
 &lt;p&gt;This essentially a project. The Assembly consists of 3 phases. &lt;strong&gt;Design&lt;/strong&gt;, &lt;strong&gt;Transition&lt;/strong&gt;, &lt;strong&gt;Operate&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;design:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Design:&lt;/h2&gt;
+&lt;h2 id=&#34;design&#34;&gt;Design:&lt;/h2&gt;
 
 &lt;p&gt;The Design is basically the template for how your VM cluster will be configured.&lt;/p&gt;
 
@@ -223,11 +261,11 @@ Some text here...
 
 &lt;p&gt;A design consists of one or more Platforms for which you&amp;rsquo;ll configure the prototype in the design phase.&lt;/p&gt;
 
-&lt;h4 id=&#34;platform:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Platform&lt;/h4&gt;
+&lt;h4 id=&#34;platform&#34;&gt;Platform&lt;/h4&gt;
 
 &lt;p&gt;The Platform represents a VM cluster. A Design will contain one or more platforms. For example, you can have a design that contains just a backend server OR it could contain server, database and apache components, depending how you want to organize things. Platforms can be built from scratch, but is generally built from a &lt;a href=&#34;http://oneops.github.io/user/references/#platform-packs&#34;&gt;Pack&lt;/a&gt; which is a set of preconfigured Components.&lt;/p&gt;
 
-&lt;h4 id=&#34;components:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Components&lt;/h4&gt;
+&lt;h4 id=&#34;components&#34;&gt;Components&lt;/h4&gt;
 
 &lt;p&gt;Components represent configurations and installed software and files on the VMs. Some examples include:&lt;/p&gt;
 
@@ -248,7 +286,7 @@ Some text here...
 
 &lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/oneops/oneops.github.io/master/assets/local/images/design-graph.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;transition:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Transition:&lt;/h2&gt;
+&lt;h2 id=&#34;transition&#34;&gt;Transition:&lt;/h2&gt;
 
 &lt;p&gt;In the transition phase you will: Configure environments. (PROD, STAGE, QA, etc.) Determine which clouds your platforms will be deployed on in those environments. Set environment specific configurations. It is also in the transition phase that you deploy your platforms.&lt;/p&gt;
 
@@ -262,7 +300,7 @@ Some text here...
 
 &lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/oneops/oneops.github.io/master/assets/local/images/GettingStartedEC2CommitAndDeploy.png&#34; alt=&#34;transition&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;operate:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Operate:&lt;/h2&gt;
+&lt;h2 id=&#34;operate&#34;&gt;Operate:&lt;/h2&gt;
 
 &lt;p&gt;The Operate phase is how you view, monitor and control your clusters now that they are active. You can see the health of individual computes, stop, repair or replace them. you can also see vital information about your VMs including IPs and host names.&lt;/p&gt;
 
@@ -270,21 +308,21 @@ Some text here...
 
 &lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/oneops/oneops.github.io/master/assets/local/images/assess-health-operate.png&#34; alt=&#34;operate&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;api:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;API&lt;/h2&gt;
+&lt;h2 id=&#34;api&#34;&gt;API&lt;/h2&gt;
 
 &lt;p&gt;There will be a lot of cases where you&amp;rsquo;ll want to integrate OneOps with other components in the build/deploy pipeline or simple script oft repeated operations like deployments. For this, OneOps provides a &lt;a href=&#34;http://oneops.github.io/developer/references/#oneops-api-documentation&#34;&gt;RESTful API&lt;/a&gt;. We&amp;rsquo;ll go into more detail about OneOp API usage in another post, but suffice it to say that as your usage of OneOps increases, you&amp;rsquo;ll find yourself increasingly relying on this feature to integrate OneOps into your pipeline. OneOps also provides a &lt;a href=&#34;http://oneops.github.io/admin/key-concepts/#cli&#34;&gt;Ruby CLI&lt;/a&gt; to the API, which you can install.&lt;/p&gt;
 
-&lt;h2 id=&#34;conclusion:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 
-&lt;h3 id=&#34;the-good:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;The good&lt;/h3&gt;
+&lt;h3 id=&#34;the-good&#34;&gt;The good&lt;/h3&gt;
 
 &lt;p&gt;OneOps is a powerful cloud management tool that you can experiment with today. Right off the shelf it provides a nice end to end solution for configuring and managing a range of cloud solutions. Standing up VM clusters with simple preset configurations is easy and viewing and maintaining VM health can be done with just a few clicks.&lt;/p&gt;
 
-&lt;h3 id=&#34;the-not-as-good:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;The not as good&lt;/h3&gt;
+&lt;h3 id=&#34;the-not-as-good&#34;&gt;The not as good&lt;/h3&gt;
 
 &lt;p&gt;The operations executed by OneOps are often complex and debugging failures can be difficult. &lt;a href=&#34;http://oneops.com/contribute.html&#34;&gt;The OneOps team&lt;/a&gt; is incredibly responsive, but at times it can feel like there is a little black magic going on behind the scenes. The version control scheme for components and configurations can be opaque.  There are often times when you&amp;rsquo;d like to just use versioned files from Github or the like and while it&amp;rsquo;s possible, it&amp;rsquo;s not always obvious how to do it.&lt;/p&gt;
 
-&lt;h3 id=&#34;the-future:8f7e8c26f6684d9b124c0f8a7fd2167e&#34;&gt;The future&lt;/h3&gt;
+&lt;h3 id=&#34;the-future&#34;&gt;The future&lt;/h3&gt;
 
 &lt;p&gt;I&amp;rsquo;m glad that now that OneOps is open source, the response to my complaints will be &amp;ldquo;File a PR!&amp;rdquo;. I think community involvement will make an already powerful tool even more useful and user friendly.&lt;/p&gt;
 </description>
@@ -418,7 +456,7 @@ v4.1.1
 
 &lt;p&gt;There is!&lt;/p&gt;
 
-&lt;h2 id=&#34;npm-shrinkwrap:03b1f98386b651e891c88835b47f2f3a&#34;&gt;NPM Shrinkwrap&lt;/h2&gt;
+&lt;h2 id=&#34;npm-shrinkwrap&#34;&gt;NPM Shrinkwrap&lt;/h2&gt;
 
 &lt;p&gt;NPM Shrinkwrap locks your entire dependency tree to the current installed version.  This is built into NPM and you can do it right now.&lt;/p&gt;
 
@@ -462,7 +500,7 @@ wreck            5.5.1   5.6.1   6.2.0  wreck
       <guid>http://blog.flowstate.io/post/systemd/</guid>
       <description>
 
-&lt;h2 id=&#34;intro:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Intro&lt;/h2&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 
 &lt;p&gt;systemd is an init system that most linux distributions are standardizing on and a crucial tool for any system admin or devops engineer.&lt;/p&gt;
 
@@ -486,11 +524,11 @@ var-lib-nfs-rpc_pipefs.mount          loaded active mounted   RPC Pipe File
 ...
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;basic-usage:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Basic usage&lt;/h2&gt;
+&lt;h2 id=&#34;basic-usage&#34;&gt;Basic usage&lt;/h2&gt;
 
-&lt;h3 id=&#34;getting-system-state:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Getting system state&lt;/h3&gt;
+&lt;h3 id=&#34;getting-system-state&#34;&gt;Getting system state&lt;/h3&gt;
 
-&lt;h4 id=&#34;list-currently-running-units:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;List currently running units:&lt;/h4&gt;
+&lt;h4 id=&#34;list-currently-running-units&#34;&gt;List currently running units:&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;$ systemctl
 &lt;/code&gt;&lt;/pre&gt;
@@ -500,43 +538,43 @@ var-lib-nfs-rpc_pipefs.mount          loaded active mounted   RPC Pipe File
 &lt;pre&gt;&lt;code&gt;$ systemctl list-units
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;list-failed-units:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;List failed units:&lt;/h4&gt;
+&lt;h4 id=&#34;list-failed-units&#34;&gt;List failed units:&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;$ systemctl --failed
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;strong&gt;Unit files can be found in&lt;/strong&gt; &lt;code&gt;/usr/lib/systemd/system/&lt;/code&gt; and &lt;code&gt;/etc/systemd/system/&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h4 id=&#34;list-installed-unit-files-with:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;List installed unit files with:&lt;/h4&gt;
+&lt;h4 id=&#34;list-installed-unit-files-with&#34;&gt;List installed unit files with:&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;$ systemctl list-unit-files
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;working-with-units:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Working with units&lt;/h2&gt;
+&lt;h2 id=&#34;working-with-units&#34;&gt;Working with units&lt;/h2&gt;
 
 &lt;p&gt;Basic unit commands are:&lt;/p&gt;
 
-&lt;h5 id=&#34;start-a-unit-immediately:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Start a unit immediately:&lt;/h5&gt;
+&lt;h5 id=&#34;start-a-unit-immediately&#34;&gt;Start a unit immediately:&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code&gt;$ systemctl start unit
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&#34;stop-a-unit-immediately:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Stop a unit immediately:&lt;/h5&gt;
+&lt;h5 id=&#34;stop-a-unit-immediately&#34;&gt;Stop a unit immediately:&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code&gt;$ systemctl stop unit
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&#34;restart-a-unit:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Restart a unit:&lt;/h5&gt;
+&lt;h5 id=&#34;restart-a-unit&#34;&gt;Restart a unit:&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code&gt;$ systemctl restart unit
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&#34;ask-a-unit-to-reload-its-configuration:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Ask a unit to reload its configuration:&lt;/h5&gt;
+&lt;h5 id=&#34;ask-a-unit-to-reload-its-configuration&#34;&gt;Ask a unit to reload its configuration:&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code&gt;$ systemctl reload unit
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&#34;show-the-status-of-a-unit-including-whether-it-is-running-or-not:43644c643e7f8892a9f8a45991d7cd50&#34;&gt;Show the status of a unit, including whether it is running or not:&lt;/h5&gt;
+&lt;h5 id=&#34;show-the-status-of-a-unit-including-whether-it-is-running-or-not&#34;&gt;Show the status of a unit, including whether it is running or not:&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code&gt;$ systemctl status unit
 &lt;/code&gt;&lt;/pre&gt;
@@ -555,11 +593,11 @@ var-lib-nfs-rpc_pipefs.mount          loaded active mounted   RPC Pipe File
 
 &lt;p&gt;Start with the &lt;a href=&#34;http://blog.flowstate.io/post/webpack&#34;&gt;webpack basics&lt;a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;what-is-a-loader:b776dbab38d940662c0f8f41f4c6e4fe&#34;&gt;What is a loader?&lt;/h2&gt;
+&lt;h2 id=&#34;what-is-a-loader&#34;&gt;What is a loader?&lt;/h2&gt;
 
 &lt;p&gt;A loader is &lt;a href=&#34;http://webpack.github.io/docs/loaders.html&#34;&gt;basically a preprocessor&lt;/a&gt;. It&amp;rsquo;s how you let webpack know that you&amp;rsquo;d like to transform a module in some specified way. For example, let&amp;rsquo;s say you are writing your code in &lt;a href=&#34;https://hacks.mozilla.org/category/es6-in-depth/&#34;&gt;ES6&lt;/a&gt; and you&amp;rsquo;d like webpack to process that into ES5 so the browser can parse it.  You&amp;rsquo;d define a loader for &lt;a href=&#34;https://babeljs.io/&#34;&gt;babel&lt;/a&gt; that looks for &lt;code&gt;.js&lt;/code&gt; files being required and then runs them through babel before adding them to the &lt;a href=&#34;https://github.com/webpack/webpack/tree/master/examples/commonjs#jsoutputjs&#34;&gt;bundle&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;example-please:b776dbab38d940662c0f8f41f4c6e4fe&#34;&gt;Example, please&lt;/h2&gt;
+&lt;h2 id=&#34;example-please&#34;&gt;Example, please&lt;/h2&gt;
 
 &lt;p&gt;You can check out the working example here &lt;a href=&#34;https://github.com/ohall/webpack-loaders-example&#34;&gt;repo here&lt;/a&gt;.&lt;/p&gt;
 
@@ -616,7 +654,7 @@ bundle.js  1.96 kB       0  [emitted]  main
 
 &lt;p&gt;Now our &lt;code&gt;bundle.js&lt;/code&gt; is complete and looking right.&lt;/p&gt;
 
-&lt;h2 id=&#34;ok-so-what-just-happened:b776dbab38d940662c0f8f41f4c6e4fe&#34;&gt;Ok, so what just happened?&lt;/h2&gt;
+&lt;h2 id=&#34;ok-so-what-just-happened&#34;&gt;Ok, so what just happened?&lt;/h2&gt;
 
 &lt;p&gt;I added a &lt;code&gt;module&lt;/code&gt; to our &lt;code&gt;webpack.config.js&lt;/code&gt; with a &lt;code&gt;loaders&lt;/code&gt; array.  Inside that array, I defined a babel loader.&lt;/p&gt;
 
@@ -639,91 +677,9 @@ bundle.js  1.96 kB       0  [emitted]  main
 
 &lt;p&gt;Simple, right?&lt;/p&gt;
 
-&lt;h2 id=&#34;what-else-can-i-use-loaders-for:b776dbab38d940662c0f8f41f4c6e4fe&#34;&gt;What else can I use loaders for.&lt;/h2&gt;
+&lt;h2 id=&#34;what-else-can-i-use-loaders-for&#34;&gt;What else can I use loaders for.&lt;/h2&gt;
 
 &lt;p&gt;You can process anything.  Common use cases include &lt;code&gt;JSON&lt;/code&gt;, &lt;code&gt;CSS&lt;/code&gt;, static assets like images, dialects like CoffeeScript and Typescript.  The webpack wiki contains a &lt;a href=&#34;https://github.com/webpack/docs/wiki/list-of-loaders&#34;&gt;list of available loaders&lt;/a&gt; or you can &lt;a href=&#34;http://webpack.github.io/docs/loaders.html#writing-a-loader&#34;&gt;roll your own&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Stop trying to learn a programming language</title>
-      <link>http://blog.flowstate.io/post/so_you_wanna_dev/</link>
-      <pubDate>Mon, 17 Aug 2015 06:03:19 EDT</pubDate>
-      <author>Oakley Hall</author>
-      <guid>http://blog.flowstate.io/post/so_you_wanna_dev/</guid>
-      <description>
-
-&lt;p&gt;I hear this question all the time:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;quot;Which programming language should I learn?&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;My answer is always the same:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;quot;It doesn&#39;t matter. Let the project decide for you.&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;a-story:1fed5910f8d953c014c3eb0203feb935&#34;&gt;A story&lt;/h4&gt;
-
-&lt;p&gt;When I first started my journey as a professional software developer, I got hired to work on an application written in a dying language on a platform that would soon be reviled the world over. This project was written in ActionScript 3, using the Flex framework. This was cutting edge stuff at the time, with a bright future, before Steve Jobs and 0 day exploits crapped in the Flash punch bowl.&lt;/p&gt;
-
-&lt;p&gt;The point is, I started learning my trade using a language that I&amp;rsquo;d probably never see again, &lt;strong&gt;but that never mattered&lt;/strong&gt;. What mattered is that I worked with a brilliant team who took time to train me in the craft of programming. I learned the fundamentals of software development and I learned the tools I have used every day since I started that project.&lt;/p&gt;
-
-&lt;p&gt;An aspiring programmer fretting about what language to develop in is like a carpenter worrying about what wood to use. It&amp;rsquo;s one of many choices to be made about a project, but it does not define the carpenter&amp;rsquo;s expertise.&lt;/p&gt;
-
-&lt;p&gt;What matters is not the material you work in, but the tools, the craft, and the mindset you develop.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-tools:1fed5910f8d953c014c3eb0203feb935&#34;&gt;The tools&lt;/h2&gt;
-
-&lt;h3 id=&#34;version-control:1fed5910f8d953c014c3eb0203feb935&#34;&gt;Version control&lt;/h3&gt;
-
-&lt;p&gt;Understand &lt;a href=&#34;https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control&#34;&gt;version control&lt;/a&gt;. &lt;a href=&#34;https://git-scm.com/about&#34;&gt;Git&lt;/a&gt; is the most popular at the moment and seems to have a firm hold on the space. Use &lt;a href=&#34;https://github.com/&#34;&gt;GitHub&lt;/a&gt;. &lt;a href=&#34;https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell&#34;&gt;Branch&lt;/a&gt;, &lt;a href=&#34;https://git-scm.com/book/en/v2/Git-Basics-Tagging&#34;&gt;tag&lt;/a&gt;, do &lt;a href=&#34;https://help.github.com/articles/using-pull-requests/&#34;&gt;pull requests&lt;/a&gt;, even if they are just against your own code. You can version control any file. Use git for papers, blog posts, any document that you&amp;rsquo;ll want to have a record of changes to.&lt;/p&gt;
-
-&lt;h3 id=&#34;text-editor:1fed5910f8d953c014c3eb0203feb935&#34;&gt;Text editor&lt;/h3&gt;
-
-&lt;p&gt;Pick something and become a power user. I personally feel most at home in an &lt;a href=&#34;https://en.wikipedia.org/wiki/Integrated_development_environment&#34;&gt;IDE&lt;/a&gt;, so I spend most of my time writing JavaScript in &lt;a href=&#34;https://www.jetbrains.com/webstorm/&#34;&gt;Webstorm&lt;/a&gt;, but I also love the light weight editor &lt;a href=&#34;http://www.sublimetext.com/&#34;&gt;Sublime Text&lt;/a&gt;. I&amp;rsquo;ve created a ton custom templates that autocomplete common code snippets. I know many keyboard shortcuts and tricks to simplify and expedite my workflow. It&amp;rsquo;s the equivalent of sitting in the driver&amp;rsquo;s seat of a car and adjusting the mirrors and familiarizing yourself with the controls. I try to learn a little something new every day. Some devs recommend working without a mouse one day a week. I haven&amp;rsquo;t had the nerve for that one yet.&lt;/p&gt;
-
-&lt;h3 id=&#34;the-terminal:1fed5910f8d953c014c3eb0203feb935&#34;&gt;The terminal&lt;/h3&gt;
-
-&lt;p&gt;This is among the most important skills you&amp;rsquo;ll need as a developer. This will come up over and over and over. Get comfortable navigating the file system in the terminal (&lt;code&gt;cd&lt;/code&gt; and &lt;code&gt;ls&lt;/code&gt;), running applications, viewing and changing permissions(&lt;code&gt;chmod&lt;/code&gt;), piping data from one app to another (&lt;code&gt;|&lt;/code&gt;). Searching for text strings in a file or directory (&lt;code&gt;grep&lt;/code&gt;).&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev1.png&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;Eventually, you&amp;rsquo;ll need tools like &lt;code&gt;ssh&lt;/code&gt;, &lt;code&gt;scp&lt;/code&gt; and the whole panoply of command line utilities available on the Unix platform. I&amp;rsquo;m told Windows has stuff like that too.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-platform:1fed5910f8d953c014c3eb0203feb935&#34;&gt;The platform&lt;/h2&gt;
-
-&lt;p&gt;Where is your code going to execute?  How will your users interact with it. For me, right now, that&amp;rsquo;s in the browser and &lt;a href=&#34;https://en.wikipedia.org/wiki/V8_(JavaScript_engine&#34;&gt;Node&amp;rsquo;s V8 engine&lt;/a&gt;). Well, &lt;a href=&#34;http://googleblog.blogspot.com/2009/10/what-is-browser.html&#34;&gt;what is a browser&lt;/a&gt;? &lt;a href=&#34;http://www.slashroot.in/httphypertext-transfer-protocol-request-and-response&#34;&gt;How does HTTP work&lt;/a&gt;? What &lt;a href=&#34;https://developer.chrome.com/devtools&#34;&gt;tools&lt;/a&gt; &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Tools&#34;&gt;are&lt;/a&gt; &lt;a href=&#34;https://developer.apple.com/safari/tools/&#34;&gt;available&lt;/a&gt; to &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/dd565628&#34;&gt;developers&lt;/a&gt;?&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev2.png&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;This is your world. These are the rules that will define what you can do and the platform on which you&amp;rsquo;ll be doing it. This is your users whole experience. Before you learn anything about a language, you have to understand the environment in which it will execute.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-craft:1fed5910f8d953c014c3eb0203feb935&#34;&gt;The craft&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://amzn.to/1hozy0j&#34;&gt;Buy this book&lt;/a&gt; and read it more than once.&lt;/p&gt;
-
-&lt;p&gt;Your early code is going to suck. In fact most of your code is going to suck, as will most of the code you will ever read. Nevertheless, you will persevere in the eternal struggle against entropy. You will endeavor to make your code readable and performant and something you are proud to show to others. Embrace simplicity, modularity, decoupling, testing, automation, documentation and all the other &lt;a href=&#34;https://pragprog.com/the-pragmatic-programmer/extracts/tips&#34;&gt;hallmarks of a software craftsman&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev3.png&#34;/&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;the-mindset:1fed5910f8d953c014c3eb0203feb935&#34;&gt;The mindset&lt;/h2&gt;
-
-&lt;h3 id=&#34;check-your-ego-at-the-door:1fed5910f8d953c014c3eb0203feb935&#34;&gt;Check your ego at the door.&lt;/h3&gt;
-
-&lt;p&gt;You&amp;rsquo;re going to hear criticism of your bad code, don&amp;rsquo;t shy away from that. Embrace it, learn from it, write it down. Endeavor not to make the same mistake twice. Do not hide your code, seek review and criticism. This is how you will grow. Seek out more senior programmers and read their code. Show gratitude when they take the time to tell you what to fix in yours.&lt;/p&gt;
-
-&lt;h3 id=&#34;make-stuff-constantly:1fed5910f8d953c014c3eb0203feb935&#34;&gt;Make stuff constantly&lt;/h3&gt;
-
-&lt;p&gt;Some people can read book to learn how to do things. Not me. I can only learn by doing things badly and then researching, reading and iterating over it. Hence, I must constantly be working on side project to learn how to do anything. &lt;strong&gt;Think of something you want to make and then figure out how to do it one small piece at a time.&lt;/strong&gt; &amp;lt;&amp;ndash; This is the secret formula for becoming a software developer.&lt;/p&gt;
-
-&lt;h3 id=&#34;read-read-and-listen:1fed5910f8d953c014c3eb0203feb935&#34;&gt;Read, read and listen&lt;/h3&gt;
-
-&lt;p&gt;Read &lt;a href=&#34;http://stackoverflow.com/questions/1711/what-is-the-single-most-influential-book-every-programmer-should-read&#34;&gt;books&lt;/a&gt;, read &lt;a href=&#34;http://blog.codinghorror.com/&#34;&gt;blogs&lt;/a&gt;, read &lt;a href=&#34;https://news.ycombinator.com/&#34;&gt;hacker news&lt;/a&gt;, read &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Stack Overflow&lt;/a&gt; read &lt;a href=&#34;https://github.com/joyent/node/blob/master/lib/_http_server.js&#34;&gt;code&lt;/a&gt;, listen to &lt;a href=&#34;https://devchat.tv/js-jabber/&#34;&gt;podcasts&lt;/a&gt;. Perhaps the 300th explanation of a concept will be the one that sinks in.&lt;/p&gt;
-
-&lt;h2 id=&#34;conclusion:1fed5910f8d953c014c3eb0203feb935&#34;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;There is so much to do! Why are you fussing about which language to learn? Focus on what you want to create. Become a technologist and a craftsman. Make things! Start right now! You&amp;rsquo;ll learn language syntax as you go, but it will be incidental to learning how to create software holistically and how to make cool things that people will want to use.&lt;/p&gt;
 </description>
     </item>
     
@@ -745,7 +701,7 @@ bundle.js  1.96 kB       0  [emitted]  main
 &lt;pre&gt;&lt;code&gt;&amp;quot;It doesn&#39;t matter. Let the project decide for you.&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;a-story:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;A story&lt;/h4&gt;
+&lt;h4 id=&#34;a-story&#34;&gt;A story&lt;/h4&gt;
 
 &lt;p&gt;When I first started my journey as a professional software developer, I got hired to work on an application written in a dying language on a platform that would soon be reviled the world over. This project was written in ActionScript 3, using the Flex framework. This was cutting edge stuff at the time, with a bright future, before Steve Jobs and 0 day exploits crapped in the Flash punch bowl.&lt;/p&gt;
 
@@ -755,17 +711,17 @@ bundle.js  1.96 kB       0  [emitted]  main
 
 &lt;p&gt;What matters is not the material you work in, but the tools, the craft, and the mindset you develop.&lt;/p&gt;
 
-&lt;h2 id=&#34;the-tools:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;The tools&lt;/h2&gt;
+&lt;h2 id=&#34;the-tools&#34;&gt;The tools&lt;/h2&gt;
 
-&lt;h3 id=&#34;version-control:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Version control&lt;/h3&gt;
+&lt;h3 id=&#34;version-control&#34;&gt;Version control&lt;/h3&gt;
 
 &lt;p&gt;Understand &lt;a href=&#34;https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control&#34;&gt;version control&lt;/a&gt;. &lt;a href=&#34;https://git-scm.com/about&#34;&gt;Git&lt;/a&gt; is the most popular at the moment and seems to have a firm hold on the space. Use &lt;a href=&#34;https://github.com/&#34;&gt;GitHub&lt;/a&gt;. &lt;a href=&#34;https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell&#34;&gt;Branch&lt;/a&gt;, &lt;a href=&#34;https://git-scm.com/book/en/v2/Git-Basics-Tagging&#34;&gt;tag&lt;/a&gt;, do &lt;a href=&#34;https://help.github.com/articles/using-pull-requests/&#34;&gt;pull requests&lt;/a&gt;, even if they are just against your own code. You can version control any file. Use git for papers, blog posts, any document that you&amp;rsquo;ll want to have a record of changes to.&lt;/p&gt;
 
-&lt;h3 id=&#34;text-editor:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Text editor&lt;/h3&gt;
+&lt;h3 id=&#34;text-editor&#34;&gt;Text editor&lt;/h3&gt;
 
 &lt;p&gt;Pick something and become a power user. I personally feel most at home in an &lt;a href=&#34;https://en.wikipedia.org/wiki/Integrated_development_environment&#34;&gt;IDE&lt;/a&gt;, so I spend most of my time writing JavaScript in &lt;a href=&#34;https://www.jetbrains.com/webstorm/&#34;&gt;Webstorm&lt;/a&gt;, but I also love the light weight editor &lt;a href=&#34;http://www.sublimetext.com/&#34;&gt;Sublime Text&lt;/a&gt;. I&amp;rsquo;ve created a ton custom templates that autocomplete common code snippets. I know many keyboard shortcuts and tricks to simplify and expedite my workflow. It&amp;rsquo;s the equivalent of sitting in the driver&amp;rsquo;s seat of a car and adjusting the mirrors and familiarizing yourself with the controls. I try to learn a little something new every day. Some devs recommend working without a mouse one day a week. I haven&amp;rsquo;t had the nerve for that one yet.&lt;/p&gt;
 
-&lt;h3 id=&#34;the-terminal:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;The terminal&lt;/h3&gt;
+&lt;h3 id=&#34;the-terminal&#34;&gt;The terminal&lt;/h3&gt;
 
 &lt;p&gt;This is among the most important skills you&amp;rsquo;ll need as a developer. This will come up over and over and over. Get comfortable navigating the file system in the terminal (&lt;code&gt;cd&lt;/code&gt; and &lt;code&gt;ls&lt;/code&gt;), running applications, viewing and changing permissions(&lt;code&gt;chmod&lt;/code&gt;), piping data from one app to another (&lt;code&gt;|&lt;/code&gt;). Searching for text strings in a file or directory (&lt;code&gt;grep&lt;/code&gt;).&lt;/p&gt;
 
@@ -773,15 +729,15 @@ bundle.js  1.96 kB       0  [emitted]  main
 
 &lt;p&gt;Eventually, you&amp;rsquo;ll need tools like &lt;code&gt;ssh&lt;/code&gt;, &lt;code&gt;scp&lt;/code&gt; and the whole panoply of command line utilities available on the Unix platform. I&amp;rsquo;m told Windows has stuff like that too.&lt;/p&gt;
 
-&lt;h2 id=&#34;the-platform:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;The platform&lt;/h2&gt;
+&lt;h2 id=&#34;the-platform&#34;&gt;The platform&lt;/h2&gt;
 
-&lt;p&gt;Where is your code going to execute?  How will your users interact with it. For me, right now, that&amp;rsquo;s in the browser and &lt;a href=&#34;https://en.wikipedia.org/wiki/V8_(JavaScript_engine&#34;&gt;Node&amp;rsquo;s V8 engine&lt;/a&gt;). Well, &lt;a href=&#34;http://googleblog.blogspot.com/2009/10/what-is-browser.html&#34;&gt;what is a browser&lt;/a&gt;? &lt;a href=&#34;http://www.slashroot.in/httphypertext-transfer-protocol-request-and-response&#34;&gt;How does HTTP work&lt;/a&gt;? What &lt;a href=&#34;https://developer.chrome.com/devtools&#34;&gt;tools&lt;/a&gt; &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Tools&#34;&gt;are&lt;/a&gt; &lt;a href=&#34;https://developer.apple.com/safari/tools/&#34;&gt;avaialble&lt;/a&gt; to &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/dd565628(v=vs.85&#34;&gt;developers&lt;/a&gt;.aspx)?&lt;/p&gt;
+&lt;p&gt;Where is your code going to execute?  How will your users interact with it. For me, right now, that&amp;rsquo;s in the browser and &lt;a href=&#34;https://en.wikipedia.org/wiki/V8_(JavaScript_engine)&#34;&gt;Node&amp;rsquo;s V8 engine&lt;/a&gt;. Well, &lt;a href=&#34;http://googleblog.blogspot.com/2009/10/what-is-browser.html&#34;&gt;what is a browser&lt;/a&gt;? &lt;a href=&#34;http://www.slashroot.in/httphypertext-transfer-protocol-request-and-response&#34;&gt;How does HTTP work&lt;/a&gt;? What &lt;a href=&#34;https://developer.chrome.com/devtools&#34;&gt;tools&lt;/a&gt; &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Tools&#34;&gt;are&lt;/a&gt; &lt;a href=&#34;https://developer.apple.com/safari/tools/&#34;&gt;avaialble&lt;/a&gt; to &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/dd565628(v=vs.85).aspx&#34;&gt;developers&lt;/a&gt;?&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev2.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;This is your world. These are the rules that will define what you can do and the platform on which you&amp;rsquo;ll be doing it. This is your users whole experience. Before you learn anything about a language, you have to understand the environment in which it will execute.&lt;/p&gt;
 
-&lt;h2 id=&#34;the-craft:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;The craft&lt;/h2&gt;
+&lt;h2 id=&#34;the-craft&#34;&gt;The craft&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://amzn.to/1hozy0j&#34;&gt;Buy this book&lt;/a&gt; and read it more than once.&lt;/p&gt;
 
@@ -789,21 +745,103 @@ bundle.js  1.96 kB       0  [emitted]  main
 
 &lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev3.png&#34;/&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;the-mindset:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;The mindset&lt;/h2&gt;
+&lt;h2 id=&#34;the-mindset&#34;&gt;The mindset&lt;/h2&gt;
 
-&lt;h3 id=&#34;check-your-ego-at-the-door:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Check your ego at the door.&lt;/h3&gt;
+&lt;h3 id=&#34;check-your-ego-at-the-door&#34;&gt;Check your ego at the door.&lt;/h3&gt;
 
 &lt;p&gt;You&amp;rsquo;re going to hear criticism of your bad code, don&amp;rsquo;t shy away from that. Embrace it, learn from it, write it down. Endeavor not to make the same mistake twice. Do not hide your code, seek review and criticism. This is how you will grow. Seek out more senior programmers and read their code. Show gratitude when they take the time to tell you what to fix in yours.&lt;/p&gt;
 
-&lt;h3 id=&#34;make-stuff-constantly:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Make stuff constantly&lt;/h3&gt;
+&lt;h3 id=&#34;make-stuff-constantly&#34;&gt;Make stuff constantly&lt;/h3&gt;
 
 &lt;p&gt;Some people can read book to learn how to do things. Not me. I can only learn by doing things badly and then researching, reading and iterating over it. Hence, I must constantly be working on side project to learn how to do anything. &lt;strong&gt;Think of something you want to make and then figure out how to do it one small piece at a time.&lt;/strong&gt; &amp;lt;&amp;ndash; This is the secret formula for becoming a software developer.&lt;/p&gt;
 
-&lt;h3 id=&#34;read-read-and-listen:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Read, read and listen&lt;/h3&gt;
+&lt;h3 id=&#34;read-read-and-listen&#34;&gt;Read, read and listen&lt;/h3&gt;
 
 &lt;p&gt;Read &lt;a href=&#34;http://stackoverflow.com/questions/1711/what-is-the-single-most-influential-book-every-programmer-should-read&#34;&gt;books&lt;/a&gt;, read &lt;a href=&#34;http://blog.codinghorror.com/&#34;&gt;blogs&lt;/a&gt;, read &lt;a href=&#34;https://news.ycombinator.com/&#34;&gt;hacker news&lt;/a&gt;, read &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Stack Overflow&lt;/a&gt; read &lt;a href=&#34;https://github.com/joyent/node/blob/master/lib/_http_server.js&#34;&gt;code&lt;/a&gt;, listen to &lt;a href=&#34;https://devchat.tv/js-jabber/&#34;&gt;podcasts&lt;/a&gt;. Perhaps the 300th explanation of a concept will be the one that sinks in.&lt;/p&gt;
 
-&lt;h2 id=&#34;conclusion:ddb22989fc6fc2efe65ece51e45a4a76&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;There is so much to do! Why are you fussing about which language to learn? Focus on what you want to create. Become a technologist and a craftsman. Make things! Start right now! You&amp;rsquo;ll learn language syntax as you go, but it will be incidental to learning how to create software holistically and how to make cool things that people will want to use.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Stop trying to learn a programming language</title>
+      <link>http://blog.flowstate.io/post/so_you_wanna_dev/</link>
+      <pubDate>Mon, 17 Aug 2015 06:03:19 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://blog.flowstate.io/post/so_you_wanna_dev/</guid>
+      <description>
+
+&lt;p&gt;I hear this question all the time:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;quot;Which programming language should I learn?&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;My answer is always the same:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;quot;It doesn&#39;t matter. Let the project decide for you.&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;a-story&#34;&gt;A story&lt;/h4&gt;
+
+&lt;p&gt;When I first started my journey as a professional software developer, I got hired to work on an application written in a dying language on a platform that would soon be reviled the world over. This project was written in ActionScript 3, using the Flex framework. This was cutting edge stuff at the time, with a bright future, before Steve Jobs and 0 day exploits crapped in the Flash punch bowl.&lt;/p&gt;
+
+&lt;p&gt;The point is, I started learning my trade using a language that I&amp;rsquo;d probably never see again, &lt;strong&gt;but that never mattered&lt;/strong&gt;. What mattered is that I worked with a brilliant team who took time to train me in the craft of programming. I learned the fundamentals of software development and I learned the tools I have used every day since I started that project.&lt;/p&gt;
+
+&lt;p&gt;An aspiring programmer fretting about what language to develop in is like a carpenter worrying about what wood to use. It&amp;rsquo;s one of many choices to be made about a project, but it does not define the carpenter&amp;rsquo;s expertise.&lt;/p&gt;
+
+&lt;p&gt;What matters is not the material you work in, but the tools, the craft, and the mindset you develop.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-tools&#34;&gt;The tools&lt;/h2&gt;
+
+&lt;h3 id=&#34;version-control&#34;&gt;Version control&lt;/h3&gt;
+
+&lt;p&gt;Understand &lt;a href=&#34;https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control&#34;&gt;version control&lt;/a&gt;. &lt;a href=&#34;https://git-scm.com/about&#34;&gt;Git&lt;/a&gt; is the most popular at the moment and seems to have a firm hold on the space. Use &lt;a href=&#34;https://github.com/&#34;&gt;GitHub&lt;/a&gt;. &lt;a href=&#34;https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell&#34;&gt;Branch&lt;/a&gt;, &lt;a href=&#34;https://git-scm.com/book/en/v2/Git-Basics-Tagging&#34;&gt;tag&lt;/a&gt;, do &lt;a href=&#34;https://help.github.com/articles/using-pull-requests/&#34;&gt;pull requests&lt;/a&gt;, even if they are just against your own code. You can version control any file. Use git for papers, blog posts, any document that you&amp;rsquo;ll want to have a record of changes to.&lt;/p&gt;
+
+&lt;h3 id=&#34;text-editor&#34;&gt;Text editor&lt;/h3&gt;
+
+&lt;p&gt;Pick something and become a power user. I personally feel most at home in an &lt;a href=&#34;https://en.wikipedia.org/wiki/Integrated_development_environment&#34;&gt;IDE&lt;/a&gt;, so I spend most of my time writing JavaScript in &lt;a href=&#34;https://www.jetbrains.com/webstorm/&#34;&gt;Webstorm&lt;/a&gt;, but I also love the light weight editor &lt;a href=&#34;http://www.sublimetext.com/&#34;&gt;Sublime Text&lt;/a&gt;. I&amp;rsquo;ve created a ton custom templates that autocomplete common code snippets. I know many keyboard shortcuts and tricks to simplify and expedite my workflow. It&amp;rsquo;s the equivalent of sitting in the driver&amp;rsquo;s seat of a car and adjusting the mirrors and familiarizing yourself with the controls. I try to learn a little something new every day. Some devs recommend working without a mouse one day a week. I haven&amp;rsquo;t had the nerve for that one yet.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-terminal&#34;&gt;The terminal&lt;/h3&gt;
+
+&lt;p&gt;This is among the most important skills you&amp;rsquo;ll need as a developer. This will come up over and over and over. Get comfortable navigating the file system in the terminal (&lt;code&gt;cd&lt;/code&gt; and &lt;code&gt;ls&lt;/code&gt;), running applications, viewing and changing permissions(&lt;code&gt;chmod&lt;/code&gt;), piping data from one app to another (&lt;code&gt;|&lt;/code&gt;). Searching for text strings in a file or directory (&lt;code&gt;grep&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev1.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Eventually, you&amp;rsquo;ll need tools like &lt;code&gt;ssh&lt;/code&gt;, &lt;code&gt;scp&lt;/code&gt; and the whole panoply of command line utilities available on the Unix platform. I&amp;rsquo;m told Windows has stuff like that too.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-platform&#34;&gt;The platform&lt;/h2&gt;
+
+&lt;p&gt;Where is your code going to execute?  How will your users interact with it. For me, right now, that&amp;rsquo;s in the browser and &lt;a href=&#34;https://en.wikipedia.org/wiki/V8_(JavaScript_engine)&#34;&gt;Node&amp;rsquo;s V8 engine&lt;/a&gt;. Well, &lt;a href=&#34;http://googleblog.blogspot.com/2009/10/what-is-browser.html&#34;&gt;what is a browser&lt;/a&gt;? &lt;a href=&#34;http://www.slashroot.in/httphypertext-transfer-protocol-request-and-response&#34;&gt;How does HTTP work&lt;/a&gt;? What &lt;a href=&#34;https://developer.chrome.com/devtools&#34;&gt;tools&lt;/a&gt; &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Tools&#34;&gt;are&lt;/a&gt; &lt;a href=&#34;https://developer.apple.com/safari/tools/&#34;&gt;available&lt;/a&gt; to &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/dd565628&#34;&gt;developers&lt;/a&gt;?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev2.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;This is your world. These are the rules that will define what you can do and the platform on which you&amp;rsquo;ll be doing it. This is your users whole experience. Before you learn anything about a language, you have to understand the environment in which it will execute.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-craft&#34;&gt;The craft&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://amzn.to/1hozy0j&#34;&gt;Buy this book&lt;/a&gt; and read it more than once.&lt;/p&gt;
+
+&lt;p&gt;Your early code is going to suck. In fact most of your code is going to suck, as will most of the code you will ever read. Nevertheless, you will persevere in the eternal struggle against entropy. You will endeavor to make your code readable and performant and something you are proud to show to others. Embrace simplicity, modularity, decoupling, testing, automation, documentation and all the other &lt;a href=&#34;https://pragprog.com/the-pragmatic-programmer/extracts/tips&#34;&gt;hallmarks of a software craftsman&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/so_you_wanna_dev3.png&#34;/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;the-mindset&#34;&gt;The mindset&lt;/h2&gt;
+
+&lt;h3 id=&#34;check-your-ego-at-the-door&#34;&gt;Check your ego at the door.&lt;/h3&gt;
+
+&lt;p&gt;You&amp;rsquo;re going to hear criticism of your bad code, don&amp;rsquo;t shy away from that. Embrace it, learn from it, write it down. Endeavor not to make the same mistake twice. Do not hide your code, seek review and criticism. This is how you will grow. Seek out more senior programmers and read their code. Show gratitude when they take the time to tell you what to fix in yours.&lt;/p&gt;
+
+&lt;h3 id=&#34;make-stuff-constantly&#34;&gt;Make stuff constantly&lt;/h3&gt;
+
+&lt;p&gt;Some people can read book to learn how to do things. Not me. I can only learn by doing things badly and then researching, reading and iterating over it. Hence, I must constantly be working on side project to learn how to do anything. &lt;strong&gt;Think of something you want to make and then figure out how to do it one small piece at a time.&lt;/strong&gt; &amp;lt;&amp;ndash; This is the secret formula for becoming a software developer.&lt;/p&gt;
+
+&lt;h3 id=&#34;read-read-and-listen&#34;&gt;Read, read and listen&lt;/h3&gt;
+
+&lt;p&gt;Read &lt;a href=&#34;http://stackoverflow.com/questions/1711/what-is-the-single-most-influential-book-every-programmer-should-read&#34;&gt;books&lt;/a&gt;, read &lt;a href=&#34;http://blog.codinghorror.com/&#34;&gt;blogs&lt;/a&gt;, read &lt;a href=&#34;https://news.ycombinator.com/&#34;&gt;hacker news&lt;/a&gt;, read &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Stack Overflow&lt;/a&gt; read &lt;a href=&#34;https://github.com/joyent/node/blob/master/lib/_http_server.js&#34;&gt;code&lt;/a&gt;, listen to &lt;a href=&#34;https://devchat.tv/js-jabber/&#34;&gt;podcasts&lt;/a&gt;. Perhaps the 300th explanation of a concept will be the one that sinks in.&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 
 &lt;p&gt;There is so much to do! Why are you fussing about which language to learn? Focus on what you want to create. Become a technologist and a craftsman. Make things! Start right now! You&amp;rsquo;ll learn language syntax as you go, but it will be incidental to learning how to create software holistically and how to make cool things that people will want to use.&lt;/p&gt;
 </description>
@@ -821,7 +859,7 @@ bundle.js  1.96 kB       0  [emitted]  main
 
 &lt;p&gt;Exhale. Webpack is not that complicated, especially for simple work flows. It&amp;rsquo;s becoming an integral part of the JS ecosystem and so it&amp;rsquo;s worth sitting down and learning it. You can do this, just focus.&lt;/p&gt;
 
-&lt;h3 id=&#34;tl-dr:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;TL;DR&lt;/h3&gt;
+&lt;h3 id=&#34;tl-dr&#34;&gt;TL;DR&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Webpack is a module bundler like Browserify, but with better support for Node and React.&lt;/li&gt;
@@ -829,7 +867,7 @@ bundle.js  1.96 kB       0  [emitted]  main
 &lt;li&gt;Here&amp;rsquo;s a simple example: &lt;a href=&#34;https://github.com/ohall/webpack-example&#34;&gt;https://github.com/ohall/webpack-example&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;what-is-the-point-of-webpack:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;What is the point of Webpack?&lt;/h3&gt;
+&lt;h3 id=&#34;what-is-the-point-of-webpack&#34;&gt;What is the point of Webpack?&lt;/h3&gt;
 
 &lt;p&gt;Webpack is a module bundler. You may be familiar with &lt;code&gt;Browserify&lt;/code&gt; which allows you to use the AMD (Asynchronous Module Definition) syntax (&lt;code&gt;var foo = require(&#39;bar&#39;);&lt;/code&gt;) in your frontend code, much the same and you would in your Node applications. Basically this:&lt;/p&gt;
 
@@ -842,11 +880,11 @@ wicked();
 
 &lt;p&gt;&lt;img src=&#34;http://webpack.github.io/assets/what-is-webpack.png&#34; alt=&#34;webpack&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;but-why-webpack-doesn-t-browserify-do-this-more-simply:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;But why Webpack? Doesn&amp;rsquo;t Browserify do this more simply?&lt;/h3&gt;
+&lt;h3 id=&#34;but-why-webpack-doesn-t-browserify-do-this-more-simply&#34;&gt;But why Webpack? Doesn&amp;rsquo;t Browserify do this more simply?&lt;/h3&gt;
 
 &lt;p&gt;There are &lt;a href=&#34;http://mattdesl.svbtle.com/browserify-vs-webpack&#34;&gt;compelling&lt;/a&gt; &lt;a href=&#34;http://blog.namangoel.com/browserify-vs-webpack-js-drama&#34;&gt;arguments&lt;/a&gt; for both &lt;a href=&#34;https://www.reddit.com/r/reactjs/comments/30at04/webpack_vs_browserify_whats_best_for_react/&#34;&gt;technologies&lt;/a&gt;. One big arguement for Webpack is the ability to do &lt;a href=&#34;https://gaearon.github.io/react-hot-loader/&#34;&gt;React Hot-loading&lt;/a&gt; easily, speeding up dev time. But this post isn&amp;rsquo;t about choosing between the two. For whatever reason, you&amp;rsquo;re using Webpack now, DEAL WITH IT.&lt;/p&gt;
 
-&lt;h3 id=&#34;i-m-looking-at-webpack-config-js-and-i-m-angry:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;I&amp;rsquo;m looking at webpack.config.js and I&amp;rsquo;m angry.&lt;/h3&gt;
+&lt;h3 id=&#34;i-m-looking-at-webpack-config-js-and-i-m-angry&#34;&gt;I&amp;rsquo;m looking at webpack.config.js and I&amp;rsquo;m angry.&lt;/h3&gt;
 
 &lt;p&gt;Whoa. It&amp;rsquo;s cool. Look, let&amp;rsquo;s start with a very simple example, so we can improve the signal to noise ratio. You can find a repo with this example here: &lt;a href=&#34;https://github.com/ohall/webpack-example&#34;&gt;https://github.com/ohall/webpack-example&lt;/a&gt;&lt;/p&gt;
 
@@ -896,7 +934,7 @@ module.exports = function () {
 &amp;lt;/html&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;conclusion:0fbf26ffeaefc849c430aca7d9a884cf&#34;&gt;Conclusion&lt;/h3&gt;
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
 
 &lt;p&gt;There is SO much more to Webpack, that I&amp;rsquo;ll dive into in the next post. For now though, you have enough to get you a footing in Webpack and start experimenting. JS tooling can be frustrating, especially when it feels like you have to learn a whole new build system every week. Don&amp;rsquo;t despair! Start simple, take time to learn it and try to have fun.&lt;/p&gt;
 
@@ -912,24 +950,24 @@ module.exports = function () {
       <guid>http://blog.flowstate.io/post/osx_global_shell/</guid>
       <description>
 
-&lt;h3 id=&#34;this-example-will-open-a-document-passed-in-as-param-in-textmate-obviously-you-can-use-any-app-you-like:3d4f833b57991155259170382335e85b&#34;&gt;This example will open a document passed in as param in TextMate.  Obviously, you can use any app you like.&lt;/h3&gt;
+&lt;h3 id=&#34;this-example-will-open-a-document-passed-in-as-param-in-textmate-obviously-you-can-use-any-app-you-like&#34;&gt;This example will open a document passed in as param in TextMate.  Obviously, you can use any app you like.&lt;/h3&gt;
 
-&lt;h4 id=&#34;1-create-your-script-in-usr-local-bin-on-osx-it-will-automatically-be-added-to-your-path:3d4f833b57991155259170382335e85b&#34;&gt;1 Create your script in &lt;code&gt;/usr/local/bin&lt;/code&gt; on OSX, it will automatically be added to your &lt;code&gt;$PATH&lt;/code&gt;&lt;/h4&gt;
+&lt;h4 id=&#34;1-create-your-script-in-usr-local-bin-on-osx-it-will-automatically-be-added-to-your-path&#34;&gt;1 Create your script in &lt;code&gt;/usr/local/bin&lt;/code&gt; on OSX, it will automatically be added to your &lt;code&gt;$PATH&lt;/code&gt;&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;/usr/local/bin/tm.sh
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;2-make-the-script-executable:3d4f833b57991155259170382335e85b&#34;&gt;2 Make the script executable&lt;/h4&gt;
+&lt;h4 id=&#34;2-make-the-script-executable&#34;&gt;2 Make the script executable&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;chmod +x /usr/local/bin/tm.sh
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;3-create-a-symbolic-link-so-you-can-skip-the-sh-suffix:3d4f833b57991155259170382335e85b&#34;&gt;3 Create a symbolic link, so you can skip the .sh suffix&lt;/h4&gt;
+&lt;h4 id=&#34;3-create-a-symbolic-link-so-you-can-skip-the-sh-suffix&#34;&gt;3 Create a symbolic link, so you can skip the .sh suffix&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;ln -s /usr/local/bin/tm.sh /usr/local/bin/tm
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;4-use-for-increased-excellence:3d4f833b57991155259170382335e85b&#34;&gt;4 Use for increased excellence&lt;/h4&gt;
+&lt;h4 id=&#34;4-use-for-increased-excellence&#34;&gt;4 Use for increased excellence&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;tm coolfile.txt
 &lt;/code&gt;&lt;/pre&gt;
@@ -1009,7 +1047,7 @@ fi
 
 &lt;p&gt;There are implementations of map() in &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map&#34;&gt;native JS&lt;/a&gt;, &lt;a href=&#34;http://api.jquery.com/jquery.map/&#34;&gt;jQuery&lt;/a&gt; and &lt;a href=&#34;http://underscorejs.org/#map&#34;&gt;UnderscoreJS&lt;/a&gt;.  All other things being equal, &lt;a href=&#34;http://jsperf.com/map-underscore-vs-jquery/2&#34;&gt;&lt;strong&gt;Underscore&amp;rsquo;s&lt;/strong&gt; version is the most performant&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h4 id=&#34;map-is-a-collection-function-meaning-it-works-on-either-arrays-or-objects:fb68142dbc73cfc5ed77a3badaa41f25&#34;&gt;map() is a &amp;lsquo;collection function&amp;rsquo;, meaning it works on either Arrays or Objects&lt;/h4&gt;
+&lt;h4 id=&#34;map-is-a-collection-function-meaning-it-works-on-either-arrays-or-objects&#34;&gt;map() is a &amp;lsquo;collection function&amp;rsquo;, meaning it works on either Arrays or Objects&lt;/h4&gt;
 
 &lt;p&gt;If our collection is an &lt;strong&gt;Array&lt;/strong&gt;, map() will put each value through a transformational function, passing the value at each index to the array to the callback function as the first parameter, the index as the second and the whole array as the third.&lt;/p&gt;
 
@@ -1041,7 +1079,7 @@ _.map(collection, function(val, key, object){ return num * 3; });
 
 &lt;p&gt;A friend of mine recently started his first computer science class. His entire class in working on Windows machines and using Visual Studio.  He wants to use his Mac.  I know how frustrating setting up development environment for the first time can be.  He&amp;rsquo;re how I advised him to get started and write is first code.&lt;/p&gt;
 
-&lt;h3 id=&#34;you-need-two-things-to-write-programs-in-c:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;You need two things to write programs in C++.&lt;/h3&gt;
+&lt;h3 id=&#34;you-need-two-things-to-write-programs-in-c&#34;&gt;You need two things to write programs in C++.&lt;/h3&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;You need a compiler.  A compiler is an application that takes the code you write in a human readable language ( C++ in this case ) and converts it into machine code so it can run.  If you&amp;rsquo;re a mac user and you want to write any C based code, you&amp;rsquo;ll need to install Xcode. Xcode comes with a C++ complier called g++, which is what you&amp;rsquo;ll end up using one way or another even if you don&amp;rsquo;t use the Xcode editor.&lt;/p&gt;&lt;/li&gt;
@@ -1049,15 +1087,15 @@ _.map(collection, function(val, key, object){ return num * 3; });
 &lt;li&gt;&lt;p&gt;You&amp;rsquo;ll need a text editor.  Basically that means any application that lets you write plain text and save it to your machine.  Xcode, CodeBlocks, Visual Studio and Eclipse are all called IDEs or integrated development environments. The are just big text editors with tons of bells and whistles.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&#34;installing-g:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;Installing g++&lt;/h3&gt;
+&lt;h3 id=&#34;installing-g&#34;&gt;Installing g++&lt;/h3&gt;
 
 &lt;p&gt;Follow &lt;a href=&#34;http://www.edparrish.net/common/macgpp.php&#34;&gt;these instructions&lt;/a&gt; to make sure you have Xcode and g++ on your Mac.  You can follow Mr. Parrish&amp;rsquo;s instructions for writing your first program, but I think mine are even simpler.&lt;/p&gt;
 
-&lt;h3 id=&#34;writing-your-first-code:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;Writing your first code:&lt;/h3&gt;
+&lt;h3 id=&#34;writing-your-first-code&#34;&gt;Writing your first code:&lt;/h3&gt;
 
-&lt;h4 id=&#34;start-with-the-simplest-mac-text-editor-textedit-it-should-be-in-your-applications-folder:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;Start with the simplest mac text editor TextEdit.  It should be in your Applications folder.&lt;/h4&gt;
+&lt;h4 id=&#34;start-with-the-simplest-mac-text-editor-textedit-it-should-be-in-your-applications-folder&#34;&gt;Start with the simplest mac text editor TextEdit.  It should be in your Applications folder.&lt;/h4&gt;
 
-&lt;h4 id=&#34;1-type-in-this-code:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;1. Type in this code:&lt;/h4&gt;
+&lt;h4 id=&#34;1-type-in-this-code&#34;&gt;1. Type in this code:&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
 
@@ -1067,11 +1105,11 @@ int main()
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;2-save-the-file-to-your-desktop-as-a-plain-text-document-with-the-name-helloworld-cpp-the-cpp-extension-lets-the-compiler-know-its-c-code:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;2. Save the file to your Desktop as a plain text document with the name helloworld.cpp  the .cpp extension lets the compiler know its C++ code.&lt;/h4&gt;
+&lt;h4 id=&#34;2-save-the-file-to-your-desktop-as-a-plain-text-document-with-the-name-helloworld-cpp-the-cpp-extension-lets-the-compiler-know-its-c-code&#34;&gt;2. Save the file to your Desktop as a plain text document with the name helloworld.cpp  the .cpp extension lets the compiler know its C++ code.&lt;/h4&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/cpp1.png&#34;/&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;compiling-and-running-your-program:45ae97b355f298bbd8c3f0f39d92e25a&#34;&gt;Compiling and running your program&lt;/h3&gt;
+&lt;h3 id=&#34;compiling-and-running-your-program&#34;&gt;Compiling and running your program&lt;/h3&gt;
 
 &lt;p&gt;First, open a terminal window.  You&amp;rsquo;ll find this in Applications/Utilities/Terminal. (yours will be different colors than mine)&lt;/p&gt;
 
@@ -1106,52 +1144,6 @@ You can write any C++ program in this way.&lt;/p&gt;
 &lt;p&gt;If you want a nice book on getting started with C (the core of C++) I&amp;rsquo;d recommend &lt;a href=&#34;http://amzn.to/1J7gJ7M&#34;&gt;Head First C&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Programming is fun and satisfying, but you will continually have to break through periods of confusion and frustration.  Stick with it, it&amp;rsquo;s worth the effort.  Good luck!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Building a Podcast Boom Mic</title>
-      <link>http://blog.flowstate.io/post/boom_mic/</link>
-      <pubDate>Thu, 08 Nov 2012 10:35:48 -0400</pubDate>
-      <author>Oakley Hall</author>
-      <guid>http://blog.flowstate.io/post/boom_mic/</guid>
-      <description>&lt;p&gt;I record a podcast with some friends.  I realized that the built in mic in my MacBook Pro was not able to capture the high quality audio I was looking for.  I bought the A Blue Snowball Mic which is a nice bang for the buck.  The only drawback is the short stand it comes with, which doesn&amp;rsquo;t let you sit up straight at a desk and get close enough to the mic for the best audio quality.  Solution: Hack a boom out of a desk lamp.&lt;/p&gt;
-
-&lt;p&gt;You&amp;rsquo;ll need:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&amp;amp;ASIN=B002OO18NS&amp;amp;Format=_SL160_&amp;amp;ID=AsinImage&amp;amp;MarketPlace=US&amp;amp;ServiceVersion=20070822&amp;amp;WS=1&amp;amp;tag=oakley05f-20&#34;&gt;A Blue Snowball Microphone&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/boom_mic1.jpeg&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.amazon.com/gp/product/B001DNFLYS/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=B001DNFLYS&amp;amp;linkCode=as2&amp;amp;tag=oakley05f-20&#34;&gt;A cheap desk lamp&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/boom_mic2.jpeg&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.assoc-amazon.com/e/ir?t=oakley05f-20&amp;amp;l=as2&amp;amp;o=1&amp;amp;a=B001DNFLYS&#34;&gt;A pop filter&lt;/a&gt; The Blue mic works best if you get right up close.  This will cause your &amp;lsquo;P&amp;rsquo; sounds to make a pop.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/boom_mic3.jpeg&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;Cut the cord out of the (unplugged) lamp.  Removed the bolt which holds the actual lamp assembly to the arm and set it aside, along with the nut if present.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/boom_mic4.png&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;Unscrew he Blue microphone from its tripod base, making sure to leave the 2&amp;rdquo; peg inserted into the bottom of the mic.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/boom_mic5.png&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;Place the peg into the triangular space vacated by the lamp assembly.  You can insert some padding around the peg to offer grip. I used a piece of cardboard.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/boom_mic6.png&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;Replace the bolt/nut and tighten.  It should grip the peg and hold the mic in place.  Adjust and improvise to make it fit snugly&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/boom_mic7.png&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;Plug the USB cable into the back of the mic and secure to the arm.  Make sure to leave a little play for the articulation of the mic and the arm joints.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/boom_mic8.png&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;Secure arm to the table, attach the pop filter and plug the usb cable into your machine.  Now you have a cheap, quick, improvised boom mic that you can fold away and deploy as needed.&lt;/p&gt;
 </description>
     </item>
     

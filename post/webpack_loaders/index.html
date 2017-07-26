@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Webpack Loaders - blog.flowstate.io</title>
-	<meta name="author" content="map[name:Oakley Hall email:oakley349@gmail.com]">
+	<meta name="author" content="map[email:oakley349@gmail.com name:Oakley Hall]">
 
 	
 	
@@ -119,11 +119,11 @@
 
 <p>Start with the <a href="/post/webpack">webpack basics<a></p>
 
-<h2 id="what-is-a-loader:b776dbab38d940662c0f8f41f4c6e4fe">What is a loader?</h2>
+<h2 id="what-is-a-loader">What is a loader?</h2>
 
 <p>A loader is <a href="http://webpack.github.io/docs/loaders.html">basically a preprocessor</a>. It&rsquo;s how you let webpack know that you&rsquo;d like to transform a module in some specified way. For example, let&rsquo;s say you are writing your code in <a href="https://hacks.mozilla.org/category/es6-in-depth/">ES6</a> and you&rsquo;d like webpack to process that into ES5 so the browser can parse it.  You&rsquo;d define a loader for <a href="https://babeljs.io/">babel</a> that looks for <code>.js</code> files being required and then runs them through babel before adding them to the <a href="https://github.com/webpack/webpack/tree/master/examples/commonjs#jsoutputjs">bundle</a>.</p>
 
-<h2 id="example-please:b776dbab38d940662c0f8f41f4c6e4fe">Example, please</h2>
+<h2 id="example-please">Example, please</h2>
 
 <p>You can check out the working example here <a href="https://github.com/ohall/webpack-loaders-example">repo here</a>.</p>
 
@@ -180,7 +180,7 @@ bundle.js  1.96 kB       0  [emitted]  main
 
 <p>Now our <code>bundle.js</code> is complete and looking right.</p>
 
-<h2 id="ok-so-what-just-happened:b776dbab38d940662c0f8f41f4c6e4fe">Ok, so what just happened?</h2>
+<h2 id="ok-so-what-just-happened">Ok, so what just happened?</h2>
 
 <p>I added a <code>module</code> to our <code>webpack.config.js</code> with a <code>loaders</code> array.  Inside that array, I defined a babel loader.</p>
 
@@ -203,7 +203,7 @@ bundle.js  1.96 kB       0  [emitted]  main
 
 <p>Simple, right?</p>
 
-<h2 id="what-else-can-i-use-loaders-for:b776dbab38d940662c0f8f41f4c6e4fe">What else can I use loaders for.</h2>
+<h2 id="what-else-can-i-use-loaders-for">What else can I use loaders for.</h2>
 
 <p>You can process anything.  Common use cases include <code>JSON</code>, <code>CSS</code>, static assets like images, dialects like CoffeeScript and Typescript.  The webpack wiki contains a <a href="https://github.com/webpack/docs/wiki/list-of-loaders">list of available loaders</a> or you can <a href="http://webpack.github.io/docs/loaders.html#writing-a-loader">roll your own</a>.</p>
 </div></article>
@@ -256,7 +256,7 @@ bundle.js  1.96 kB       0  [emitted]  main
 				    </div>
 				</div>
 			</div>
-			<footer id="footer" class="inner">Copyright &copy; 2016
+			<footer id="footer" class="inner">Copyright &copy; 2017
 
     Oakley Hall
 

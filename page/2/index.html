@@ -3,9 +3,10 @@
 <html lang="en-us">
 
 <head>
+	<meta name="generator" content="Hugo 0.19" />
 	<meta charset="utf-8">
 	<title>blog.flowstate.io</title>
-	<meta name="author" content="map[name:Oakley Hall email:oakley349@gmail.com]">
+	<meta name="author" content="map[email:oakley349@gmail.com name:Oakley Hall]">
 
 	
 	
@@ -117,6 +118,42 @@
 					
 				        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
     <div class="meta">
+		<div class="date"><time datetime='Fri, Aug 14, 2015' data-updated="true" itemprop="datePublished">Fri, Aug 14, 2015</time>
+</div>
+		<div class="tags">
+
+
+	
+	
+		<a href="http://blog.flowstate.io//categories/development"> Development </a>,
+	
+
+	
+	
+		<a href="http://blog.flowstate.io//categories/tooling"> Tooling </a>,
+	
+
+	
+	
+	    <a href="http://blog.flowstate.io//categories/javascript"> JavaScript </a>
+	
+
+
+</div>
+		
+			<span class="comments"><a href="http://blog.flowstate.io/post/webpack/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/webpack/" itemprop="url">Webpack: Rage to sage</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		If you&rsquo;re like me, your first encounter with Webpack was probably hostile. You&rsquo;re trying to learn some new technology like React, launching a demo project to see how it works and something is broken. You examine the build scripts and suddenly you&rsquo;re confronted with this arcane looking webpack.config.js file. You cruise over to the documentation for Webpack. It has many pages, none of them marked TL;DR. You hate reading documentation!
+		<a href="http://blog.flowstate.io/post/webpack/" class="more-link">Read on →</a>
+	</div>
+</article>
+
+				    
+				        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="meta">
 		<div class="date"><time datetime='Tue, Jun 2, 2015' data-updated="true" itemprop="datePublished">Tue, Jun 2, 2015</time>
 </div>
 		<div class="tags">
@@ -145,7 +182,7 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/osx_global_shell/" itemprop="url">Make a shell script into a global command on OSX</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		This example will open a document passed in as param in TextMate. Obviously, you can use any app you like. 1 Create your script in /usr/local/bin on OSX, it will automatically be added to your $PATH /usr/local/bin/tm.sh 2 Make the script executable chmod +x /usr/local/bin/tm.sh 3 Create a symbolic link, so you can skip the .sh suffix ln -s /usr/local/bin/tm.sh /usr/local/bin/tm 4 Use for increased excellence tm coolfile.txt Here&rsquo;s tm.sh
+		This example will open a document passed in as param in TextMate. Obviously, you can use any app you like. 1 Create your script in /usr/local/bin on OSX, it will automatically be added to your $PATH /usr/local/bin/tm.sh  2 Make the script executable chmod +x /usr/local/bin/tm.sh  3 Create a symbolic link, so you can skip the .sh suffix ln -s /usr/local/bin/tm.sh /usr/local/bin/tm  4 Use for increased excellence tm coolfile.
 		<a href="http://blog.flowstate.io/post/osx_global_shell/" class="more-link">Read on →</a>
 	</div>
 </article>
@@ -176,7 +213,8 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/destroy_bb_views/" itemprop="url">Destroying BackboneJS Views</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		If you&rsquo;ve spent much time using Backbone views, you&rsquo;ve invariable encountered the situation where you want to get rid of a view, but some part of it keeps hanging around. Be it DOM elements or event listeners. Your new view might be being appended to the old one, or you&rsquo;re seeing duplicated events. What you really need is to destroy that old view once and for all. The easiest way to do this is by adding some kind of destroy() function to your view.
+		If you&rsquo;ve spent much time using Backbone views, you&rsquo;ve invariable encountered the situation where you want to get rid of a view, but some part of it keeps hanging around. Be it DOM elements or event listeners. Your new view might be being appended to the old one, or you&rsquo;re seeing duplicated events. What you really need is to destroy that old view once and for all.
+The easiest way to do this is by adding some kind of destroy() function to your view.
 		<a href="http://blog.flowstate.io/post/destroy_bb_views/" class="more-link">Read on →</a>
 	</div>
 </article>
@@ -212,7 +250,10 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/js_map/" itemprop="url">JS map()</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		map() is an array utility function that you&rsquo;re probably either intimately familiar with or, like me, need to learn. In a nutshell, map() creates a new array out of the results of calling a given function on every element on the array on which it&rsquo;s called. There are implementations of map() in native JS, jQuery and UnderscoreJS. All other things being equal, Underscore&rsquo;s version is the most performant. map() is a &lsquo;collection function&rsquo;, meaning it works on either Arrays or Objects If our collection is an Array, map() will put each value through a transformational function, passing the value at each index to the array to the callback function as the first parameter, the index as the second and the whole array as the third.
+		map() is an array utility function that you&rsquo;re probably either intimately familiar with or, like me, need to learn.
+In a nutshell, map() creates a new array out of the results of calling a given function on every element on the array on which it&rsquo;s called.
+There are implementations of map() in native JS, jQuery and UnderscoreJS. All other things being equal, Underscore&rsquo;s version is the most performant.
+map() is a &lsquo;collection function&rsquo;, meaning it works on either Arrays or Objects If our collection is an Array, map() will put each value through a transformational function, passing the value at each index to the array to the callback function as the first parameter, the index as the second and the whole array as the third.
 		<a href="http://blog.flowstate.io/post/js_map/" class="more-link">Read on →</a>
 	</div>
 </article>
@@ -232,7 +273,7 @@
 
 	
 	
-		<a href="http://blog.flowstate.io//categories/c"> C&#43;&#43; </a>,
+		<a href="http://blog.flowstate.io//categories/c&#43;&#43;"> C&#43;&#43; </a>,
 	
 
 	
@@ -248,7 +289,8 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/first_cpp/" itemprop="url">Writing your first C&#43;&#43; program on a Mac</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		A friend of mine recently started his first computer science class. His entire class in working on Windows machines and using Visual Studio. He wants to use his Mac. I know how frustrating setting up development environment for the first time can be. He&rsquo;re how I advised him to get started and write is first code. You need two things to write programs in C++. You need a compiler. A compiler is an application that takes the code you write in a human readable language ( C++ in this case ) and converts it into machine code so it can run.
+		A friend of mine recently started his first computer science class. His entire class in working on Windows machines and using Visual Studio. He wants to use his Mac. I know how frustrating setting up development environment for the first time can be. He&rsquo;re how I advised him to get started and write is first code.
+You need two things to write programs in C++.  You need a compiler.
 		<a href="http://blog.flowstate.io/post/first_cpp/" class="more-link">Read on →</a>
 	</div>
 </article>
@@ -316,7 +358,7 @@
 					</nav>
 				</div>
 			</div>
-			<footer id="footer" class="inner">Copyright &copy; 2016
+			<footer id="footer" class="inner">Copyright &copy; 2017
 
     Oakley Hall
 

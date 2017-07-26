@@ -4,7 +4,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>JS map() - blog.flowstate.io</title>
+	<title>React Native - blog.flowstate.io</title>
 	<meta name="author" content="map[email:oakley349@gmail.com name:Oakley Hall]">
 
 	
@@ -19,7 +19,7 @@
     
 	<link href='/index.xml' rel="alternate" title="blog.flowstate.io" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://blog.flowstate.io/post/js_map/">
+	<link rel="canonical" href="http://blog.flowstate.io/post/react-native/">
 	<link href="http://blog.flowstate.io/favicon.png" rel="shortcut icon">
 	<link href="http://blog.flowstate.io/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<link href="http://blog.flowstate.io/css/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -114,34 +114,36 @@
 				<div id="content" class="inner">
 					<div itemscope itemtype="http://schema.org/Blog">
 					<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-    <h1 class="title" itemprop="name">JS map()</h1>
-	<div class="entry-content" itemprop="articleBody">
+    <h1 class="title" itemprop="name">React Native</h1>
+	<div class="entry-content" itemprop="articleBody"><p>At GRT, we recently built a React web client for a small educational startup.  Once this web app was feature complete, we decided to do a do a port to React Native as a learning experience and proof of concept.  We definitely learned some stuff.</p>
 
-<p><code>map()</code> is an array utility function that you&rsquo;re probably either intimately familiar with or, like me, need to learn.</p>
+<p><strong>What is React Native?</strong></p>
 
-<p>In a nutshell, <code>map()</code> creates a new array out of the results of calling a given function on every element on the array on which it&rsquo;s called.</p>
+<p><a href="https://facebook.github.io/react-native/">React Native</a> is a set of tools that lets you build <em>Native</em> Android and iOS apps using JavaScript and React. This is not a webapp run in some webview in a native wrapper.  The React Native code compiles down to a native executable.</p>
 
-<p>There are implementations of map() in <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">native JS</a>, <a href="http://api.jquery.com/jquery.map/">jQuery</a> and <a href="http://underscorejs.org/#map">UnderscoreJS</a>.  All other things being equal, <a href="http://jsperf.com/map-underscore-vs-jquery/2"><strong>Underscore&rsquo;s</strong> version is the most performant</a>.</p>
+<p><strong>Why would you want to do this?</strong></p>
 
-<h4 id="map-is-a-collection-function-meaning-it-works-on-either-arrays-or-objects">map() is a &lsquo;collection function&rsquo;, meaning it works on either Arrays or Objects</h4>
+<p>So you can write a cross platform app that has the snappy, responsive feel of a native app without having to dive into actual native implementation.  Basically you want to write native apps in Javascript.</p>
 
-<p>If our collection is an <strong>Array</strong>, map() will put each value through a transformational function, passing the value at each index to the array to the callback function as the first parameter, the index as the second and the whole array as the third.</p>
+<p>Ok, so let&rsquo;s say you have a React web app like we did, and you want to try porting it to React Native.</p>
 
-<pre><code class="language-sh">var collection = [1, 2, 3];
+<p><strong>First of all, go back in time and write the React Native implementation first.</strong></p>
 
-_.map(collection, function(val, index, array){ return num * 3; });
+<p>Just kidding&hellip; sort of.</p>
 
-// returns array -&gt; [3, 6, 9]
-</code></pre>
+<p>Here&rsquo;s the thing.  React for the web is much more forgiving and flexible than React Native.  React Native does not used HTML or CSS, so if you wrote CSS and have a bunch of HTML in your webapp, you&rsquo;re going to be spending some time rewriting.  However React for the web support styling using JS objects, so the port in the other direction is easy. Also let&rsquo;s say you&rsquo;re using a bunch of 3rd party UI modules in your app.  If you have this all figured out for React Native, you&rsquo;re going to have a pretty easy time finding modules with comperable APIs for the web.  The reverse is not likely to be the case right now.</p>
 
-<p>Similarly, if our collection is an <strong>Object</strong>, map() will pass the the value and key if each attribute, as well as the whole object.</p>
+<p><strong>Abstract even MORE logic that you think.</strong></p>
 
-<pre><code class="language-sh">var collection = {one: 1, two: 2, three: 3};
+<p>So part of the idea of porting your app to React Native is so you can share code right?  If your code is in a view, you&rsquo;re not sharing it.  Look how much logic you have in your <code>.jsx</code> files.  A ton, right?  All that has to be pulled out into modules if you want to maintain it in one place.  Think about this ahead of time.  If you&rsquo;re using Redux, you can think about this in terms of <a href="http://redux.js.org/docs/basics/UsageWithReact.html#presentational-and-container-components">Component and a Containter</a>.</p>
 
-_.map(collection, function(val, key, object){ return num * 3; });
+<p><strong>Do you even need a native app?</strong></p>
 
-// returns array -&gt; [3, 6, 9]
-</code></pre>
+<p>One more thing we discovered is that the percieved perfomance on mobile of our React Native app was not superior enough to the web app to justify maintaining them both.  Depending on the level of interactivity in your UI a web app may offer suitable performance and user experience.</p>
+
+<p><strong>So what should you do?</strong></p>
+
+<p>React Native is a great solution for writing cross platform mobile apps in Javascript, but there are meaningful enough differences from React that you&rsquo;ll want to plan carefully if you&rsquo;re planning on sharing code.  Maintaining multiple codebases always comes at a cost, so do some experiments and consider how much you have to gain from a native app before committing.</p>
 </div></article>
 					
 						<div class="share">

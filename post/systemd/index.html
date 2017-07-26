@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>systemd - blog.flowstate.io</title>
-	<meta name="author" content="map[name:Oakley Hall email:oakley349@gmail.com]">
+	<meta name="author" content="map[email:oakley349@gmail.com name:Oakley Hall]">
 
 	
 	
@@ -117,7 +117,7 @@
     <h1 class="title" itemprop="name">systemd</h1>
 	<div class="entry-content" itemprop="articleBody">
 
-<h2 id="intro:43644c643e7f8892a9f8a45991d7cd50">Intro</h2>
+<h2 id="intro">Intro</h2>
 
 <p>systemd is an init system that most linux distributions are standardizing on and a crucial tool for any system admin or devops engineer.</p>
 
@@ -141,11 +141,11 @@ var-lib-nfs-rpc_pipefs.mount          loaded active mounted   RPC Pipe File
 ...
 </code></pre>
 
-<h2 id="basic-usage:43644c643e7f8892a9f8a45991d7cd50">Basic usage</h2>
+<h2 id="basic-usage">Basic usage</h2>
 
-<h3 id="getting-system-state:43644c643e7f8892a9f8a45991d7cd50">Getting system state</h3>
+<h3 id="getting-system-state">Getting system state</h3>
 
-<h4 id="list-currently-running-units:43644c643e7f8892a9f8a45991d7cd50">List currently running units:</h4>
+<h4 id="list-currently-running-units">List currently running units:</h4>
 
 <pre><code>$ systemctl
 </code></pre>
@@ -155,43 +155,43 @@ var-lib-nfs-rpc_pipefs.mount          loaded active mounted   RPC Pipe File
 <pre><code>$ systemctl list-units
 </code></pre>
 
-<h4 id="list-failed-units:43644c643e7f8892a9f8a45991d7cd50">List failed units:</h4>
+<h4 id="list-failed-units">List failed units:</h4>
 
 <pre><code>$ systemctl --failed
 </code></pre>
 
 <p><strong>Unit files can be found in</strong> <code>/usr/lib/systemd/system/</code> and <code>/etc/systemd/system/</code>.</p>
 
-<h4 id="list-installed-unit-files-with:43644c643e7f8892a9f8a45991d7cd50">List installed unit files with:</h4>
+<h4 id="list-installed-unit-files-with">List installed unit files with:</h4>
 
 <pre><code>$ systemctl list-unit-files
 </code></pre>
 
-<h2 id="working-with-units:43644c643e7f8892a9f8a45991d7cd50">Working with units</h2>
+<h2 id="working-with-units">Working with units</h2>
 
 <p>Basic unit commands are:</p>
 
-<h5 id="start-a-unit-immediately:43644c643e7f8892a9f8a45991d7cd50">Start a unit immediately:</h5>
+<h5 id="start-a-unit-immediately">Start a unit immediately:</h5>
 
 <pre><code>$ systemctl start unit
 </code></pre>
 
-<h5 id="stop-a-unit-immediately:43644c643e7f8892a9f8a45991d7cd50">Stop a unit immediately:</h5>
+<h5 id="stop-a-unit-immediately">Stop a unit immediately:</h5>
 
 <pre><code>$ systemctl stop unit
 </code></pre>
 
-<h5 id="restart-a-unit:43644c643e7f8892a9f8a45991d7cd50">Restart a unit:</h5>
+<h5 id="restart-a-unit">Restart a unit:</h5>
 
 <pre><code>$ systemctl restart unit
 </code></pre>
 
-<h5 id="ask-a-unit-to-reload-its-configuration:43644c643e7f8892a9f8a45991d7cd50">Ask a unit to reload its configuration:</h5>
+<h5 id="ask-a-unit-to-reload-its-configuration">Ask a unit to reload its configuration:</h5>
 
 <pre><code>$ systemctl reload unit
 </code></pre>
 
-<h5 id="show-the-status-of-a-unit-including-whether-it-is-running-or-not:43644c643e7f8892a9f8a45991d7cd50">Show the status of a unit, including whether it is running or not:</h5>
+<h5 id="show-the-status-of-a-unit-including-whether-it-is-running-or-not">Show the status of a unit, including whether it is running or not:</h5>
 
 <pre><code>$ systemctl status unit
 </code></pre>
@@ -247,7 +247,7 @@ var-lib-nfs-rpc_pipefs.mount          loaded active mounted   RPC Pipe File
 				    </div>
 				</div>
 			</div>
-			<footer id="footer" class="inner">Copyright &copy; 2016
+			<footer id="footer" class="inner">Copyright &copy; 2017
 
     Oakley Hall
 

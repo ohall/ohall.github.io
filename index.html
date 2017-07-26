@@ -3,9 +3,10 @@
 <html lang="en-us">
 
 <head>
+	<meta name="generator" content="Hugo 0.19" />
 	<meta charset="utf-8">
 	<title>blog.flowstate.io</title>
-	<meta name="author" content="map[name:Oakley Hall email:oakley349@gmail.com]">
+	<meta name="author" content="map[email:oakley349@gmail.com name:Oakley Hall]">
 
 	
 	
@@ -117,6 +118,44 @@
 					
 				        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
     <div class="meta">
+		<div class="date"><time datetime='Wed, Jul 26, 2017' data-updated="true" itemprop="datePublished">Wed, Jul 26, 2017</time>
+</div>
+		<div class="tags">
+
+
+	
+	
+		<a href="http://blog.flowstate.io//categories/javascript"> Javascript </a>,
+	
+
+	
+	
+		<a href="http://blog.flowstate.io//categories/react"> React </a>,
+	
+
+	
+	
+	    <a href="http://blog.flowstate.io//categories/react-native"> React Native </a>
+	
+
+
+</div>
+		
+			<span class="comments"><a href="http://blog.flowstate.io/post/react-native/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/react-native/" itemprop="url">React Native</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		At GRT, we recently built a React web client for a small educational startup. Once this web app was feature complete, we decided to do a do a port to React Native as a learning experience and proof of concept. We definitely learned some stuff.
+What is React Native?
+React Native is a set of tools that lets you build Native Android and iOS apps using JavaScript and React. This is not a webapp run in some webview in a native wrapper.
+		<a href="http://blog.flowstate.io/post/react-native/" class="more-link">Read on →</a>
+	</div>
+</article>
+
+				    
+				        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="meta">
 		<div class="date"><time datetime='Mon, Jul 25, 2016' data-updated="true" itemprop="datePublished">Mon, Jul 25, 2016</time>
 </div>
 		<div class="tags">
@@ -145,7 +184,9 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/terminal/" itemprop="url">Getting Started 0: The Terminal</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		So you&rsquo;re learning to code? There first think you should get familiar with is the Terminal and the command line. Let&rsquo;s discuss some basics. What is it? I&rsquo;ll keep my comments confined to OS X and Linux, since those are the environments I&rsquo;m familiar with. The Terminal is an application that provides you a window through which to enter commands into the Unix shell of your choice, most systems default to BASH.
+		So you&rsquo;re learning to code? There first think you should get familiar with is the Terminal and the command line. Let&rsquo;s discuss some basics.
+What is it? I&rsquo;ll keep my comments confined to OS X and Linux, since those are the environments I&rsquo;m familiar with.
+The Terminal is an application that provides you a window through which to enter commands into the Unix shell of your choice, most systems default to BASH.
 		<a href="http://blog.flowstate.io/post/terminal/" class="more-link">Read on →</a>
 	</div>
 </article>
@@ -176,7 +217,8 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/oneops/" itemprop="url">Intro to OneOps</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		WalmartLabs has recently open sources their cloud management platform OneOps. You can dive into the documentation here or examine the source code here. As a OneOps user, I&rsquo;d like to offer a quick spin around OneOps and an overview of what it does. What is it? OneOps allows you to configure VM clusters using a GUI or a RESTful API in a way that is cloud provider agnostic. Meaning, you can use cores from AWS or any other cloud provider or a private cloud.
+		WalmartLabs has recently open sources their cloud management platform OneOps. You can dive into the documentation here or examine the source code here. As a OneOps user, I&rsquo;d like to offer a quick spin around OneOps and an overview of what it does.
+What is it? OneOps allows you to configure VM clusters using a GUI or a RESTful API in a way that is cloud provider agnostic. Meaning, you can use cores from AWS or any other cloud provider or a private cloud.
 		<a href="http://blog.flowstate.io/post/oneops/" class="more-link">Read on →</a>
 	</div>
 </article>
@@ -207,7 +249,10 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/portopen/" itemprop="url">How to check if a port is open on a remote server using netcat</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		Assuming you have ssh access to the remote server you can check the status of a give port with netcat (nc). In a terminal window logged into the server use this command with the -l flag to listen and the port you want to test (by listening on). $ nc -l 443 This will leave you with a prompt, don&rsquo;t do anything yet. In another terminal on your local machine. Call nc again, this time with the IP of your remote server and the port to test as params.
+		Assuming you have ssh access to the remote server you can check the status of a give port with netcat (nc).
+In a terminal window logged into the server use this command with the -l flag to listen and the port you want to test (by listening on).
+$ nc -l 443  This will leave you with a prompt, don&rsquo;t do anything yet.
+In another terminal on your local machine.
 		<a href="http://blog.flowstate.io/post/portopen/" class="more-link">Read on →</a>
 	</div>
 </article>
@@ -248,7 +293,8 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/nvm/" itemprop="url">Use NVM</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		NVM is the Node Version Manager, a bash script you can and should use to manage multiple NodeJS versions. As a Node developer, you&rsquo;ll invariably find yourself dealing with Node version compatibility issues forcing you to switch versions of Node depending on what you&rsquo;re working on. It would be nice if Node offered a command like use 4.1.1, well NVM does just that. First install the latest version from here curl -o- https://raw.githubusercontent.com/creationix/nvm/&lt;LATEST_VERSION/install.sh | bash This will install the .nvm file in your user dir and add some lines to your .bashrc to source it.
+		NVM is the Node Version Manager, a bash script you can and should use to manage multiple NodeJS versions. As a Node developer, you&rsquo;ll invariably find yourself dealing with Node version compatibility issues forcing you to switch versions of Node depending on what you&rsquo;re working on. It would be nice if Node offered a command like use 4.1.1, well NVM does just that.
+First install the latest version from here
 		<a href="http://blog.flowstate.io/post/nvm/" class="more-link">Read on →</a>
 	</div>
 </article>
@@ -294,7 +340,9 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/shrinkwrap/" itemprop="url">NPM Shrinkwrap is easy</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		In this hypothetical example, you&rsquo;re a programmer who has a project. In this project, you are using a bunch of dependencies, which you manage with NPM and are specified in the package.json file. Whenever you build this app, you install all the things using npm install. You continue to build the app and deploy it and your users use it. Except one day you build the app and it breaks! WHY?!
+		In this hypothetical example, you&rsquo;re a programmer who has a project. In this project, you are using a bunch of dependencies, which you manage with NPM and are specified in the package.json file.
+Whenever you build this app, you install all the things using npm install. You continue to build the app and deploy it and your users use it.
+Except one day you build the app and it breaks!
 		<a href="http://blog.flowstate.io/post/shrinkwrap/" class="more-link">Read on →</a>
 	</div>
 </article>
@@ -325,7 +373,9 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/systemd/" itemprop="url">systemd</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		Intro systemd is an init system that most linux distributions are standardizing on and a crucial tool for any system admin or devops engineer. In Unix and Linux, background processes are called daemons. systemd provides a syntax for creating objects that can be managed by the daemons in the form of units. You can see what units you have on a machine with the systemctl command. Here we&rsquo;ll pass the parameter list-units.
+		Intro systemd is an init system that most linux distributions are standardizing on and a crucial tool for any system admin or devops engineer.
+In Unix and Linux, background processes are called daemons. systemd provides a syntax for creating objects that can be managed by the daemons in the form of units.
+You can see what units you have on a machine with the systemctl command. Here we&rsquo;ll pass the parameter list-units.
 		<a href="http://blog.flowstate.io/post/systemd/" class="more-link">Read on →</a>
 	</div>
 </article>
@@ -361,44 +411,9 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/webpack_loaders/" itemprop="url">Webpack Loaders</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		Start with the webpack basics What is a loader? A loader is basically a preprocessor. It&rsquo;s how you let webpack know that you&rsquo;d like to transform a module in some specified way. For example, let&rsquo;s say you are writing your code in ES6 and you&rsquo;d like webpack to process that into ES5 so the browser can parse it. You&rsquo;d define a loader for babel that looks for .js files being required and then runs them through babel before adding them to the bundle.
+		Start with the webpack basics
+What is a loader? A loader is basically a preprocessor. It&rsquo;s how you let webpack know that you&rsquo;d like to transform a module in some specified way. For example, let&rsquo;s say you are writing your code in ES6 and you&rsquo;d like webpack to process that into ES5 so the browser can parse it. You&rsquo;d define a loader for babel that looks for .js files being required and then runs them through babel before adding them to the bundle.
 		<a href="http://blog.flowstate.io/post/webpack_loaders/" class="more-link">Read on →</a>
-	</div>
-</article>
-
-				    
-				        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-    <div class="meta">
-		<div class="date"><time datetime='Mon, Aug 17, 2015' data-updated="true" itemprop="datePublished">Mon, Aug 17, 2015</time>
-</div>
-		<div class="tags">
-
-
-	
-	
-		<a href="http://blog.flowstate.io//categories/development"> Development </a>,
-	
-
-	
-	
-		<a href="http://blog.flowstate.io//categories/javascript"> JavaScript </a>,
-	
-
-	
-	
-	    <a href="http://blog.flowstate.io//categories/getting-started"> Getting Started </a>
-	
-
-
-</div>
-		
-			<span class="comments"><a href="http://blog.flowstate.io/post/so_you_wanna_dev/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/so_you_wanna_dev/" itemprop="url">Stop trying to learn a programming language</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		I hear this question all the time: &quot;Which programming language should I learn?&quot; My answer is always the same: &quot;It doesn't matter. Let the project decide for you.&quot; A story When I first started my journey as a professional software developer, I got hired to work on an application written in a dying language on a platform that would soon be reviled the world over. This project was written in ActionScript 3, using the Flex framework.
-		<a href="http://blog.flowstate.io/post/so_you_wanna_dev/" class="more-link">Read on →</a>
 	</div>
 </article>
 
@@ -433,7 +448,9 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/so_you_wanna_dev%20copy/" itemprop="url">Stop trying to learn a programming language</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		I hear this question all the time: &quot;Which programming language should I learn?&quot; My answer is always the same: &quot;It doesn't matter. Let the project decide for you.&quot; A story When I first started my journey as a professional software developer, I got hired to work on an application written in a dying language on a platform that would soon be reviled the world over. This project was written in ActionScript 3, using the Flex framework.
+		I hear this question all the time:
+&quot;Which programming language should I learn?&quot;  My answer is always the same:
+&quot;It doesn't matter. Let the project decide for you.&quot;  A story When I first started my journey as a professional software developer, I got hired to work on an application written in a dying language on a platform that would soon be reviled the world over. This project was written in ActionScript 3, using the Flex framework.
 		<a href="http://blog.flowstate.io/post/so_you_wanna_dev%20copy/" class="more-link">Read on →</a>
 	</div>
 </article>
@@ -441,7 +458,7 @@
 				    
 				        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
     <div class="meta">
-		<div class="date"><time datetime='Fri, Aug 14, 2015' data-updated="true" itemprop="datePublished">Fri, Aug 14, 2015</time>
+		<div class="date"><time datetime='Mon, Aug 17, 2015' data-updated="true" itemprop="datePublished">Mon, Aug 17, 2015</time>
 </div>
 		<div class="tags">
 
@@ -453,24 +470,26 @@
 
 	
 	
-		<a href="http://blog.flowstate.io//categories/tooling"> Tooling </a>,
+		<a href="http://blog.flowstate.io//categories/javascript"> JavaScript </a>,
 	
 
 	
 	
-	    <a href="http://blog.flowstate.io//categories/javascript"> JavaScript </a>
+	    <a href="http://blog.flowstate.io//categories/getting-started"> Getting Started </a>
 	
 
 
 </div>
 		
-			<span class="comments"><a href="http://blog.flowstate.io/post/webpack/#disqus_thread">Comments</a></span>
+			<span class="comments"><a href="http://blog.flowstate.io/post/so_you_wanna_dev/#disqus_thread">Comments</a></span>
 		
 	</div>
-	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/webpack/" itemprop="url">Webpack: Rage to sage</a></h1>
+	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/so_you_wanna_dev/" itemprop="url">Stop trying to learn a programming language</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		If you&rsquo;re like me, your first encounter with Webpack was probably hostile. You&rsquo;re trying to learn some new technology like React, launching a demo project to see how it works and something is broken. You examine the build scripts and suddenly you&rsquo;re confronted with this arcane looking webpack.config.js file. You cruise over to the documentation for Webpack. It has many pages, none of them marked TL;DR. You hate reading documentation! This is not even what you were trying to do!
-		<a href="http://blog.flowstate.io/post/webpack/" class="more-link">Read on →</a>
+		I hear this question all the time:
+&quot;Which programming language should I learn?&quot;  My answer is always the same:
+&quot;It doesn't matter. Let the project decide for you.&quot;  A story When I first started my journey as a professional software developer, I got hired to work on an application written in a dying language on a platform that would soon be reviled the world over. This project was written in ActionScript 3, using the Flex framework.
+		<a href="http://blog.flowstate.io/post/so_you_wanna_dev/" class="more-link">Read on →</a>
 	</div>
 </article>
 
@@ -485,7 +504,7 @@
 					</nav>
 				</div>
 			</div>
-			<footer id="footer" class="inner">Copyright &copy; 2016
+			<footer id="footer" class="inner">Copyright &copy; 2017
 
     Oakley Hall
 
