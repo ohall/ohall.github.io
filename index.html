@@ -6,7 +6,7 @@
 	<meta name="generator" content="Hugo 0.19" />
 	<meta charset="utf-8">
 	<title>blog.flowstate.io</title>
-	<meta name="author" content="map[email:oakley349@gmail.com name:Oakley Hall]">
+	<meta name="author" content="map[name:Oakley Hall email:oakley349@gmail.com]">
 
 	
 	
@@ -116,6 +116,40 @@
 					
 					<div itemscope itemtype="http://schema.org/Blog">
 					
+				        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="meta">
+		<div class="date"><time datetime='Mon, Aug 7, 2017' data-updated="true" itemprop="datePublished">Mon, Aug 7, 2017</time>
+</div>
+		<div class="tags">
+
+
+	
+	
+		<a href="http://blog.flowstate.io//categories/bash"> Bash </a>,
+	
+
+	
+	
+	    <a href="http://blog.flowstate.io//categories/node"> Node </a>
+	
+
+
+</div>
+		
+			<span class="comments"><a href="http://blog.flowstate.io/post/killit/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/killit/" itemprop="url">Kill it</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		You ever get this one?
+{ Error: listen EADDRINUSE 0.0.0.0:8080 at Object.exports._errnoException (util.js:1036:11) at exports._exceptionWithHostPort (util.js:1059:20) at Server._listen2 (net.js:1252:14) at listen (net.js:1288:10) at net.js:1398:9 at _combinedTickCallback (internal/process/next_tick.js:77:11) at process._tickCallback (internal/process/next_tick.js:98:9) code: ‘EADDRINUSE’, errno: ‘EADDRINUSE’, syscall: ‘listen’, address: ‘0.0.0.0’, port: 8080 }  Or something like it?
+Here&rsquo;s a one liner to kill that process.
+kill -9 `lsof -ti tcp:8080`  This gets you the process ID of the application listening on port 8080 and passes it as a parameter to kill.
+		<a href="http://blog.flowstate.io/post/killit/" class="more-link">Read on →</a>
+	</div>
+</article>
+
+				    
 				        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
     <div class="meta">
 		<div class="date"><time datetime='Wed, Jul 26, 2017' data-updated="true" itemprop="datePublished">Wed, Jul 26, 2017</time>
@@ -452,44 +486,6 @@ What is a loader? A loader is basically a preprocessor. It&rsquo;s how you let w
 &quot;Which programming language should I learn?&quot;  My answer is always the same:
 &quot;It doesn't matter. Let the project decide for you.&quot;  A story When I first started my journey as a professional software developer, I got hired to work on an application written in a dying language on a platform that would soon be reviled the world over. This project was written in ActionScript 3, using the Flex framework.
 		<a href="http://blog.flowstate.io/post/so_you_wanna_dev%20copy/" class="more-link">Read on →</a>
-	</div>
-</article>
-
-				    
-				        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-    <div class="meta">
-		<div class="date"><time datetime='Mon, Aug 17, 2015' data-updated="true" itemprop="datePublished">Mon, Aug 17, 2015</time>
-</div>
-		<div class="tags">
-
-
-	
-	
-		<a href="http://blog.flowstate.io//categories/development"> Development </a>,
-	
-
-	
-	
-		<a href="http://blog.flowstate.io//categories/javascript"> JavaScript </a>,
-	
-
-	
-	
-	    <a href="http://blog.flowstate.io//categories/getting-started"> Getting Started </a>
-	
-
-
-</div>
-		
-			<span class="comments"><a href="http://blog.flowstate.io/post/so_you_wanna_dev/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="http://blog.flowstate.io/post/so_you_wanna_dev/" itemprop="url">Stop trying to learn a programming language</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		I hear this question all the time:
-&quot;Which programming language should I learn?&quot;  My answer is always the same:
-&quot;It doesn't matter. Let the project decide for you.&quot;  A story When I first started my journey as a professional software developer, I got hired to work on an application written in a dying language on a platform that would soon be reviled the world over. This project was written in ActionScript 3, using the Flex framework.
-		<a href="http://blog.flowstate.io/post/so_you_wanna_dev/" class="more-link">Read on →</a>
 	</div>
 </article>
 

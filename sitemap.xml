@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.flowstate.io/post/killit/</loc>
+    <lastmod>2017-08-07T12:38:33-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.flowstate.io/post/react-native/</loc>
     <lastmod>2017-07-26T13:51:06-04:00</lastmod>
   </url>
@@ -88,7 +93,7 @@
   
   <url>
     <loc>http://blog.flowstate.io/categories/bash/</loc>
-    <lastmod>2015-06-02T09:45:42-04:00</lastmod>
+    <lastmod>2017-08-07T12:38:33-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -147,7 +152,7 @@
   
   <url>
     <loc>http://blog.flowstate.io/categories/node/</loc>
-    <lastmod>2015-10-01T17:23:41-04:00</lastmod>
+    <lastmod>2017-08-07T12:38:33-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -171,7 +176,7 @@
   
   <url>
     <loc>http://blog.flowstate.io/post/</loc>
-    <lastmod>2017-07-26T13:51:06-04:00</lastmod>
+    <lastmod>2017-08-07T12:38:33-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -195,7 +200,7 @@
   
   <url>
     <loc>http://blog.flowstate.io/</loc>
-    <lastmod>2017-07-26T13:51:06-04:00</lastmod>
+    <lastmod>2017-08-07T12:38:33-04:00</lastmod>
     <priority>0</priority>
   </url>
   

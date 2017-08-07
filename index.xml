@@ -7,7 +7,43 @@
     <language>en-us</language>
     <author>Oakley Hall</author>
     
-    <updated>Wed, 26 Jul 2017 13:51:06 EDT</updated>
+    <updated>Mon, 07 Aug 2017 12:38:33 EDT</updated>
+    
+    <item>
+      <title>Kill it</title>
+      <link>http://blog.flowstate.io/post/killit/</link>
+      <pubDate>Mon, 07 Aug 2017 12:38:33 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://blog.flowstate.io/post/killit/</guid>
+      <description>&lt;p&gt;You ever get this one?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;{ Error: listen EADDRINUSE 0.0.0.0:8080
+    at Object.exports._errnoException (util.js:1036:11)
+    at exports._exceptionWithHostPort (util.js:1059:20)
+    at Server._listen2 (net.js:1252:14)
+    at listen (net.js:1288:10)
+    at net.js:1398:9
+    at _combinedTickCallback (internal/process/next_tick.js:77:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+  code: ‘EADDRINUSE’,
+  errno: ‘EADDRINUSE’,
+  syscall: ‘listen’,
+  address: ‘0.0.0.0’,
+  port: 8080 }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or something like it?&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a one liner to kill that process.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;  kill -9 `lsof -ti tcp:8080`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This gets you the process ID of the application listening on port 8080 and passes it as a parameter to &lt;code&gt;kill&lt;/code&gt;.  The &lt;code&gt;-9&lt;/code&gt; flag indicates that the process should be terminated immediately &lt;code&gt;SIGKILL&lt;/code&gt;.  You can read more about that &lt;a href=&#34;https://en.wikipedia.org/wiki/Signal_(IPC)#SIGKILL&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/4iqdTUt.jpg&#34; alt=&#34;kill it&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>React Native</title>
@@ -1066,84 +1102,6 @@ _.map(collection, function(val, key, object){ return num * 3; });
 
 // returns array -&amp;gt; [3, 6, 9]
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Writing your first C&#43;&#43; program on a Mac</title>
-      <link>http://blog.flowstate.io/post/first_cpp/</link>
-      <pubDate>Sat, 02 Mar 2013 10:17:40 -0400</pubDate>
-      <author>Oakley Hall</author>
-      <guid>http://blog.flowstate.io/post/first_cpp/</guid>
-      <description>
-
-&lt;p&gt;A friend of mine recently started his first computer science class. His entire class in working on Windows machines and using Visual Studio.  He wants to use his Mac.  I know how frustrating setting up development environment for the first time can be.  He&amp;rsquo;re how I advised him to get started and write is first code.&lt;/p&gt;
-
-&lt;h3 id=&#34;you-need-two-things-to-write-programs-in-c&#34;&gt;You need two things to write programs in C++.&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;You need a compiler.  A compiler is an application that takes the code you write in a human readable language ( C++ in this case ) and converts it into machine code so it can run.  If you&amp;rsquo;re a mac user and you want to write any C based code, you&amp;rsquo;ll need to install Xcode. Xcode comes with a C++ complier called g++, which is what you&amp;rsquo;ll end up using one way or another even if you don&amp;rsquo;t use the Xcode editor.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;You&amp;rsquo;ll need a text editor.  Basically that means any application that lets you write plain text and save it to your machine.  Xcode, CodeBlocks, Visual Studio and Eclipse are all called IDEs or integrated development environments. The are just big text editors with tons of bells and whistles.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;installing-g&#34;&gt;Installing g++&lt;/h3&gt;
-
-&lt;p&gt;Follow &lt;a href=&#34;http://www.edparrish.net/common/macgpp.php&#34;&gt;these instructions&lt;/a&gt; to make sure you have Xcode and g++ on your Mac.  You can follow Mr. Parrish&amp;rsquo;s instructions for writing your first program, but I think mine are even simpler.&lt;/p&gt;
-
-&lt;h3 id=&#34;writing-your-first-code&#34;&gt;Writing your first code:&lt;/h3&gt;
-
-&lt;h4 id=&#34;start-with-the-simplest-mac-text-editor-textedit-it-should-be-in-your-applications-folder&#34;&gt;Start with the simplest mac text editor TextEdit.  It should be in your Applications folder.&lt;/h4&gt;
-
-&lt;h4 id=&#34;1-type-in-this-code&#34;&gt;1. Type in this code:&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
-
-int main()
-{ 
-  std::cout &amp;lt;&amp;lt; &amp;quot;Hello world!&amp;quot; &amp;lt;&amp;lt; std::endl; 
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;2-save-the-file-to-your-desktop-as-a-plain-text-document-with-the-name-helloworld-cpp-the-cpp-extension-lets-the-compiler-know-its-c-code&#34;&gt;2. Save the file to your Desktop as a plain text document with the name helloworld.cpp  the .cpp extension lets the compiler know its C++ code.&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/cpp1.png&#34;/&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;compiling-and-running-your-program&#34;&gt;Compiling and running your program&lt;/h3&gt;
-
-&lt;p&gt;First, open a terminal window.  You&amp;rsquo;ll find this in Applications/Utilities/Terminal. (yours will be different colors than mine)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/cpp2.png&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;In the terminal window type:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cd ~/Desktop
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This is how you navigate from your home directory ( abbreviated &lt;code&gt;~&lt;/code&gt; ) to the directory called &lt;code&gt;Desktop&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Then type:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;g++ helloworld.cpp -o hw
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will take your C++ code you saved to the desktop and compile it into an application called &lt;code&gt;hw&lt;/code&gt; which is save to the desktop.  You can see it there if you look.&lt;/p&gt;
-
-&lt;p&gt;Now type:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;./hw
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will tell your Mac to run the program.&lt;/p&gt;
-
-&lt;p&gt;If the terminal says: &lt;code&gt;Hello World!&lt;/code&gt;  then &lt;strong&gt;you did it!&lt;/strong&gt;&lt;br /&gt;
-You can write any C++ program in this way.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.flowstate.io/images/cpp3.png&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;If you want a nice book on getting started with C (the core of C++) I&amp;rsquo;d recommend &lt;a href=&#34;http://amzn.to/1J7gJ7M&#34;&gt;Head First C&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Programming is fun and satisfying, but you will continually have to break through periods of confusion and frustration.  Stick with it, it&amp;rsquo;s worth the effort.  Good luck!&lt;/p&gt;
 </description>
     </item>
     

@@ -4,8 +4,8 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>systemd - blog.flowstate.io</title>
-	<meta name="author" content="map[name:Oakley Hall email:oakley349@gmail.com]">
+	<title>Kill it - blog.flowstate.io</title>
+	<meta name="author" content="map[email:oakley349@gmail.com name:Oakley Hall]">
 
 	
 	
@@ -19,7 +19,7 @@
     
 	<link href='/index.xml' rel="alternate" title="blog.flowstate.io" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://blog.flowstate.io/post/systemd/">
+	<link rel="canonical" href="http://blog.flowstate.io/post/killit/">
 	<link href="http://blog.flowstate.io/favicon.png" rel="shortcut icon">
 	<link href="http://blog.flowstate.io/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<link href="http://blog.flowstate.io/css/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -114,89 +114,34 @@
 				<div id="content" class="inner">
 					<div itemscope itemtype="http://schema.org/Blog">
 					<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-    <h1 class="title" itemprop="name">systemd</h1>
-	<div class="entry-content" itemprop="articleBody">
+    <h1 class="title" itemprop="name">Kill it</h1>
+	<div class="entry-content" itemprop="articleBody"><p>You ever get this one?</p>
 
-<h2 id="intro">Intro</h2>
-
-<p>systemd is an init system that most linux distributions are standardizing on and a crucial tool for any system admin or devops engineer.</p>
-
-<p>In Unix and Linux, background processes are called daemons.  systemd provides a syntax for creating objects that can be managed by the daemons in the form of <strong>units</strong>.</p>
-
-<p>You can see what units you have on a machine with the <a href="https://wiki.archlinux.org/index.php/Systemd#Basic_systemctl_usage"><code>systemctl</code></a> command. Here we&rsquo;ll pass the parameter <code>list-units</code>.  Which will list all the units.</p>
-
-<pre><code>$ systemctl list-units
+<pre><code class="language-sh">{ Error: listen EADDRINUSE 0.0.0.0:8080
+    at Object.exports._errnoException (util.js:1036:11)
+    at exports._exceptionWithHostPort (util.js:1059:20)
+    at Server._listen2 (net.js:1252:14)
+    at listen (net.js:1288:10)
+    at net.js:1398:9
+    at _combinedTickCallback (internal/process/next_tick.js:77:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+  code: ‘EADDRINUSE’,
+  errno: ‘EADDRINUSE’,
+  syscall: ‘listen’,
+  address: ‘0.0.0.0’,
+  port: 8080 }
 </code></pre>
 
-<p>You&rsquo;ll see some stuff like this describing your available units:</p>
+<p>Or something like it?</p>
 
-<pre><code>UNIT                                  LOAD   ACTIVE SUB       DESCRIPTION
-proc-sys-fs-binfmt_misc.automount     loaded active waiting   Arbitrary sys-d
-sys-devices-...dports-vport1p1.device loaded active plugged   /sys/devices/pci
-sys-devices-...-block-vda-vda1.device loaded active plugged   /sys/devices/pci
-app.mount                             loaded active mounted   /app
-dev-mqueue.mount                      loaded active mounted   POSIX Message proc-fs-nfsd.mount                    loaded active mounted   RPC Pipe File sys
-sys-kernel-debug.mount                loaded active mounted   Debug File System
-var-lib-nfs-rpc_pipefs.mount          loaded active mounted   RPC Pipe File 
-...
+<p>Here&rsquo;s a one liner to kill that process.</p>
+
+<pre><code class="language-sh">  kill -9 `lsof -ti tcp:8080`
 </code></pre>
 
-<h2 id="basic-usage">Basic usage</h2>
+<p>This gets you the process ID of the application listening on port 8080 and passes it as a parameter to <code>kill</code>.  The <code>-9</code> flag indicates that the process should be terminated immediately <code>SIGKILL</code>.  You can read more about that <a href="https://en.wikipedia.org/wiki/Signal_(IPC)#SIGKILL">here</a>.</p>
 
-<h3 id="getting-system-state">Getting system state</h3>
-
-<h4 id="list-currently-running-units">List currently running units:</h4>
-
-<pre><code>$ systemctl
-</code></pre>
-
-<p><strong>or:</strong></p>
-
-<pre><code>$ systemctl list-units
-</code></pre>
-
-<h4 id="list-failed-units">List failed units:</h4>
-
-<pre><code>$ systemctl --failed
-</code></pre>
-
-<p><strong>Unit files can be found in</strong> <code>/usr/lib/systemd/system/</code> and <code>/etc/systemd/system/</code>.</p>
-
-<h4 id="list-installed-unit-files-with">List installed unit files with:</h4>
-
-<pre><code>$ systemctl list-unit-files
-</code></pre>
-
-<h2 id="working-with-units">Working with units</h2>
-
-<p>Basic unit commands are:</p>
-
-<h5 id="start-a-unit-immediately">Start a unit immediately:</h5>
-
-<pre><code>$ systemctl start unit
-</code></pre>
-
-<h5 id="stop-a-unit-immediately">Stop a unit immediately:</h5>
-
-<pre><code>$ systemctl stop unit
-</code></pre>
-
-<h5 id="restart-a-unit">Restart a unit:</h5>
-
-<pre><code>$ systemctl restart unit
-</code></pre>
-
-<h5 id="ask-a-unit-to-reload-its-configuration">Ask a unit to reload its configuration:</h5>
-
-<pre><code>$ systemctl reload unit
-</code></pre>
-
-<h5 id="show-the-status-of-a-unit-including-whether-it-is-running-or-not">Show the status of a unit, including whether it is running or not:</h5>
-
-<pre><code>$ systemctl status unit
-</code></pre>
-
-<p><a href="https://wiki.archlinux.org/index.php/Systemd#Basic_systemctl_usage">Other commands can be found here</a></p>
+<p><img src="http://i.imgur.com/4iqdTUt.jpg" alt="kill it" /></p>
 </div></article>
 					
 						<div class="share">

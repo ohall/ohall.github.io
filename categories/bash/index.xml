@@ -10,6 +10,42 @@
     <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
+      <title>Kill it</title>
+      <link>http://blog.flowstate.io/post/killit/</link>
+      <pubDate>Mon, 07 Aug 2017 12:38:33 EDT</pubDate>
+      <author>Oakley Hall</author>
+      <guid>http://blog.flowstate.io/post/killit/</guid>
+      <description>&lt;p&gt;You ever get this one?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;{ Error: listen EADDRINUSE 0.0.0.0:8080
+    at Object.exports._errnoException (util.js:1036:11)
+    at exports._exceptionWithHostPort (util.js:1059:20)
+    at Server._listen2 (net.js:1252:14)
+    at listen (net.js:1288:10)
+    at net.js:1398:9
+    at _combinedTickCallback (internal/process/next_tick.js:77:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+  code: ‘EADDRINUSE’,
+  errno: ‘EADDRINUSE’,
+  syscall: ‘listen’,
+  address: ‘0.0.0.0’,
+  port: 8080 }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or something like it?&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a one liner to kill that process.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;  kill -9 `lsof -ti tcp:8080`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This gets you the process ID of the application listening on port 8080 and passes it as a parameter to &lt;code&gt;kill&lt;/code&gt;.  The &lt;code&gt;-9&lt;/code&gt; flag indicates that the process should be terminated immediately &lt;code&gt;SIGKILL&lt;/code&gt;.  You can read more about that &lt;a href=&#34;https://en.wikipedia.org/wiki/Signal_(IPC)#SIGKILL&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/4iqdTUt.jpg&#34; alt=&#34;kill it&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Make a shell script into a global command on OSX</title>
       <link>http://blog.flowstate.io/post/osx_global_shell/</link>
       <pubDate>Tue, 02 Jun 2015 09:45:42 EDT</pubDate>
